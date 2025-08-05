@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Cpanel Section - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#daily-process-log">Daily Process Log</a></li>
+        <li><a href="#cagefs">CageFS</a></li>
+        <li><a href="#regenerating-dovecot-index-files">Regenerating Dovecot index files</a></li>
+        <li><a href="#service-manager">Service Manager</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <ul>
+<li><a href="https://360.articulate.com/review/content/fcb7fff4-d67c-425a-8071-704974423c9a/review">Source</a></li>
+</ul>
+<h2 id="daily-process-log">Daily Process Log<a class="headerlink" href="#daily-process-log" title="Anchor link to this section for reference">#</a></h2>
+<p>I would argue that familiarity with the GUI-based Daily Process Log as a
+troubleshooting and diagnostics tool is more appropriate in T1E training. By the
+time an agent is entering the APS pipeline then they should be getting
+introduced to CLI-based and cPanel agnostic tools like, <code>top</code>, <code>htop</code>, <code>sar</code>,
+<code>ps</code>, <code>uptime</code>, <code>free</code>, etc in order to diagnose and troubleshoot resource
+issues.</p>
+<h2 id="cagefs">CageFS<a class="headerlink" href="#cagefs" title="Anchor link to this section for reference">#</a></h2>
+<p>It's rare that CageFS issues are encountered, but they do happen. Since this is
+specific to our Shared hosting environment running on CloudLinux, I really feel
+that this is more appropriate as part of the official APS training and not
+necessarily in the scope of a pipeline. This is something that an APS agent
+would be likely to encounter as part of an escalation.</p>
+<p>The analogous pipeline topic would be file-systems, finding files, understanding
+the Linux file-system structure, understanding things like files, inodes,
+directories, symlinks, hard-links, linux ACL, etc. Virtualized file-systems like
+CageFS, and things like <em>bind-mounts</em> I would argue are an advanced linux
+file-system topic. This is more appropriate in the official APS training after
+the agent has a certain level of proficiency in linux file-system fundamentals.</p>
+<h2 id="regenerating-dovecot-index-files">Regenerating Dovecot index files<a class="headerlink" href="#regenerating-dovecot-index-files" title="Anchor link to this section for reference">#</a></h2>
+<p>Fixing dovecot index issues like this is a common escalation as an APS agent.
+But this is very specific to Dovecot and cPanel. This is really more appropriate
+in the official APS training I feel like. </p>
+<p>The APS pipeline might have a unit on using <code>grep</code> and <code>awk</code> to search and parse
+<code>/var/log/maillog</code> and <code>/var/log/exim_mainlog</code> in order to diagnose and
+troubleshoot common issues, this might be a good place to
+introduce the topic of <em>regex</em> too.</p>
+<h2 id="service-manager">Service Manager<a class="headerlink" href="#service-manager" title="Anchor link to this section for reference">#</a></h2>
+<p>This is probably more appropriate as T1E training. Anything cPanel GUI based is
+probably something a competent T1E should understand. </p>
+<p>We should be introducing init systems like systemd and the <code>systemctl</code> utility
+to manage services as part of the APS pipeline.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

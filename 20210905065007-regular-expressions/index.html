@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Regular Expressions - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#literal-characters">literal characters</a></li>
+        <li><a href="#metacharacters">metacharacters</a></li>
+        <li><a href="#alternation">Alternation</a></li>
+        <li><a href="#quantifiers">Quantifiers</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#books">Books</a></li><li><a href="#interesting-articles">Interesting articles</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>Symbolic notations used to identify patterns in text</p>
+<h2 id="literal-characters">literal characters<a class="headerlink" href="#literal-characters" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="metacharacters">metacharacters<a class="headerlink" href="#metacharacters" title="Anchor link to this section for reference">#</a></h2>
+<p>^ $ . [ ] { } - ? * + ( ) | \ <em>Most of these have meaning to the
+shell and must be quoted</em></p>
+<p>Metacharacters</p>
+<table>
+<thead>
+<tr>
+<th><strong>Character</strong></th>
+<th><strong>Meaning</strong></th>
+<th><strong>Usage</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>Any character</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td>Anchor</td>
+<td>Beginning of the line</td>
+</tr>
+<tr>
+<td>$</td>
+<td></td>
+<td>End of the line</td>
+</tr>
+<tr>
+<td>[ ]</td>
+<td>Bracket Expression</td>
+<td>Specify a set of characters at a position</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>'^' negation within brackets</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>'-' range of something within brackets</td>
+</tr>
+</tbody>
+</table>
+<p>POSIX Character Classes</p>
+<table>
+<thead>
+<tr>
+<th><strong>character class</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[:alnum:]</code></td>
+<td>The alphanumeric characters. [a-za-z0-9]</td>
+</tr>
+<tr>
+<td><code>[:word:]</code></td>
+<td>The same as [:alnum:], with the addition of '_'</td>
+</tr>
+<tr>
+<td><code>[:alpha:]</code></td>
+<td>The alphabetic characters. [a-zA-Z]</td>
+</tr>
+<tr>
+<td><code>[:blank:]</code></td>
+<td>Space and tab</td>
+</tr>
+<tr>
+<td><code>[:cntrl:]</code></td>
+<td>Ascii control codes. ascii 0-31 and 127</td>
+</tr>
+<tr>
+<td><code>[:digit:]</code></td>
+<td>Numerals 0-9</td>
+</tr>
+<tr>
+<td><code>[:graph:]</code></td>
+<td>The visible characters. ASCII 33-126</td>
+</tr>
+<tr>
+<td><code>[:lower:]</code></td>
+<td>Lowercase letters</td>
+</tr>
+<tr>
+<td><code>[:punct:]</code></td>
+<td>The punctuation characters.</td>
+</tr>
+<tr>
+<td></td>
+<td>ASCII: <code>\[-\!"\#$%&amp;'()\*+,./:;\&lt;=&gt;?@\[\\\\\\\]\_\{}\~\]</code></td>
+</tr>
+<tr>
+<td></td>
+<td>with back-tick and vertical bar</td>
+</tr>
+<tr>
+<td><code>[:print:]</code></td>
+<td>The printable characters. <code>[:graph:]</code> plus space character</td>
+</tr>
+<tr>
+<td><code>[:space:]</code></td>
+<td>The whitespace characters.</td>
+</tr>
+<tr>
+<td></td>
+<td>space, tab, carriage return, newline, vertical tab, and form feed</td>
+</tr>
+<tr>
+<td><code>[:upper:]</code></td>
+<td>The uppercase characters</td>
+</tr>
+<tr>
+<td><code>[:xdigit:]</code></td>
+<td>Hexadecimal numbers. ASCII: <code>[0-9A-Fa-f]</code></td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>POSIX Basic vs Extended Regular Expressions
+   BRE <code>^ $ . \[ \] \*</code> ERE <code>( ) { } ? + | *</code> and the BRE characters</li>
+</ol>
+<h2 id="alternation">Alternation<a class="headerlink" href="#alternation" title="Anchor link to this section for reference">#</a></h2>
+<p>'|' - or</p>
+<pre><code class="language-bash">~$ echo &quot;AAA&quot; | grep -E 'AAA|BBB'
+AAA
+~$ echo &quot;BBB&quot; | grep -E 'AAA|BBB'
+BBB
+~$ echo &quot;CCC&quot; | grep -E 'AAA|BBB'
+~$
+</code></pre>
+<h2 id="quantifiers">Quantifiers<a class="headerlink" href="#quantifiers" title="Anchor link to this section for reference">#</a></h2>
+<p>'?' - Match an Element Zero or One Time</p>
+<p>Example: (nnn) nnn-nnnn or nnn nnn-nnnn ^(?[0-9][0-9][0-9])?
+[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$</p>
+<p>'*' - Match an Element Zero or More Times</p>
+<p>Crude example to see whether a string is a sentence.
+<code>[[:upper:]][[:upper:][:lower:] ]*\.</code></p>
+<p>'+' - Match an Element One or More Times</p>
+<p>Example of a line matching of one or more alphabetic characters
+separated by single spaces. <code>^([[:alpha:]]+ ?)+$</code></p>
+<p>'{}' - Match an Element a Specific Number of Times</p>
+<table>
+<thead>
+<tr>
+<th><strong>Specifier</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{n}</td>
+<td>Match if occurs exactly n times</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>Match if occurs between n to m times including n,m</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>n or more times</td>
+</tr>
+<tr>
+<td>{,m}</td>
+<td>no more than m times</td>
+</tr>
+</tbody>
+</table>
+<p>Specifying the Number of Matches</p>
+<p>Simplified phone number example: ^(?[0-9]{3})? [0-9]{3}-[0-9]{4}$</p>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Regular_expression">Regular expression</a></li>
+<li><a href="https://regexone.com/">Regex One</a></li>
+<li><a href="https://youtu.be/dL2PDkU-rOw">3 Top Secret Regex Debugging Techniques Experts Use</a></li>
+<li><a href="https://metacpan.org/pod/Regexp::Debugger">Perl Regex Debugger</a></li>
+</ul>
+<h3 id="books">Books<a class="headerlink" href="#books" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Understand-Productive-ebook/dp/B007I8S1X0/ref=sr_1_1?crid=T82AM1SS4ARZ&amp;keywords=mastering+regular+expressions&amp;qid=1648731362&amp;s=digital-text&amp;sprefix=mastering+regular+expressions%2Cdigital-text%2C79&amp;sr=1-1">Mastering Regular Expressions</a></li>
+<li>Recommended by Noah A.</li>
+</ul>
+<h3 id="interesting-articles">Interesting articles<a class="headerlink" href="#interesting-articles" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="https://susam.in/maze/zero-length-regular-expression.html">Zero Length Regular Expression</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

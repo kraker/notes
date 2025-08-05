@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Network switch - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#crossover-cables">Crossover Cables</a></li>
+        <li><a href="#spanning-tree-protocol">Spanning Tree Protocol</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#obvious-physical-damage">Obvious Physical Damage</a></li><li><a href="#dead-ports">Dead Ports</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>A <strong>network switch</strong> (also called <strong>switching hub</strong>, <strong>bridging hub</strong>, and, by
+the <a href="../20201013131235-networking-industry-standards-ieee/">IEEE</a>, <strong>MAC bridge</strong>)
+is <a href="../20210618061059-networking-hardware/">networking hardware</a> that
+connects devices on a <a href="../20210610054021-computer-network/">computer network</a> 
+by using <a href="../20210618061312-packet-switching/">packet switch</a> to
+receive and forward data to the destination device.</p>
+<p>A network switch is a multiport <a href="../20210618061512-network-bridge/">network bridge</a>
+that uses <a href="../20201009143255-mac/">MAC addresses</a> to forward data at the 
+<a href="../20201010184320-layer-2/">data link layer</a> (layer 2) of the <br />
+<a href="../20201006074200-osi-7-layer/">OSI Model</a>. Some switches can also forward data
+at the <a href="../20201010184439-layer-3/">network layer</a> (layer 3) by
+additionally incorporating <a href="../20201105130848-routing/">routing</a>
+functionality. Such switches are commonly known as layer-3 switches or 
+<a href="../20210209080554-multilayer-switches/">multilayer switches</a>.</p>
+<p>Switches for <a href="../20201012135112-ethernet/">Ethernet</a> are the most common
+form of network switch.</p>
+<p>Source: https://en.wikipedia.org/wiki/Network_switch</p>
+<ul>
+<li>Take advantage of <a href="../20201009143255-mac/">MAC addresses</a> to allow
+    devices to communicate directly.</li>
+<li>At first a switch acts like a hub, forwarding all
+    <a href="../20201009144356-frame/">frames</a> to all devices, but quickly creates
+    a <a href="../20201016140440-source-address-table/">source address table</a> (SAT)
+    and only forwards to destination MAC addresses.</li>
+<li>Each device connection can run at full network speed.</li>
+<li><a href="../20201009144356-frame/">Unicast</a> messages always go only to the intended recipient.</li>
+<li>All broadcast messages go to all ports except origin port.</li>
+</ul>
+<h2 id="crossover-cables"><a href="../20201016141120-crossover-cable/">Crossover Cables</a><a class="headerlink" href="#crossover-cables" title="Anchor link to this section for reference">#</a></h2>
+<p>Switches can cannect to each other with these.</p>
+<h2 id="spanning-tree-protocol"><a href="../20201016141336-spanning-tree-protocol/">Spanning Tree Protocol</a><a class="headerlink" href="#spanning-tree-protocol" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="obvious-physical-damage">Obvious Physical Damage<a class="headerlink" href="#obvious-physical-damage" title="Anchor link to this section for reference">#</a></h3>
+<ol>
+<li>Examine switch for physical damage.</li>
+<li>Replace any obviously damaged switches.</li>
+</ol>
+<h3 id="dead-ports">Dead Ports<a class="headerlink" href="#dead-ports" title="Anchor link to this section for reference">#</a></h3>
+<ol>
+<li>look to see if port is flashing</li>
+<li>If not, try a different port.</li>
+<li>Try replacing or testing cable.</li>
+</ol>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

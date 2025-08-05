@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Regular Expressions in Python - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#basic-regular-expression-syntax">Basic Regular Expression Syntax</a></li>
+        <li><a href="#escaping-specifiers">Escaping specifiers</a></li><li><a href="#see-also">See also</a></li>
+        <li><a href="#groupings">Groupings</a></li>
+        <li><a href="#findall">findall()</a></li>
+        <li><a href="#case-insensitive-matching">Case-Insensitive Matching</a></li>
+        <li><a href="#matching-newlines">Matching Newlines</a></li>
+        <li><a href="#substitution">Substitution</a></li>
+        <li><a href="#managing-complex-regexes">Managing Complex Regexes</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <pre><code class="language-python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+&gt;&gt;&gt; mo = phoneNumRegex.search('My number is 415-555-4242.')
+&gt;&gt;&gt; print('Phone number found: ' + mo.group())
+Phone number found: 415-555-4242
+</code></pre>
+<ol>
+<li>Import regex module with <code>import re</code></li>
+<li>Create <strong>Regex</strong> object with the <code>re.compile()</code> function</li>
+<li>Pass the string you want to search into the <strong>Regex</strong> object's <code>search()</code> 
+   method</li>
+<li>Call the <strong>Match</strong> object's <code>group()</code> method to return the string of matched
+   text</li>
+</ol>
+<h2 id="basic-regular-expression-syntax">Basic Regular Expression Syntax<a class="headerlink" href="#basic-regular-expression-syntax" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Specifier</th>
+<th>Meaning - <em>(This matches ...)</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>?</code></td>
+<td>0 or 1 of preceding group</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>0 or more of preceding group</td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>1 or more of preceding group</td>
+</tr>
+<tr>
+<td><code>{n}</code></td>
+<td>exactly <em>n</em> of preceding group</td>
+</tr>
+<tr>
+<td><code>{n,}</code></td>
+<td><em>n</em> or more of preceding group</td>
+</tr>
+<tr>
+<td><code>{,m}</code></td>
+<td>0 to <em>m</em> of preceding group</td>
+</tr>
+<tr>
+<td><code>{n,m}</code></td>
+<td><em>n</em> to <em>m</em> of preceding group</td>
+</tr>
+<tr>
+<td><code>{n,m}?</code> or <code>*?</code> or <code>+?</code></td>
+<td>non-greedy match of preceding group</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>beginning of string</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>end of string</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>any character (except newlines)</td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>any digit</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>any alphanumeric <code>[0-9a-zA-Z]</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>any whitespace <code>[ \t\n\r\f\v]</code></td>
+</tr>
+<tr>
+<td><code>\D</code></td>
+<td>any non-digit</td>
+</tr>
+<tr>
+<td><code>\W</code></td>
+<td>any non-alphanumeric</td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>any non-whitespace</td>
+</tr>
+<tr>
+<td><code>[abc]</code></td>
+<td>any character between the <code>[ ]</code></td>
+</tr>
+<tr>
+<td><code>[^abc]</code></td>
+<td>any character that isn't between the <code>[ ]</code></td>
+</tr>
+<tr>
+<td><code>\|</code></td>
+<td>either or, like logical <em>or</em></td>
+</tr>
+<tr>
+<td><code>()</code></td>
+<td>creates a capture group and indicates precedence</td>
+</tr>
+</tbody>
+</table>
+<h3 id="escaping-specifiers">Escaping specifiers<a class="headerlink" href="#escaping-specifiers" title="Anchor link to this section for reference">#</a></h3>
+<p>If you want to detect any of the special characters in the table above, you need
+to escape them. For example:</p>
+<pre><code>\. \^ \$ \* \+ \? \{ \} \[ \] \\ \| \( \)
+</code></pre>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="https://pythex.org/">https://pythex.org/</a></li>
+<li><a href="https://www.regular-expressions.info/">https://www.regular-expressions.info/</a></li>
+<li><a href="https://regex101.com/python">https://regex101.com/python</a> *</li>
+<li><a href="https://docs.python.org/3.6/library/re.html">https://docs.python.org/3.6/library/re.html</a></li>
+<li><a href="https://github.com/tartley/python-regex-cheatsheet/blob/master/cheatsheet.rst">https://github.com/tartley/python-regex-cheatsheet/blob/master/cheatsheet.rst</a> *</li>
+<li><a href="https://docs.python.org/3.9/howto/regex.html">https://docs.python.org/3.9/howto/regex.html</a></li>
+<li><a href="https://www.debuggex.com/">https://www.debuggex.com/</a> *</li>
+<li>Best regex visualizer I've found</li>
+</ul>
+<h2 id="groupings">Groupings<a class="headerlink" href="#groupings" title="Anchor link to this section for reference">#</a></h2>
+<p>Use <code>group()</code> and <code>groups()</code> (methods?) to grab specific groups of matches. Like
+so:</p>
+<pre><code class="language-python">i&gt;&gt;&gt; phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')
+i&gt;&gt;&gt; mo = phoneNumRegex.search('My number is 415-555-4242.')
+i&gt;&gt;&gt; mo.group(1)
+'415'
+i&gt;&gt;&gt; mo.group(2)
+'555-4242'
+i&gt;&gt;&gt; mo.group(0)
+'415-555-4242'
+i&gt;&gt;&gt; mo.group()
+'415-555-4242'
+i&gt;&gt;&gt; mo.groups()
+('415', '555-4242')
+i&gt;&gt;&gt; areaCode, mainNumber = mo.groups()
+i&gt;&gt;&gt; print(areaCode, mainNumber)
+415 555-4242
+</code></pre>
+<h2 id="findall">findall()<a class="headerlink" href="#findall" title="Anchor link to this section for reference">#</a></h2>
+<p>In Python regex <code>search()</code> will return the first result. But, <code>findall()</code>
+returns all results.</p>
+<h2 id="case-insensitive-matching">Case-Insensitive Matching<a class="headerlink" href="#case-insensitive-matching" title="Anchor link to this section for reference">#</a></h2>
+<p>Pass <code>re.IGNORECASE</code> or <code>re.I</code> as a second argument to <code>re.compile()</code> to search
+case-insensitively.</p>
+<pre><code class="language-python">&gt;&gt;&gt; robocop = re.compile(r'robocop', re.I)
+&gt;&gt;&gt; robocop.search('RoboCop is part man, part machine, all cop.').group()
+'RoboCop'
+</code></pre>
+<h2 id="matching-newlines">Matching Newlines<a class="headerlink" href="#matching-newlines" title="Anchor link to this section for reference">#</a></h2>
+<p>Allow <code>.*</code> to match everything <em>including newlines</em> by passing <code>re.DOTALL</code></p>
+<h2 id="substitution">Substitution<a class="headerlink" href="#substitution" title="Anchor link to this section for reference">#</a></h2>
+<p>Use the <code>sub()</code> method to substitute strings that match a regex.</p>
+<pre><code class="language-python">i&gt;&gt;&gt; namesRegex = re.compile(r'Agent \w+')
+i&gt;&gt;&gt; namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.')
+'CENSORED gave the secret documents to CENSORED.'
+</code></pre>
+<p>Using groupings to include match in substitution.</p>
+<pre><code class="language-python">i&gt;&gt;&gt; agentNamesRegex = re.compile(r'Agent (\w)\w*')
+i&gt;&gt;&gt; agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent Eve knew Agent Bob was a double agent.')
+'A**** told C**** that E**** knew B**** was a double agent.'
+</code></pre>
+<h2 id="managing-complex-regexes">Managing Complex Regexes<a class="headerlink" href="#managing-complex-regexes" title="Anchor link to this section for reference">#</a></h2>
+<p>Tell <code>re.compile()</code> to ignore whitespace and comments with <em>verbose mode</em> by
+passing <code>re.VERBOSE</code>.</p>
+<pre><code class="language-python">&gt;&gt;&gt; phoneRegex = re.compile(r'''(
+...     (\d{3}|\(\d{3}\))?            # area code
+...     (\s|-|\.)?                    # separator
+...     \d{3}                         # first 3 digits
+...     (\s|-|\.)                     # separator
+...     \d{4}                         # last 4 digits
+...     (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
+...     )''', re.VERBOSE)
+</code></pre>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>systemd - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#systemd">systemd</a></li>
+        <li><a href="#unit">unit</a></li><li><a href="#target">target</a></li><li><a href="#want">want</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="systemd">systemd<a class="headerlink" href="#systemd" title="Anchor link to this section for reference">#</a></h1>
+<p>The service manager on most modern Linux distributions. Systemd is the very first process that starts after the kernel is loaded, and it takes care of starting all other processes and services on a Linux system.</p>
+<h2 id="unit">unit<a class="headerlink" href="#unit" title="Anchor link to this section for reference">#</a></h2>
+<p>An item that is managed by Systemd. Different types of units exist:</p>
+<pre><code class="language-bash">[root@rocky9 ~]# systemctl -t help
+Available unit types:
+service
+mount
+swap
+socket
+target
+device
+automount
+timer
+path
+slice
+scope
+</code></pre>
+<h3 id="overview-of-units-targets">Overview of units &amp; targets<a class="headerlink" href="#overview-of-units-targets" title="Anchor link to this section for reference">#</a></h3>
+<p><em>systemctl</em> overview commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>systemctl -t service</code></td>
+<td>Shows only service units</td>
+</tr>
+<tr>
+<td><code>systemctl -t target</code></td>
+<td>Show current loaded active targets</td>
+</tr>
+<tr>
+<td><code>systemctl get-default</code></td>
+<td>Show default boot target</td>
+</tr>
+<tr>
+<td><code>systemctl set-default &lt;target&gt;</code></td>
+<td>Set default boot target</td>
+</tr>
+<tr>
+<td><code>systemctl list-units -t service</code></td>
+<td>Shows all active service units (same as previous command)</td>
+</tr>
+<tr>
+<td><code>systemctl list-units -t service --all</code></td>
+<td>Shows all inactive &amp; active service units</td>
+</tr>
+<tr>
+<td><code>systemctl --failed -t service</code></td>
+<td>Shows all failed service units</td>
+</tr>
+<tr>
+<td><code>systemctl status -l &lt;name&gt;.service</code></td>
+<td>Shows detailed status information about a service</td>
+</tr>
+</tbody>
+</table>
+<h3 id="unit-dependencies">Unit dependencies<a class="headerlink" href="#unit-dependencies" title="Anchor link to this section for reference">#</a></h3>
+<p>Find out which dependencies a unit has:</p>
+<pre><code class="language-bash">systemctl list-dependencies &lt;unitname&gt;
+</code></pre>
+<p>Find out which units are required for this unit to be started:</p>
+<pre><code class="language-bash">systemctl list-dependencies &lt;unitname&gt; --reverse
+</code></pre>
+<h3 id="print-existing-unit-file">Print existing unit file<a class="headerlink" href="#print-existing-unit-file" title="Anchor link to this section for reference">#</a></h3>
+<pre><code class="language-bash">systemctl cat &lt;unitname&gt;
+</code></pre>
+<h3 id="unit-options">Unit options<a class="headerlink" href="#unit-options" title="Anchor link to this section for reference">#</a></h3>
+<p>Show available unit options:</p>
+<pre><code class="language-bash">systemctl show
+# or
+systemctl show &lt;unitname&gt;
+</code></pre>
+<h3 id="editing-units">Editing units<a class="headerlink" href="#editing-units" title="Anchor link to this section for reference">#</a></h3>
+<pre><code class="language-bash">systemctl edit &lt;unitname&gt;
+</code></pre>
+<h3 id="reload-systemd-units">Reload systemd units<a class="headerlink" href="#reload-systemd-units" title="Anchor link to this section for reference">#</a></h3>
+<p>Reload systemd unit files after editing or making changes:</p>
+<pre><code class="language-bash">systemctl daemon-reload
+</code></pre>
+<h2 id="target">target<a class="headerlink" href="#target" title="Anchor link to this section for reference">#</a></h2>
+<p>In Systemd, a collection of unit files that can be managed together.</p>
+<h3 id="set-default-boot-target">Set default boot target<a class="headerlink" href="#set-default-boot-target" title="Anchor link to this section for reference">#</a></h3>
+<p>Check current default boot target:</p>
+<pre><code class="language-bash">[root@rhel9-a ~]# systemctl get-default
+multi-user.target
+</code></pre>
+<p>Set default boot target:</p>
+<pre><code class="language-bash">systemctl set-default multi-user
+</code></pre>
+<h3 id="halt-poweroff-reboot-and-shutdown">halt, poweroff, reboot, and shutdown<a class="headerlink" href="#halt-poweroff-reboot-and-shutdown" title="Anchor link to this section for reference">#</a></h3>
+<p><code>halt</code>, <code>poweroff</code>, <code>reboot</code>, and <code>shutdown</code> are systemd targets in later versions of RHEL. They're symbolic links to <code>systemctl</code>.</p>
+<pre><code class="language-bash">[root@rhel9-a ~]# ll /usr/sbin/{halt,poweroff,reboot,shutdown}
+lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/halt -&gt; ../bin/systemctl
+lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/poweroff -&gt; ../bin/systemctl
+lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/reboot -&gt; ../bin/systemctl
+lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/shutdown -&gt; ../bin/systemctl
+</code></pre>
+<h2 id="want">want<a class="headerlink" href="#want" title="Anchor link to this section for reference">#</a></h2>
+<p>An indication for a Systemd unit file that is supposed to be started from a specific Systemd target.</p>
+<pre><code>...
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>If a service is <em>enabled</em> it's a symlink in a directory of the <em>target name</em> so that Systemd knows to start the service as part of that group of <em>units</em>.</p>
+<pre><code class="language-bash">[root@rocky9 ~]# systemctl enable vsftpd
+Created symlink /etc/systemd/system/multi-user.target.wants/vsftpd.service → /usr/lib/systemd/system/vsftpd.service.
+</code></pre>
+<blockquote>
+<p>In Systemd terminology, this symbolic link is known as a <em>want</em>, as it defines what the target wants to start when it is processed.</p>
+</blockquote>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

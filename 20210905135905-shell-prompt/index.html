@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Shell Prompt - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#escape-codes-used-in-shell-prompts">Escape Codes Used in Shell Prompts</a></li>
+        <li><a href="#colors">Colors</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h2 id="variables">Variables<a class="headerlink" href="#variables" title="Anchor link to this section for reference">#</a></h2>
+<p>PS1 PS2 PS3</p>
+<h2 id="escape-codes-used-in-shell-prompts">Escape Codes Used in Shell Prompts<a class="headerlink" href="#escape-codes-used-in-shell-prompts" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Sequence</strong></th>
+<th><strong>Value Displayed</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>ASCII bell</td>
+</tr>
+<tr>
+<td></td>
+<td>̣ date in day, month, date format</td>
+</tr>
+<tr>
+<td></td>
+<td>̉ Hostname</td>
+</tr>
+<tr>
+<td></td>
+<td>̋ Full hostname</td>
+</tr>
+<tr>
+<td>ȷ</td>
+<td>Number of jobs running</td>
+</tr>
+<tr>
+<td>ł</td>
+<td>Name of current terminal</td>
+</tr>
+<tr>
+<td></td>
+<td>Newline</td>
+</tr>
+<tr>
+<td></td>
+<td>̊ Carriage return</td>
+</tr>
+<tr>
+<td></td>
+<td>Name of the shell program</td>
+</tr>
+<tr>
+<td></td>
+<td>͡ Current time in 24-hour hours:minutes:seconds format</td>
+</tr>
+<tr>
+<td></td>
+<td>Current time in 12-hour format</td>
+</tr>
+<tr>
+<td>\@</td>
+<td>Current time in 12-hour AM/PM format</td>
+</tr>
+<tr>
+<td></td>
+<td>Current time in 24-hour hours:minutes format</td>
+</tr>
+<tr>
+<td></td>
+<td>̆ Username of the current user</td>
+</tr>
+<tr>
+<td></td>
+<td>̌ Version number of the shell</td>
+</tr>
+<tr>
+<td></td>
+<td>Version and release numbers of the shell</td>
+</tr>
+<tr>
+<td></td>
+<td>Name of the current working directory</td>
+</tr>
+<tr>
+<td></td>
+<td>Last part of the current working directory name</td>
+</tr>
+<tr>
+<td>\!</td>
+<td>History number of the current command</td>
+</tr>
+<tr>
+<td>\#</td>
+<td>Number of commands entered during this shell session</td>
+</tr>
+<tr>
+<td>\$</td>
+<td>Displays a "$" char unless superuser then "#"</td>
+</tr>
+<tr>
+<td>[</td>
+<td>Signals the start of a series of one or more non-printing chars.</td>
+</tr>
+<tr>
+<td></td>
+<td>Moves cursor, changes colors, etc</td>
+</tr>
+<tr>
+<td>]</td>
+<td>Signals end of non-printing char sequence</td>
+</tr>
+</tbody>
+</table>
+<h2 id="colors">Colors<a class="headerlink" href="#colors" title="Anchor link to this section for reference">#</a></h2>
+<ol>
+<li>
+<p>Foreground</p>
+<table>
+<thead>
+<tr>
+<th><strong>Sequence</strong></th>
+<th><strong>Text Color</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\033[0;30m</td>
+<td>Black</td>
+</tr>
+<tr>
+<td>\033[0;31m</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>\033[0;32m</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>\033[0;33m</td>
+<td>Brown</td>
+</tr>
+<tr>
+<td>\033[0;34m</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>\033[0;35m</td>
+<td>Purple</td>
+</tr>
+<tr>
+<td>\033[0;36m</td>
+<td>Cyan</td>
+</tr>
+<tr>
+<td>\033[0;37m</td>
+<td>Light gray</td>
+</tr>
+<tr>
+<td>\033[1;30m</td>
+<td>Dark gray</td>
+</tr>
+<tr>
+<td>\033[1;31m</td>
+<td>Light red</td>
+</tr>
+<tr>
+<td>\033[1;32m</td>
+<td>Light green</td>
+</tr>
+<tr>
+<td>\033[1;33m</td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>\033[1;34m</td>
+<td>Light blue</td>
+</tr>
+<tr>
+<td>\033[1;35m</td>
+<td>Light purple</td>
+</tr>
+<tr>
+<td>\033[1;36m</td>
+<td>Light cyan</td>
+</tr>
+<tr>
+<td>\033[1;37m</td>
+<td>White</td>
+</tr>
+</tbody>
+</table>
+<p>To set the terminal back to normal: \033[0;30m</p>
+</li>
+<li>
+<p>Background</p>
+<table>
+<thead>
+<tr>
+<th><strong>Sequence</strong></th>
+<th><strong>Background Color</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\033[0;40m</td>
+<td>Black</td>
+</tr>
+<tr>
+<td>\033[0;41m</td>
+<td>Red</td>
+</tr>
+<tr>
+<td>\033[0;42m</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>\033[0;43m</td>
+<td>Brown</td>
+</tr>
+<tr>
+<td>\033[0;44m</td>
+<td>Blue</td>
+</tr>
+<tr>
+<td>\033[0;45m</td>
+<td>Purple</td>
+</tr>
+<tr>
+<td>\033[0;46m</td>
+<td>Cyan</td>
+</tr>
+<tr>
+<td>\033[0;47m</td>
+<td>Light gray</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Cursor Movement</p>
+<table>
+<thead>
+<tr>
+<th><strong>Escape Code</strong></th>
+<th><strong>Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\033[l;cH</td>
+<td>Move the cursor to line l and column c</td>
+</tr>
+<tr>
+<td>\033[nA</td>
+<td>Move the cursor up n lines</td>
+</tr>
+<tr>
+<td>\033[nB</td>
+<td>Move the cursor down n lines</td>
+</tr>
+<tr>
+<td>\033[nC</td>
+<td>Move the cursor forward n chars</td>
+</tr>
+<tr>
+<td>\033[nD</td>
+<td>Move the cursor backward n chars</td>
+</tr>
+<tr>
+<td>\033[2J</td>
+<td>Clear the screen and move the cursor to the upper-left corner</td>
+</tr>
+<tr>
+<td></td>
+<td>(line 0, column 0)</td>
+</tr>
+<tr>
+<td>\033[K</td>
+<td>Clear from the cursor position to the end of the current line</td>
+</tr>
+<tr>
+<td>\033[s</td>
+<td>Store the current cursor position</td>
+</tr>
+<tr>
+<td>\033[u</td>
+<td>Recall the stored cursor position</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

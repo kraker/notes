@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Job Control - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#job-control">Job Control</a></li>
+        <li><a href="#commands">Commands</a></li><li><a href="#niceness-and-priority">Niceness and Priority</a></li><li><a href="#process-signals">Process Signals</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Anchor link to this section for reference">#</a></h1>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>jobs</li>
+<li><a href="../20200628170530-bg/">bg</a></li>
+<li><a href="../20250803132500-fg/">fg</a></li>
+<li><a href="../20240303091800-ps/">ps</a></li>
+<li>pstree</li>
+<li>pgrep</li>
+<li>pidof</li>
+<li>nice</li>
+<li>renice</li>
+<li><a href="../20210905081820-kill/">kill</a></li>
+<li>pkill</li>
+</ul>
+<h2 id="niceness-and-priority">Niceness and Priority<a class="headerlink" href="#niceness-and-priority" title="Anchor link to this section for reference">#</a></h2>
+<p>40 niceness values. -20 is highest and 19 is lowest. Default is 0. Child processes inherit niceness of parent. Users can <em>renice</em> processes they own. root can <em>renice</em> any process.</p>
+<ul>
+<li>nice (1)             - run a program with modified scheduling priority</li>
+<li>renice (1)           - alter priority of running processes</li>
+</ul>
+<p>Print process list with priority and niceness columns:</p>
+<pre><code class="language-bash">ps -efl
+</code></pre>
+<pre><code class="language-bash">[root@server1 ~]# ps -efl | head
+F S UID          PID    PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME CMD
+4 S root           1       0  0  80   0 - 43106 ep_pol Mar02 ?        00:00:01 /usr/lib/systemd/systemd rhgb --switched-root --system --deserialize 31
+1 S root           2       0  0  80   0 -     0 kthrea Mar02 ?        00:00:00 [kthreadd]
+1 I root           3       2  0  60 -20 -     0 rescue Mar02 ?        00:00:00 [rcu_gp]
+1 I root           4       2  0  60 -20 -     0 rescue Mar02 ?        00:00:00 [rcu_par_gp]
+1 I root           5       2  0  60 -20 -     0 rescue Mar02 ?        00:00:00 [slub_flushwq]
+1 I root           6       2  0  60 -20 -     0 rescue Mar02 ?        00:00:00 [netns]
+1 I root           8       2  0  60 -20 -     0 worker Mar02 ?        00:00:00 [kworker/0:0H-events_highpri]
+1 I root          10       2  0  60 -20 -     0 rescue Mar02 ?        00:00:00 [mm_percpu_wq]
+1 I root          12       2  0  80   0 -     0 rcu_ta Mar02 ?        00:00:00 [rcu_tasks_kthre]
+</code></pre>
+<p>View default niceness with <code>nice</code> command:</p>
+<pre><code class="language-bash">[root@server1 ~]# nice
+0
+</code></pre>
+<h2 id="process-signals">Process Signals<a class="headerlink" href="#process-signals" title="Anchor link to this section for reference">#</a></h2>
+<p>List available signals with <code>kill -l</code>:</p>
+<pre><code class="language-bash">[root@server1 ~]# kill -l
+ 1) SIGHUP   2) SIGINT   3) SIGQUIT  4) SIGILL   5) SIGTRAP
+ 6) SIGABRT  7) SIGBUS   8) SIGFPE   9) SIGKILL 10) SIGUSR1
+11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM
+16) SIGSTKFLT   17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP
+21) SIGTTIN 22) SIGTTOU 23) SIGURG  24) SIGXCPU 25) SIGXFSZ
+26) SIGVTALRM   27) SIGPROF 28) SIGWINCH    29) SIGIO   30) SIGPWR
+31) SIGSYS  34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3
+38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8
+43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7
+58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2
+63) SIGRTMAX-1  64) SIGRTMAX    
+</code></pre>
+<p>Most common process signals:</p>
+<table>
+<thead>
+<tr>
+<th>Signal Number</th>
+<th>Signal Name</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>SIGHUP</td>
+<td>Hang up signal causes a process to disconnect itself from a closed terminal that it was tied to. Also used to instruct a running daemon to re-read its configuration without a restart</td>
+</tr>
+<tr>
+<td>2</td>
+<td>SIGINT</td>
+<td>The ^c (Ctrl+c) signal issued on the controlling terminal to interrupt the execution of a process.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>SIGKILL</td>
+<td>Terminates a process abruptly.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>SIGTERM</td>
+<td>Sends a soft termination signal to stop a process in an orderly fashion. This is the default signal if none is specified with the command.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>SIGCONT</td>
+<td>Same as using the <code>bg</code> command to resume.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>SIGSTOP</td>
+<td>Same as using the Ctrl+z to suspend a job.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>SIGTSTP</td>
+<td>Same as using the <code>fg</code> command.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="commands_1">Commands<a class="headerlink" href="#commands_1" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>kill (1)             - terminate a process</li>
+<li>pkill (1)            - look up, signal, or wait for processes based on name and other attributes</li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

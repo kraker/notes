@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Creating and Using a Class - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#the-init-method">The init() Method</a></li>
+        <li><a href="#making-an-instance-of-a-class">Making an Instance of a Class</a></li>
+        <li><a href="#calling-methods">Calling Methods</a></li>
+        <li><a href="#creating-multiple-instances">Creating Multiple Instances</a></li>
+        <li><a href="#working-with-classes-and-instances">Working with Classes and Instances</a></li>
+        <li><a href="#setting-a-default-value-for-an-attribute">Setting a Default Value for an Attribute</a></li><li><a href="#modifying-attribute-values">Modifying Attribute Values</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>A <strong>class</strong> is an object that can be used to store data or do a thing.</p>
+<pre><code class="language-python">class Dog:
+    &quot;&quot;&quot;A simple attempt to model a dog.&quot;&quot;&quot;
+
+    def __init__(self, name, age):
+        &quot;&quot;&quot;Initialize name and age attributes.&quot;&quot;&quot;
+        self.name = name
+        self.age = age
+
+    def sit(self):
+        &quot;&quot;&quot;Simulate a dog sitting in response to a command.&quot;&quot;&quot;
+        print(f&quot;{self.name} is now sitting.&quot;)
+
+    def roll_over(self):
+        &quot;&quot;&quot;Simulate rolling over in response to a command.&quot;&quot;&quot;
+        print(f&quot;{self.name} rolled over!&quot;)
+</code></pre>
+<p>Convention is to capitalize Names that refer to classes.</p>
+<h2 id="the-init-method">The <strong>init</strong>() Method<a class="headerlink" href="#the-init-method" title="Anchor link to this section for reference">#</a></h2>
+<p>A function that's part of a class is a <em>method</em>. The <strong><strong>init</strong>()</strong> method is a
+special method that Python runs automatically whenever a new instance is created
+based on the class.</p>
+<p>Classes always pass the <em>self</em> parameter which is just a reference to the class
+itself with any attributes and methods in the class.</p>
+<h2 id="making-an-instance-of-a-class">Making an Instance of a Class<a class="headerlink" href="#making-an-instance-of-a-class" title="Anchor link to this section for reference">#</a></h2>
+<p>A <em>class</em> is just a set of instructions for how to make an <strong>instance</strong>.</p>
+<pre><code class="language-python">my_dog = Dog('Willie', 6)
+print(f&quot;My dog's name is {my_dog.name}.&quot;)
+print(f&quot;My dog is {my_dog.age} years old.&quot;)
+</code></pre>
+<pre><code>My dog's name is Willie.
+My dog is 6 years old.
+</code></pre>
+<p>This creates an instance of Dog and using dot notation prints the values for
+<em>self.name</em> and <em>self.age</em> from that class.</p>
+<h2 id="calling-methods">Calling Methods<a class="headerlink" href="#calling-methods" title="Anchor link to this section for reference">#</a></h2>
+<pre><code class="language-python">class Dog:
+    --snip--
+
+my_dog = Dog('Willie', 6)
+my_dog.sit()
+my_dog.roll_over()
+</code></pre>
+<p>Methods from a class are called with dot notation.</p>
+<pre><code>Willie is now sitting.
+Willie rolled over!
+</code></pre>
+<h2 id="creating-multiple-instances">Creating Multiple Instances<a class="headerlink" href="#creating-multiple-instances" title="Anchor link to this section for reference">#</a></h2>
+<p>You can create as many instances from a class as you need.</p>
+<pre><code class="language-python">class Dog:
+    --snip--
+
+my_dog = Dog('Willie', 6)
+your_dog = Dog('Lucy', 3)
+
+print(f&quot;My dog's name is {my_dog.name}.&quot;)
+print(f&quot;My dog is {my_dog.age} years old.&quot;)
+my_dog.sit()
+
+print(f&quot;\nYour dog's name is {your_dog.name}.&quot;)
+print(f&quot;Your dog is {your_dog.age} years old.&quot;)
+your_dog.sit()
+</code></pre>
+<pre><code>My dog's name is Willie.
+My dog is 6 years old.
+Willie is now sitting.
+
+Your dog's name is Lucy.
+Your dog is 3 years old.
+Lucy is now sitting.
+</code></pre>
+<h2 id="working-with-classes-and-instances">Working with Classes and Instances<a class="headerlink" href="#working-with-classes-and-instances" title="Anchor link to this section for reference">#</a></h2>
+<pre><code class="language-python">class Car:
+    &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+    def __init__(self, make, model, year):
+        &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def get_descriptive_name(self):
+        &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+        long_name = f&quot;{self.year} {self.make} {self.model}&quot;
+        return long_name.title()
+
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_descriptive_name())
+</code></pre>
+<pre><code>2019 Audi A4
+</code></pre>
+<h3 id="setting-a-default-value-for-an-attribute">Setting a Default Value for an Attribute<a class="headerlink" href="#setting-a-default-value-for-an-attribute" title="Anchor link to this section for reference">#</a></h3>
+<pre><code class="language-python">class Car:
+    &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+    def __init__(self, make, model, year):
+        &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+        long_name = f&quot;{self.year} {self.make} {self.model}&quot;
+        return long_name.title()
+
+    def read_odometer(self):
+        &quot;&quot;&quot;Print a statement showing the car's mileage.&quot;&quot;&quot;
+        print(f&quot;This car has {self.odometer_reading} miles on it.&quot;)
+
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_descriptive_name())
+my_new_car.read_odometer()
+</code></pre>
+<p>Note, this sets the <code>odometer_reading</code> <em>attribute</em> to a default value of 0.</p>
+<pre><code>2019 Audi A4
+This car has 0 miles on it.
+</code></pre>
+<h3 id="modifying-attribute-values">Modifying Attribute Values<a class="headerlink" href="#modifying-attribute-values" title="Anchor link to this section for reference">#</a></h3>
+<p>Three methods:</p>
+<ol>
+<li>Change value through an instance</li>
+<li>Set value through a method</li>
+<li>Increment value through a method</li>
+</ol>
+<h4 id="modify-attribute-directly-through-an-instance">Modify attribute directly through an instance<a class="headerlink" href="#modify-attribute-directly-through-an-instance" title="Anchor link to this section for reference">#</a></h4>
+<pre><code class="language-python">class Car:
+    &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+    def __init__(self, make, model, year):
+        &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+        long_name = f&quot;{self.year} {self.make} {self.model}&quot;
+        return long_name.title()
+
+    def read_odometer(self):
+        &quot;&quot;&quot;Print a statement showing the car's mileage.&quot;&quot;&quot;
+        print(f&quot;This car has {self.odometer_reading} miles on it.&quot;)
+
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_descriptive_name())
+
+my_new_car.odometer_reading = 23
+my_new_car.read_odometer()
+</code></pre>
+<pre><code>2019 Audi A4
+This car has 23 miles on it.
+</code></pre>
+<h4 id="define-a-method-that-updates-attributes">Define a method that updates attributes<a class="headerlink" href="#define-a-method-that-updates-attributes" title="Anchor link to this section for reference">#</a></h4>
+<pre><code class="language-python">class Car:
+    &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+    def __init__(self, make, model, year):
+        &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+        long_name = f&quot;{self.year} {self.make} {self.model}&quot;
+        return long_name.title()
+
+    def read_odometer(self):
+        &quot;&quot;&quot;Print a statement showing the car's mileage.&quot;&quot;&quot;
+        print(f&quot;This car has {self.odometer_reading} miles on it.&quot;)
+
+    def update_odometer(self, mileage):
+        &quot;&quot;&quot;Set the odometer reading to the given value.&quot;&quot;&quot;
+        self.odometer_reading = mileage
+
+my_new_car = Car('audi', 'a4', 2019)
+print(my_new_car.get_descriptive_name())
+
+my_new_car.update_odometer(23)
+my_new_car.read_odometer()
+</code></pre>
+<p>Note, we added the <code>update_odometer</code> method to the class.</p>
+<pre><code>2019 Audi A4
+This car has 23 miles on it.
+</code></pre>
+<h4 id="define-a-method-that-increments-an-attributes-value">Define a method that increments an attribute's value<a class="headerlink" href="#define-a-method-that-increments-an-attributes-value" title="Anchor link to this section for reference">#</a></h4>
+<pre><code class="language-python">class Car:
+    &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+    def __init__(self, make, model, year):
+        &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+        long_name = f&quot;{self.year} {self.make} {self.model}&quot;
+        return long_name.title()
+
+    def read_odometer(self):
+        &quot;&quot;&quot;Print a statement showing the car's mileage.&quot;&quot;&quot;
+        print(f&quot;This car has {self.odometer_reading} miles on it.&quot;)
+
+    def update_odometer(self, mileage):
+        &quot;&quot;&quot;
+        Set the odometer reading to the given value.
+        Reject the change if it attempts to roll the odometer back.
+        &quot;&quot;&quot;
+        if mileage &gt;= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print(&quot;You can't roll back an odometer!&quot;)
+
+    def increment_odometer(self, miles):
+        &quot;&quot;&quot;Add the given amount to the odometer reading.&quot;&quot;&quot;
+        self.odometer_reading += miles
+
+my_used_car = Car('subaru', 'outback', 2015)
+print(my_used_car.get_descriptive_name())
+
+my_used_car.update_odometer(23_500)
+my_used_car.read_odometer()
+
+my_used_car.increment_odometer(100)
+my_used_car.read_odometer()
+</code></pre>
+<p>Note, we've added the <code>increment_odometer</code> method.</p>
+<pre><code>2015 Subaru Outback
+This car has 23500 miles on it.
+This car has 23600 miles on it.
+</code></pre>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>File Permissions - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#file-permissions">File Permissions</a></li>
+        <li><a href="#file-types">File Types</a></li><li><a href="#permissions">Permissions</a></li><li><a href="#special-file-permissions">Special File Permissions</a></li><li><a href="#access-control-lists">Access Control Lists</a></li><li><a href="#umask">Umask</a></li><li><a href="#file-attributes">File attributes</a></li><li><a href="#utilities">Utilities</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="file-permissions">File Permissions<a class="headerlink" href="#file-permissions" title="Anchor link to this section for reference">#</a></h1>
+<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>File Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>A regular file</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Directory</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Symbolic link</td>
+</tr>
+<tr>
+<td>c</td>
+<td><em>Character special file</em> (streams of bytes like /dev/null)</td>
+</tr>
+<tr>
+<td>b</td>
+<td><em>Block special file</em> (handles data in blocks like HDD or DVD)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Anchor link to this section for reference">#</a></h3>
+<p>Regular file:</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l anaconda-ks.cfg 
+-rw-------. 1 root root 1216 Feb 16 09:14 anaconda-ks.cfg
+</code></pre>
+<p>Directory:</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l /usr
+dr-xr-xr-x.   2 root root 49152 Feb 16 09:10 bin
+</code></pre>
+<p>Symbolic link:</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l /usr/sbin/vigr
+lrwxrwxrwx. 1 root root 4 Jul 12  2023 /usr/sbin/vigr -&gt; vipw
+</code></pre>
+<p>Character device special:</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l /dev/console
+crw--w----. 1 root tty 5, 1 Feb 23 14:43 /dev/console
+</code></pre>
+<p>Block device special:</p>
+<pre><code>[root@server1 ~]# ls -l /dev/sd*
+brw-rw----. 1 root disk 8, 0 Feb 23 14:43 /dev/sda
+</code></pre>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="permission-classes">Permission Classes<a class="headerlink" href="#permission-classes" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>user (u)</li>
+<li>group (g)</li>
+<li>other (o) (aka <em>public</em>)</li>
+</ul>
+<h3 id="permission-modes">Permission Modes<a class="headerlink" href="#permission-modes" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>add (+)</li>
+<li>revoke (-)</li>
+<li>assign (=)</li>
+</ul>
+<h3 id="permission-attributes">Permission Attributes<a class="headerlink" href="#permission-attributes" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Files</th>
+<th>Directories</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>read</td>
+<td>Contents can be listed if <em>x</em> also set</td>
+</tr>
+<tr>
+<td>w</td>
+<td>write</td>
+<td>Files within can be created, deleted, and renamed if <em>x</em> also set</td>
+</tr>
+<tr>
+<td>x</td>
+<td>execute</td>
+<td>Allows directory to be entered</td>
+</tr>
+</tbody>
+</table>
+<h3 id="symbolic-notation">Symbolic notation<a class="headerlink" href="#symbolic-notation" title="Anchor link to this section for reference">#</a></h3>
+<p>Combination of letters (ugo/rwx) and symbols (+,-,=).</p>
+<h3 id="octal-notation">Octal notation<a class="headerlink" href="#octal-notation" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Octal Value</th>
+<th>Binary Notation</th>
+<th>Symbolic Notation</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>000</td>
+<td>---</td>
+<td>No permissions</td>
+</tr>
+<tr>
+<td>1</td>
+<td>001</td>
+<td>--x</td>
+<td>Execute permission only</td>
+</tr>
+<tr>
+<td>2</td>
+<td>010</td>
+<td>-w-</td>
+<td>Write permission only</td>
+</tr>
+<tr>
+<td>3</td>
+<td>011</td>
+<td>-wx</td>
+<td>Write and execute permissions</td>
+</tr>
+<tr>
+<td>4</td>
+<td>100</td>
+<td>r--</td>
+<td>Read permission only</td>
+</tr>
+<tr>
+<td>5</td>
+<td>101</td>
+<td>r-x</td>
+<td>Read and execute permissions</td>
+</tr>
+<tr>
+<td>6</td>
+<td>110</td>
+<td>rw-</td>
+<td>Read and write permissions</td>
+</tr>
+<tr>
+<td>7</td>
+<td>111</td>
+<td>rwx</td>
+<td>Read, write, and execute permissions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="special-file-permissions">Special File Permissions<a class="headerlink" href="#special-file-permissions" title="Anchor link to this section for reference">#</a></h2>
+<p>Summary of special file permissions:</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Octal Value</th>
+<th>Relative Value</th>
+<th>On Files</th>
+<th>On Directories</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SUID</td>
+<td>4</td>
+<td>u+s</td>
+<td>User executes file with permissions of file owner</td>
+<td>No meaning</td>
+</tr>
+<tr>
+<td>SGID</td>
+<td>2</td>
+<td>g+s</td>
+<td>User executes file with permissions of group owner</td>
+<td>Files created in directory get the same group owner</td>
+</tr>
+<tr>
+<td>Sticky bit</td>
+<td>1</td>
+<td>+t</td>
+<td>No meaning</td>
+<td>Prevents users from deleting files from other users</td>
+</tr>
+</tbody>
+</table>
+<h3 id="suid-setuid">SUID - setuid<a class="headerlink" href="#suid-setuid" title="Anchor link to this section for reference">#</a></h3>
+<p>Execute binary files with the same privileges as the owner.</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l /usr/bin/su
+-rwsr-xr-x. 1 root root 56944 Aug 24  2023 /usr/bin/su
+[root@server1 ~]# stat -c %a /usr/bin/su
+4755
+</code></pre>
+<h3 id="sgid-setgid">SGID - setgid<a class="headerlink" href="#sgid-setgid" title="Anchor link to this section for reference">#</a></h3>
+<p>Execute binary files with the same privileges as the group.</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -l /usr/bin/write
+-rwxr-sr-x. 1 root tty 23800 Aug 24  2023 /usr/bin/write
+[root@server1 ~]# stat -c %a /usr/bin/write
+2755
+</code></pre>
+<h3 id="sticky-bit">Sticky bit<a class="headerlink" href="#sticky-bit" title="Anchor link to this section for reference">#</a></h3>
+<p>The "sticky bit" is set on public or shared writable directories to protect files and subdirectories owned by normal users from being deleted or moved by other normal users.</p>
+<pre><code class="language-bash">[root@server1 ~]# ls -ld /tmp /var/tmp
+drwxrwxrwt. 17 root root 4096 Feb 23 16:03 /tmp
+drwxrwxrwt. 12 root root 4096 Feb 23 16:03 /var/tmp
+[root@server1 ~]# stat -c %a /tmp /var/tmp
+1777
+1777
+</code></pre>
+<h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210628143348-access-control-list/">Access Control Lists</a></li>
+</ul>
+<h2 id="umask">Umask<a class="headerlink" href="#umask" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210905082726-umask/">umask</a></li>
+</ul>
+<h2 id="file-attributes">File attributes<a class="headerlink" href="#file-attributes" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20250726212500-file-attributes/">File attributes</a></li>
+</ul>
+<h2 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210919173649-linux-utilities/">Utilities</a></li>
+<li><a href="../20200628184910-chmod/">chmod</a></li>
+<li><a href="../20210905081005-find/">find</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

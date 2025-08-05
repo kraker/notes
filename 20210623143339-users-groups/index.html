@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>User Management - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#user-management">User Management</a></li>
+        <li><a href="#quickref">Quickref</a></li><li><a href="#example-adding-a-user">Example adding a user</a></li><li><a href="#useradd-and-logindefs">useradd and login.defs</a></li><li><a href="#no-login-user-account">No-Login User Account</a></li><li><a href="#local-user-auth-files">Local User Auth Files</a></li><li><a href="#references">References</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="user-management">User Management<a class="headerlink" href="#user-management" title="Anchor link to this section for reference">#</a></h1>
+<ul>
+<li>List users currently logged in: <code>who</code>, <code>w</code></li>
+<li>List all existing user accounts w/properties: <code>passwd -Sa</code> (as root)</li>
+<li>To add a new user, use the <code>useradd</code> command:</li>
+</ul>
+<pre><code># useradd -m -G {additional_groups} -s {login_shell} {username}
+</code></pre>
+<p><code>-m/--create-home</code>
+the user's home directory is created as <code>/home/username</code>.</p>
+<p><code>-G/--groups</code>
+a comma separated list of supplementary groups which the user is also a member
+of.</p>
+<p><code>-s/--shell</code>
+a path to the user's login shell.</p>
+<h2 id="quickref">Quickref<a class="headerlink" href="#quickref" title="Anchor link to this section for reference">#</a></h2>
+<p>System config files:</p>
+<ul>
+<li><code>/etc/login.defs</code></li>
+<li><code>/etc/default/useradd</code></li>
+<li>nologin</li>
+<li><code>/etc/nologin</code></li>
+<li><code>/etc/nologin.txt</code></li>
+</ul>
+<p>User management:</p>
+<ul>
+<li><code>useradd</code></li>
+<li><code>userdel</code></li>
+<li><code>usermod</code></li>
+</ul>
+<p>Password and ageing:</p>
+<ul>
+<li><code>passwd</code></li>
+<li><code>chage</code></li>
+</ul>
+<p>Group management:</p>
+<ul>
+<li><code>groupadd</code></li>
+<li><code>groupdel</code></li>
+<li><code>groupmod</code></li>
+</ul>
+<h2 id="example-adding-a-user">Example adding a user<a class="headerlink" href="#example-adding-a-user" title="Anchor link to this section for reference">#</a></h2>
+<p>Add a new user creating it's home directory and otherwise using all defaults:</p>
+<pre><code class="language-bash"># useradd -m archie
+# passwd archie
+</code></pre>
+<p>Add a new administrative user with <code>sudo</code> powers:</p>
+<pre><code class="language-bash"># useradd -m -G wheel archie
+# passwd archie
+</code></pre>
+<p>Source: https://wiki.archlinux.org/title/Users_and_groups#User_management</p>
+<h2 id="useradd-and-logindefs">useradd and login.defs<a class="headerlink" href="#useradd-and-logindefs" title="Anchor link to this section for reference">#</a></h2>
+<p>The <code>useradd</code> command picks up default values from <code>/etc/default/useradd</code> and <code>/etc/login.defs</code>.</p>
+<p>useradd defaults:</p>
+<pre><code class="language-bash">[root@server1 ~]# useradd -D
+GROUP=100
+HOME=/home
+INACTIVE=-1
+EXPIRE=
+SHELL=/bin/bash
+SKEL=/etc/skel
+CREATE_MAIL_SPOOL=yes
+</code></pre>
+<p>login defaults:</p>
+<pre><code class="language-bash">[root@server1 ~]# grep -v ^# /etc/login.defs | grep -v ^$
+MAIL_DIR    /var/spool/mail
+UMASK       022
+HOME_MODE   0700
+PASS_MAX_DAYS   99999
+PASS_MIN_DAYS   0
+PASS_WARN_AGE   7
+UID_MIN                  1000
+UID_MAX                 60000
+SYS_UID_MIN               201
+SYS_UID_MAX               999
+SUB_UID_MIN        100000
+SUB_UID_MAX     600100000
+SUB_UID_COUNT           65536
+GID_MIN                  1000
+GID_MAX                 60000
+SYS_GID_MIN               201
+SYS_GID_MAX               999
+SUB_GID_MIN        100000
+SUB_GID_MAX     600100000
+SUB_GID_COUNT           65536
+ENCRYPT_METHOD SHA512
+USERGROUPS_ENAB yes
+CREATE_HOME yes
+HMAC_CRYPTO_ALGO SHA512
+</code></pre>
+<h2 id="no-login-user-account">No-Login User Account<a class="headerlink" href="#no-login-user-account" title="Anchor link to this section for reference">#</a></h2>
+<p>The <code>/usr/sbin/nologin</code>  (or <code>/sbin/nologin</code>) shell is a special purpose shell for accounts that don't require a login or shouldn't be able to login to the system.</p>
+<pre><code class="language-bash">[root@server1 ~]# grep nologin /etc/passwd | head
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+...
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-bash">[root@server1 ~]# useradd -s /sbin/nologin user4
+[root@server1 ~]# echo user1234 | passwd --stdin user4
+Changing password for user user4.
+passwd: all authentication tokens updated successfully.
+[root@server1 ~]# grep user4 /etc/passwd
+user4:x:1011:1011::/home/user4:/sbin/nologin
+[root@server1 ~]# su - user4
+This account is currently not available.
+</code></pre>
+<h2 id="local-user-auth-files">Local User Auth Files<a class="headerlink" href="#local-user-auth-files" title="Anchor link to this section for reference">#</a></h2>
+<p>List of local user auth files and their backups.</p>
+<pre><code class="language-bash">[root@server1 ~]# ll /etc/{passwd,group,shadow,gshadow}*
+-rw-r--r--. 1 root root  881 Feb 23 15:59 /etc/group
+-rw-r--r--. 1 root root  873 Feb 23 15:59 /etc/group-
+----------. 1 root root  710 Feb 23 15:59 /etc/gshadow
+----------. 1 root root  702 Feb 23 15:59 /etc/gshadow-
+-rw-r--r--. 1 root root 2203 Feb 23 15:57 /etc/passwd
+-rw-r--r--. 1 root root 2158 Feb 23 15:57 /etc/passwd-
+----------. 1 root root 1402 Feb 23 15:58 /etc/shadow
+----------. 1 root root 1164 Feb 23 15:57 /etc/shadow-
+</code></pre>
+<h2 id="references">References<a class="headerlink" href="#references" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/title/Users_and_groups">Arch: Users and groups</a></li>
+<li><a href="https://www.redhat.com/sysadmin/linux-user-account-management">RHEL: Linux User Account Management</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

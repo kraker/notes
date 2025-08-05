@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>T1E Pipeline "Roadmap" - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#linux-cli-basics">Linux CLI Basics</a></li>
+        <li><a href="#commands">Commands</a></li><li><a href="#proposed-lab">Proposed Lab</a></li><li><a href="#mysql-basics">MySQL Basics</a></li>
+        <li><a href="#importexport">Import/Export</a></li><li><a href="#introduce-basic-mysql-shell-commands">Introduce basic mysql shell commands</a></li><li><a href="#wordpress">WordPress</a></li>
+        <li><a href="#wp-cli">WP-CLI</a></li><li><a href="#life-of-a-frond-end-wordpress-request">Life of a Frond-end WordPress Request</a></li><li><a href="#proposed-lab_1">Proposed lab:</a></li>
+        <li><a href="#basic-networking">Basic Networking</a></li>
+        <li><a href="#intro-to-disk-utilization">Intro to disk utilization</a></li>
+        <li><a href="#intro-to-yum">Intro to yum</a></li>
+        <li><a href="#installing-php-packages-with-yum-pecl-or-pear">Installing PHP packages with yum, pecl, or pear</a></li><li><a href="#mail-log-searching-and-parsing">Mail log searching and parsing</a></li>
+        <li><a href="#status-monitoring">Status monitoring</a></li>
+        <li><a href="#ideas-from-reece-o">Ideas from Reece O.</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h2 id="linux-cli-basics">Linux CLI Basics<a class="headerlink" href="#linux-cli-basics" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Gold-standard tutorial: <a href="https://learnpythonthehardway.org/book/appendixa.html">Command Line Crash Course</a></li>
+<li>By Zed Shaw</li>
+<li>Also-good, is <a href="https://linuxcommand.org/lc3_learning_the_shell.php">Learning the Shell</a></li>
+<li>Best in class, video lecture: <a href="https://missing.csail.mit.edu/2020/course-shell/">The Missing Semester: Course Overview + the
+Shell</a></li>
+</ul>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><code>pwd</code></li>
+<li><code>cd</code></li>
+<li><code>ls</code></li>
+<li><code>clear</code></li>
+<li><code>cat</code></li>
+<li><code>less</code></li>
+<li><code>tail</code></li>
+<li><code>touch</code></li>
+<li><code>cp</code></li>
+<li><code>mv</code></li>
+<li><code>rm</code></li>
+<li><code>mkdir</code></li>
+<li><code>rmdir</code></li>
+<li><code>which</code></li>
+<li><code>help</code></li>
+<li><code>man</code></li>
+<li><code>find</code></li>
+<li><code>grep</code></li>
+<li><code>echo</code></li>
+<li><code>exit</code></li>
+<li><code>sudo</code></li>
+</ul>
+<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Anchor link to this section for reference">#</a></h4>
+<ul>
+<li><code>hostname</code></li>
+<li><code>export</code></li>
+<li><code>env</code></li>
+<li><code>apropos</code></li>
+<li><code>xargs</code></li>
+<li><code>file</code> </li>
+<li><code>type</code></li>
+</ul>
+<h3 id="proposed-lab">Proposed Lab<a class="headerlink" href="#proposed-lab" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>Sean L's python CLI text-adventure game?</li>
+<li><a href="http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html">Terminus CLI Game</a>?</li>
+<li>Live screen session share where a coach/mentor asks questions to determine
+  whether or not agent is proficient in the terminal, answers questions, and shows
+  appropriate answers, if agent is confused?</li>
+<li>This should probably only take about 20-30 minutes. </li>
+<li>This is similar to the practical exams that London taxi-drivers have to take
+    where they have an oral exam given by a proctor. </li>
+<li>How else do we measure true understanding/proficiency with basic CLI skills?</li>
+</ul>
+<h2 id="mysql-basics">MySQL Basics<a class="headerlink" href="#mysql-basics" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="importexport">Import/Export<a class="headerlink" href="#importexport" title="Anchor link to this section for reference">#</a></h3>
+<p>Use <code>mysql</code> and <code>mysqldump</code> to import/export databases.</p>
+<h3 id="introduce-basic-mysql-shell-commands">Introduce basic mysql shell commands<a class="headerlink" href="#introduce-basic-mysql-shell-commands" title="Anchor link to this section for reference">#</a></h3>
+<pre><code>mysql -u root -p
+</code></pre>
+<pre><code>SHOW DATABASES;
+USE db_name;
+SELECT * FROM tbl_name;
+CREATE DATABASE db_name;
+DROP DATABASE db_name;
+SHOW tables;
+DESCRIBE tbl_name;
+...
+</code></pre>
+<p>A good reference to draw from might be:</p>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/a-basic-mysql-tutorial">Digital Ocean - Basic MySQL Tutorial</a></li>
+</ul>
+<h2 id="wordpress">WordPress<a class="headerlink" href="#wordpress" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="wp-cli">WP-CLI<a class="headerlink" href="#wp-cli" title="Anchor link to this section for reference">#</a></h3>
+<p>IIRC some wp-cli is covered in training, but a more in-depth treatment of common
+tasks done with the wp-cli might be covered here.</p>
+<h3 id="life-of-a-frond-end-wordpress-request">Life of a Frond-end WordPress Request<a class="headerlink" href="#life-of-a-frond-end-wordpress-request" title="Anchor link to this section for reference">#</a></h3>
+<p><em>I'm not sure if this would be useful, I need to review this guide more in
+depth, but this was recommended to me by a WP dev, so could be a good intro to
+the WP application which may facilitate troubleshooting WP issues.</em></p>
+<ul>
+<li><a href="https://roots.io/routing-wp-requests/">Life of a Front-end WordPress Request</a></li>
+</ul>
+<h2 id="proposed-lab_1">Proposed lab:<a class="headerlink" href="#proposed-lab_1" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Clone a WP site using only the CLI.</li>
+<li>Disable plugins</li>
+<li>Purge W3TC</li>
+<li>Activate different theme</li>
+</ul>
+<h2 id="basic-networking">Basic Networking<a class="headerlink" href="#basic-networking" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>dig</code></li>
+<li><code>host</code></li>
+</ul>
+<h2 id="intro-to-disk-utilization">Intro to disk utilization<a class="headerlink" href="#intro-to-disk-utilization" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>du</code></li>
+<li><code>df</code></li>
+</ul>
+<h2 id="intro-to-yum">Intro to yum<a class="headerlink" href="#intro-to-yum" title="Anchor link to this section for reference">#</a></h2>
+<p>Using <code>yum</code> and running system updates</p>
+<h3 id="installing-php-packages-with-yum-pecl-or-pear">Installing PHP packages with yum, pecl, or pear<a class="headerlink" href="#installing-php-packages-with-yum-pecl-or-pear" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="mail-log-searching-and-parsing">Mail log searching and parsing<a class="headerlink" href="#mail-log-searching-and-parsing" title="Anchor link to this section for reference">#</a></h2>
+<p>An overview on <code>grep</code></p>
+<h2 id="status-monitoring">Status monitoring<a class="headerlink" href="#status-monitoring" title="Anchor link to this section for reference">#</a></h2>
+<p>Anything that needs root basically.</p>
+<h2 id="ideas-from-reece-o">Ideas from Reece O.<a class="headerlink" href="#ideas-from-reece-o" title="Anchor link to this section for reference">#</a></h2>
+<p>Cover .htaccess, *.ini files, and php-fpm.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

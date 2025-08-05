@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Subnetting - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#subnetting">Subnetting</a></li>
+        <li><a href="#short-hand">Short hand</a></li><li><a href="#calculating-hosts">Calculating hosts</a></li><li><a href="#making-a-subnet">Making a Subnet</a></li><li><a href="#backlinks">Backlinks</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="subnetting">Subnetting<a class="headerlink" href="#subnetting" title="Anchor link to this section for reference">#</a></h1>
+<p><strong>Subnetting</strong> is the process of designating some high-order bits from the host part as part of the network prefix and adjusting the subnet mask appropriately. This divides a network into smaller subnets. The following diagram modifies the <a href="../20201026131055-subnet-mask/">subnet mask</a> example by moving 2 bits from the host part to the network prefix to form four smaller subnets each one quarter of the previous size. </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Binary form</strong></th>
+<th><strong>Dot-decimal</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP address</td>
+<td><code>11000000.00000000.00000010.10000010</code></td>
+<td>192.0.2.130</td>
+</tr>
+<tr>
+<td>Subnet mask</td>
+<td><code>11111111.11111111.11111111.11000000</code></td>
+<td>255.255.255.192</td>
+</tr>
+<tr>
+<td>Network prefix</td>
+<td><code>11000000.00000000.00000010.10000000</code></td>
+<td>192.0.2.128</td>
+</tr>
+<tr>
+<td>Host part</td>
+<td><code>00000000.00000000.00000000.00000010</code></td>
+<td>0.0.0.2</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://en.wikipedia.org/wiki/Subnetwork#Subnetting">Source</a></p>
+<ul>
+<li>Enables a much more efficient use of IP addresses compared to <a href="../20201026132644-class-ids/">class blocks</a>.</li>
+<li>Don't think about in terms of <em>network IDs</em> and <em>subnet masks</em> but as binary numbers </li>
+</ul>
+<h2 id="short-hand">Short hand<a class="headerlink" href="#short-hand" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ZxAwQB8TZsM">Seven second subnetting</a> - Professor Messer</li>
+</ul>
+<h2 id="calculating-hosts">Calculating hosts<a class="headerlink" href="#calculating-hosts" title="Anchor link to this section for reference">#</a></h2>
+<p>2^x - 2 = number of hosts possible on a given subnet</p>
+<p>Where x is the number of binary digits you have remaining <em>after</em> the subnet
+mask. In the following example we extend from <code>/24</code> to <code>/26</code> creating 4 subnets.
+That leaves 6 bits remaining for each subnet. That gives us 2^6 = 64 and 
+64 - 2 = 62.</p>
+<h2 id="making-a-subnet">Making a Subnet<a class="headerlink" href="#making-a-subnet" title="Anchor link to this section for reference">#</a></h2>
+<ol>
+<li>Start with a single <em>network ID</em>. In this example we'll convert
+     <code>192.168.4.0/24</code> into 4 subnets.</li>
+<li>Convert <em>network ID</em> from step 1 to binary:
+     <code>11000000.10101000.00000100.00000000</code></li>
+<li>How many subnets are you trying to create? In this example we're trying to
+     create 4 unique subnets.<ul>
+<li>The formula for determining how many subnets you create is 2^y.</li>
+</ul>
+</li>
+<li>Using this formula 2^2 = 4 and therefore we need to extend the subnet down to
+   <code>/26</code> because y=2. 
+   <em>Note: you extend the subnet down by 'y' binary digits to create the number of subnets 2^y.</em> </li>
+<li>Extend the <em>network ID</em> by <em>y</em> digits and write out all possible subnets in
+     binary. <ul>
+<li>4 new <em>network IDs</em> with <code>/26</code> as a subnet mask:
+ <code>11000000.10101000.00000100.00000000
+ 11000000.10101000.00000100.01000000
+ 11000000.10101000.00000100.10000000
+ 11000000.10101000.00000100.11000000</code>
+ <em>Note: the extension of the network IDs to the 26th bit.</em></li>
+</ul>
+</li>
+<li>Convert <em>network IDs</em> back to dotted decimal
+     | <strong>Network ID</strong>   | <strong>Host Range</strong>                | <strong>Broadcast Address</strong> |
+     |------------------|-------------------------------|-----------------------|
+     | 192.168.4.0/26   | 192.168.4.1 - 192.168.4.62    | 192.168.4.63          |
+     | 192.168.4.64/26  | 192.168.4.65 - 192.168.4.126  | 192.168.4.127         |
+     | 192.168.4.128/26 | 192.168.4.129 - 192.168.4.190 | 192.168.4.191         |
+     | 192.168.4.192/26 | 192.168.4.193 - 192.168.4.254 | 192.168.4.255         |
+     <em>Note: The first and last address in the subnet are always reserved for the
+     network ID and broadcast address.</em></li>
+</ol>
+<h1 id="backlinks">Backlinks<a class="headerlink" href="#backlinks" title="Anchor link to this section for reference">#</a></h1>
+<ul>
+<li><a href="../20201020131953-tcp-ip-basics/">TCP/IP Basics</a></li>
+<li><a href="../20201026132644-class-ids/">Class IDs</a></li>
+<li><a href="../20210627102200-subnetwork/">Subnetwork</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Twisted pair - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#types">Types</a></li>
+        <li><a href="#shielded-twisted-pair-stp">Shielded Twisted Pair (STP)</a></li><li><a href="#unshielded-twisted-pair-utp">Unshielded Twisted Pair (UTP)</a></li><li><a href="#category-cat-ratings">Category (Cat) Ratings</a></li><li><a href="#connectors">Connectors</a></li>
+        <li><a href="#related">Related</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>Commonly known as <a href="../20201012135112-ethernet/">Ethernet</a>.
+Using a pair of twisted wires reduces a type of interference called <em>crosstalk</em>.</p>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+<p>https://en.wikipedia.org/wiki/Twisted_pair</p>
+<h2 id="types">Types<a class="headerlink" href="#types" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="shielded-twisted-pair-stp">Shielded Twisted Pair (STP)<a class="headerlink" href="#shielded-twisted-pair-stp" title="Anchor link to this section for reference">#</a></h3>
+<p>Twisted pairs of wires surrounded by shielding to protect them from EMI.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F/UTP</td>
+<td>Foil shields the entire cable; wires are UTP</td>
+</tr>
+<tr>
+<td>S/UTP</td>
+<td>Braid screen shields entire cable; wires are UTP</td>
+</tr>
+<tr>
+<td>SF/UTP</td>
+<td>Braid screen and foil shield the entire cable; wires are UTP</td>
+</tr>
+<tr>
+<td>S/FTP</td>
+<td>Braid screen shields entire cable; foil shields each twisted pair.</td>
+</tr>
+<tr>
+<td>F/FTP</td>
+<td>Foil screen shields the entire cable; foil shields each twisted pair.</td>
+</tr>
+<tr>
+<td>U/FTP</td>
+<td>No overall shielding; each pair inside is shielded with foil.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="unshielded-twisted-pair-utp">Unshielded Twisted Pair (UTP)<a class="headerlink" href="#unshielded-twisted-pair-utp" title="Anchor link to this section for reference">#</a></h3>
+<p>Twisted pairs of wires without shielding; surrounded by plastic jacket.
+Only use in areas with low or no interference.</p>
+<h3 id="category-cat-ratings">Category (Cat) Ratings<a class="headerlink" href="#category-cat-ratings" title="Anchor link to this section for reference">#</a></h3>
+<p>| <strong>Cat Rating</strong> | <strong>Max Frequency</strong> | <strong>Max Bandwidth</strong> | <strong>Status with TIA</strong> |
+|                |                   |                   | (+/-)               |
+|----------------|-------------------|-------------------|---------------------|
+| Cat 3          | 16 MHz            | 16 Mbps           | +                   |
+| Cat 4          | 20 MHz            | 20 Mbps           | -                   |
+| Cat 5          | 100 MHz           | 100 Mbps          | -                   |
+| Cat 5e         | 100 MHz           | 1 Gbps            | +                   |
+| Cat 6          | 250 MHz           | 10 Gbps           | +                   |
+| Cat 6a         | 500 MHz           | 10 Gbps           | +                   |
+| Cat 7          | 600 MHz           | 10+ Gbps          | -                   |
+| Cat 7a         | 1000 MHz          | 40-100 Gbps       | -                   |
+| Cat 8          | 2000 MHz          | 25-40 Gbps        | -                   |</p>
+<ul>
+<li>Cat 6 is Limited to 100 meters when using 10/100/1000BaseT networks. With
+    10GBaseT networks Cat 6 is limited to 55 meters.</li>
+<li>Cat 6a cables can use the full 100-meter length with networks up to 10GBaseT.</li>
+<li>Cat 7a cables can theoretically support 40 Gbps at 50 meters; 100 Gbps at 15
+    meters.</li>
+</ul>
+<h2 id="connectors">Connectors<a class="headerlink" href="#connectors" title="Anchor link to this section for reference">#</a></h2>
+<p>Telephones used RJ-11.
+Current wired networks use <em>four-pair 8 position 8 contact (8P8C)</em>, but in
+practice these are called <a href="../20201014131806-rj-45/">RJ-45</a> because
+that's what they look like.</p>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210626080122-ethernet-over-twisted-pair/">Ethernet over twisted pair</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>APS Pipeline "Roadmap" - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#linux-system-administration-basics">Linux System Administration Basics</a></li>
+        <li><a href="#intermediate-linux-cli">Intermediate Linux CLI</a></li>
+        <li><a href="#commands">Commands</a></li><li><a href="#bash">Bash</a></li>
+        <li><a href="#io-redirection">I/O Redirection</a></li><li><a href="#basic-regex">Basic Regex</a></li>
+        <li><a href="#basic-text-processing">Basic Text Processing</a></li>
+        <li><a href="#intro-to-sed-and-awk">Intro to Sed and Awk</a></li><li><a href="#permissions">Permissions</a></li>
+        <li><a href="#file-perms">File perms</a></li><li><a href="#user-management">User Management</a></li><li><a href="#job-control">Job Control</a></li>
+        <li><a href="#finding-files">Finding Files</a></li>
+        <li><a href="#disk-utilization">Disk utilization</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#sessions">Sessions</a></li><li><a href="#backups-and-archives">Backups and Archives</a></li>
+        <li><a href="#proposed-lab">Proposed lab:</a></li><li><a href="#basic-performance-troubleshooting">Basic Performance Troubleshooting</a></li>
+        <li><a href="#apache-domlogs">Apache Domlogs</a></li><li><a href="#lamp">LAMP</a></li>
+        <li><a href="#proposed-lab_1">Proposed lab:</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h2 id="linux-system-administration-basics">Linux System Administration Basics<a class="headerlink" href="#linux-system-administration-basics" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="https://www.linode.com/docs/guides/linux-system-administration-basics/">Linux System Administration Basics</a></li>
+</ul>
+<h2 id="intermediate-linux-cli">Intermediate Linux CLI<a class="headerlink" href="#intermediate-linux-cli" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Gold-standard book: <a href="https://www.linuxcommand.org/tlcl.php">The Linux Command Line</a></li>
+<li>Free PDF download, but purchase optional</li>
+<li>By William Shotts</li>
+<li>Sections 1 and 2. Section 3 is bash scripting which is also helpful to know,
+  but more in the scope of T2S/MH pipeline.</li>
+</ul>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><code>ftp</code> and <code>lftp</code></li>
+<li><code>scp</code> ?</li>
+<li><code>ssh</code></li>
+</ul>
+<h2 id="bash">Bash<a class="headerlink" href="#bash" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="io-redirection">I/O Redirection<a class="headerlink" href="#io-redirection" title="Anchor link to this section for reference">#</a></h3>
+<h5 id="standard-output">Standard Output<a class="headerlink" href="#standard-output" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="standard-input">Standard Input<a class="headerlink" href="#standard-input" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Anchor link to this section for reference">#</a></h5>
+<h4 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Anchor link to this section for reference">#</a></h4>
+<h5 id="pathname-expansion">Pathname Expansion<a class="headerlink" href="#pathname-expansion" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="tilde-expansion">Tilde Expansion<a class="headerlink" href="#tilde-expansion" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="brace-expansion">Brace Expansion<a class="headerlink" href="#brace-expansion" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="parameter-expansion">Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="command-substitution">Command Substitution<a class="headerlink" href="#command-substitution" title="Anchor link to this section for reference">#</a></h5>
+<h4 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Anchor link to this section for reference">#</a></h4>
+<h5 id="double-quotes">Double Quotes<a class="headerlink" href="#double-quotes" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="single-quotes">Single Quotes<a class="headerlink" href="#single-quotes" title="Anchor link to this section for reference">#</a></h5>
+<h4 id="escaping-characters">Escaping Characters<a class="headerlink" href="#escaping-characters" title="Anchor link to this section for reference">#</a></h4>
+<h2 id="basic-regex">Basic Regex<a class="headerlink" href="#basic-regex" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Gold-standard tutorial: <a href="https://regexone.com">regexone.com</a></li>
+</ul>
+<h2 id="basic-text-processing">Basic Text Processing<a class="headerlink" href="#basic-text-processing" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>sort</code></li>
+<li><code>uniq</code></li>
+<li><code>grep</code></li>
+<li><code>head</code></li>
+<li><code>tail</code></li>
+<li><code>tr</code></li>
+<li><code>cut</code></li>
+</ul>
+<h3 id="intro-to-sed-and-awk">Intro to Sed and Awk<a class="headerlink" href="#intro-to-sed-and-awk" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><code>sed</code></li>
+<li><code>awk</code></li>
+</ul>
+<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Anchor link to this section for reference">#</a></h4>
+<ul>
+<li><code>fmt</code></li>
+<li><code>pr</code></li>
+</ul>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>stat</code></li>
+<li><code>chmod</code></li>
+<li><code>su</code></li>
+<li><code>sudo</code></li>
+<li><code>chown</code></li>
+<li><code>chgrp</code></li>
+</ul>
+<h3 id="file-perms">File perms<a class="headerlink" href="#file-perms" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="user-management">User Management<a class="headerlink" href="#user-management" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>ps</code></li>
+<li><code>kill</code></li>
+<li><code>jobs</code></li>
+<li><code>bg</code></li>
+<li><code>fg</code></li>
+</ul>
+<h2 id="finding-files">Finding Files<a class="headerlink" href="#finding-files" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>find</code></li>
+<li><code>locate</code></li>
+</ul>
+<h2 id="disk-utilization">Disk utilization<a class="headerlink" href="#disk-utilization" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>du</code></li>
+<li><code>df</code></li>
+</ul>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><code>ssh</code></li>
+<li><code>screen</code></li>
+</ul>
+<h4 id="firewalls">Firewalls<a class="headerlink" href="#firewalls" title="Anchor link to this section for reference">#</a></h4>
+<ul>
+<li><code>apf</code></li>
+<li><code>csf</code></li>
+</ul>
+<h2 id="backups-and-archives">Backups and Archives<a class="headerlink" href="#backups-and-archives" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>tar</code></li>
+<li><code>rsync</code></li>
+</ul>
+<h3 id="proposed-lab">Proposed lab:<a class="headerlink" href="#proposed-lab" title="Anchor link to this section for reference">#</a></h3>
+<p>Perform a migration:</p>
+<ul>
+<li>Setup SSH keys</li>
+<li>Poke a hole in the firewall</li>
+<li>Create a tar ball</li>
+<li>migrate with rsync</li>
+</ul>
+<h2 id="basic-performance-troubleshooting">Basic Performance Troubleshooting<a class="headerlink" href="#basic-performance-troubleshooting" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>top</code> &amp; <code>htop</code></li>
+<li><code>free</code></li>
+<li><code>uptime</code></li>
+<li><code>sar</code></li>
+</ul>
+<h3 id="apache-domlogs">Apache Domlogs<a class="headerlink" href="#apache-domlogs" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>dedrads: <code>nlp</code></li>
+</ul>
+<h2 id="lamp">LAMP<a class="headerlink" href="#lamp" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><code>apachectl</code></li>
+<li><code>mysql</code></li>
+<li><code>php</code> CLI</li>
+</ul>
+<h3 id="proposed-lab_1">Proposed lab:<a class="headerlink" href="#proposed-lab_1" title="Anchor link to this section for reference">#</a></h3>
+<p>Install a lamp stack from scratch, configure vhosts, setup mysql, install PHP
+and modules and get a WP site served on a unique domain with hosts file mod.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

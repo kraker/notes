@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Install Magento - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#installation">Installation</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p><a href="https://docs.magento.com/user-guide/magento/installation.html">Official Docs</a>
+<a href="https://devdocs.magento.com/guides/v2.4/install-gde/install-flow-diagram.html">Other official docs</a></p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Anchor link to this section for reference">#</a></h2>
+<ol>
+<li><a href="https://devdocs.magento.com/guides/v2.4/install-gde/system-requirements.html?_ga=2.166245821.2031650980.1619039800-254307176.1619039800">Check System Requirements</a></li>
+<li><a href="2021-04-21--15-25-23Z--install_elasticsearch.md">Install Elasticsearch</a> </li>
+<li>Prerequisite check<ul>
+<li>https://devdocs.magento.com/guides/v2.4/install-gde/prereq/prereq-overview.html?_ga=2.212551060.1841983948.1624978202-1797079552.1624639640</li>
+<li><code>httpd -v</code></li>
+<li>mysql --version</li>
+</ul>
+</li>
+<li><a href="../20210629085527-install-composer/">Install Composer</a> using version for compatibility with system</li>
+</ol>
+<pre><code>wget https://getcomposer.org/installer -O composer-setup.php
+
+php -r &quot;if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;&quot;
+
+php -d allow_url_fopen=On composer-setup.php --filename=composer
+</code></pre>
+<ol>
+<li>
+<p>Run updoots</p>
+<ul>
+<li><code>yum update</code></li>
+</ul>
+</li>
+<li>
+<p>Install database</p>
+</li>
+</ol>
+<pre><code>(
+user=$(whoami)
+read -p &quot;Database Name: &quot; db
+uapi Mysql create_database name=&quot;${user}_${db}&quot;
+pass=$(head /dev/urandom | tr -dc _A-Z-a-z-0-9 | head -c15)
+uapi Mysql create_user name=&quot;${user}_${db}&quot; password=&quot;$pass&quot;
+uapi Mysql set_privileges_on_database user=&quot;${user}_${db}&quot; database=&quot;${user}_${db}&quot; privileges='ALL PRIVILEGES'
+uapi Mysql get_privileges_on_database user=&quot;${user}_${db}&quot; database=&quot;${user}_${db}&quot; | grep 'ALL PRIVILEGES'
+echo $pass
+echo &quot;${user}_${db}&quot;
+)
+</code></pre>
+<ol>
+<li>
+<p>Get authentication keys to the Magento Composer repo</p>
+<ul>
+<li>https://devdocs.magento.com/guides/v2.4/install-gde/prereq/connect-auth.html</li>
+</ul>
+</li>
+<li>
+<p>Directory must be empty to install repo</p>
+<ul>
+<li>Move composer out of the way <code>mv ./composer ../composer</code></li>
+<li>Make sure you're in the docroot and run <code>rm -rf ./*</code></li>
+</ul>
+</li>
+<li>Install repo:</li>
+</ol>
+<pre><code> composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition &lt;install-directory-name&gt;
+</code></pre>
+<ol>
+<li>You might need to <a href="../20210629111805-install-libsodium/">install libsodium</a> before installing the Magento app</li>
+<li>Install Magento App:</li>
+</ol>
+<pre><code>bin/magento setup:install \
+--base-url=http://localhost/magento2ee \
+--db-host=localhost \
+--db-name=magento \
+--db-user=magento \
+--db-password=magento \
+--admin-firstname=admin \
+--admin-lastname=admin \
+--admin-email=admin@admin.com \
+--admin-user=admin \
+--admin-password=admin123 \
+--language=en_US \
+--currency=USD \
+--timezone=America/Chicago \
+--use-rewrites=1
+</code></pre>
+<ol>
+<li>Optional, check for PHP modules:</li>
+</ol>
+<pre><code># /usr/local/bin/ea-php74 -m | grep -E 'bcmath|ctype|curl|dom|gd|hash|iconv|intl|mbstring|openssl|pdo_mysql|simplexml|soap|xsl|zip|sockets'
+bcmath
+ctype
+curl
+dom
+gd
+hash
+iconv
+intl
+mbstring
+openssl
+pdo_mysql
+soap
+sockets
+xsl
+zip
+</code></pre>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

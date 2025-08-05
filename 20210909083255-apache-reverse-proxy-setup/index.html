@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Apache Reverse Proxy Setup - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#resources">Resources</a></li><li><a href="#process">Process</a></li>
+        <li><a href="#determine-where-to-place-the-configuration-changes">Determine where to place the configuration changes</a></li><li><a href="#making-reverse-proxy-configuration-changes-for-a-domain">Making Reverse Proxy Configuration Changes for a Domain</a></li><li><a href="#common-issues">Common Issues</a></li>
+        <li><a href="#additional-configuration">Additional Configuration</a></li>
+        <li><a href="#location-blocks">Location Blocks</a></li><li><a href="#loading-order">Loading order</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="https://httpd.apache.org/docs/2.4/mod/mod_proxy.html">Apache Mod Proxy</a></li>
+<li><a href="https://docs.cpanel.net/ea4/apache/modify-apache-virtual-hosts-with-include-files/">cPanel - Apache Vhosts</a></li>
+<li><a href="https://docs.cpanel.net/ea4/tomcat/tomcat-proxies/">Tomcat Proxies</a></li>
+</ul>
+<h2 id="process">Process<a class="headerlink" href="#process" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="determine-where-to-place-the-configuration-changes">Determine where to place the configuration changes<a class="headerlink" href="#determine-where-to-place-the-configuration-changes" title="Anchor link to this section for reference">#</a></h3>
+<p>Determine the location where the files should be placed by checking the Apache
+configuration file for the location of the virtual host include paths.</p>
+<pre><code class="language-bash">grep /etc/apache2/conf.d/userdata /usr/local/apache/conf/httpd.conf
+</code></pre>
+<p>The output should appear similar to what you see below.</p>
+<pre><code class="language-bash">root@server [/]# grep /etc/apache2/conf.d/userdata /usr/local/apache/conf/httpd.conf
+  Include &quot;/etc/apache2/conf.d/userdata/std/2_4/user1/domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/std/2_4/user1/domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/ssl/2_4/user2/sub1.domain.com/*.conf&quot;
+    Include &quot;/etc/apache2/conf.d/userdata/ssl/2_4/user1/domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/ssl/2_4/user1/domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/std/2_4/user2/sub1.domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/std/2_4/user3/sub2.domain.com/*.conf&quot;
+  # Include &quot;/etc/apache2/conf.d/userdata/ssl/2_4/user3/sub2.domain.com/*.conf&quot;
+</code></pre>
+<p>As you can see in the resulting list above, every domain has an include path within the folders <code>/etc/apache2/conf.d/userdata/ssl/2_4/</code> and <code>/etc/apache2/conf.d/userdata/std/2_4/</code> followed by a folder matching the cPanel user name and then a folder matching the virtual host name. </p>
+<p>For example, in the line containing <code>Include "/etc/apache2/conf.d/userdata/std/2_4/user1/domain.com/*.conf"</code>, this is the include path for domain.com which is owned by user1.</p>
+<p>Many of the lines are commented out, but if you place a .conf file in that path and rebuild Apache, the line containing that path will be uncommented automatically. The reason we double check the path is because some servers use <code>/etc/apache2/conf.d/userdata/ssl/2/</code> and <code>/etc/apache2/conf.d/userdata/std/2/</code> instead.</p>
+<p><em>Note: The folder for an addon domain will go by the name of the Virtual Host which will match the subdomain tied to that addon when it's created in cPanel.</em></p>
+<p>The path under ssl/ is for HTTPS and the path under std/ is for HTTP. I recommend placing the proxy under the ssl path, and then forcing HTTPS in the std path or .htaccess file.</p>
+<h3 id="making-reverse-proxy-configuration-changes-for-a-domain">Making Reverse Proxy Configuration Changes for a Domain<a class="headerlink" href="#making-reverse-proxy-configuration-changes-for-a-domain" title="Anchor link to this section for reference">#</a></h3>
+<p>Create the folders that match the appropriate include path for the domain you're working with, similar to below.</p>
+<pre><code>mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/cpuser2/subdomain.domain2.com/
+</code></pre>
+<p>Now create a file in that path with the text editor of your choosing and place the proxy directives within that file.</p>
+<pre><code>vim /etc/apache2/conf.d/userdata/ssl/2_4/cpuser2/subdomain.domain2.com/proxy.conf
+</code></pre>
+<p>A very simple reverse proxy configuration will look something like this, with 10000 being the port number of the application you wish to serve.</p>
+<pre><code>ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/&quot;
+</code></pre>
+<h4 id="set-up-redirect-for-https">Set up Redirect for HTTPS<a class="headerlink" href="#set-up-redirect-for-https" title="Anchor link to this section for reference">#</a></h4>
+<p>Finally, we will force HTTPS in the .htaccess file within the document root of that domain.</p>
+<pre><code>vim /home/cpuser2/subdomain.domain2.com/.htaccess
+</code></pre>
+<p>Place the following contents in the file.</p>
+<pre><code>RewriteEngine On 
+RewriteCond %{HTTPS} !on 
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</code></pre>
+<p>Alternatively, you could place that in an include file such as <code>/etc/apache2/conf.d/userdata/std/2_4/cpuser2/subdomain.domain2.com/ssl.conf</code></p>
+<p>At the time of writing this, it isn't a common practice for Managed Hosting, but if you would like to do a kindness for our Customer Success department, leave a comment in the domain's .htaccess file to let them know about the configuration changes and where they are located. This could save the customer and the agent time in diagnosing a website issue that is out of scope for Support/APS.</p>
+<pre><code>## This domain has rewrites to force HTTPS and a reverse proxy to port 10000 configured by Managed Hosting. 
+## The configuration for this setup is found in the files below:
+## /etc/apache2/conf.d/userdata/std/2/cpuser2/subdomain.domain2.com/ssl.conf
+## /etc/apache2/conf.d/userdata/ssl/2/cpuser2/subdomain.domain2.com/proxy.conf
+</code></pre>
+<h4 id="apply-the-configuration-changes">Apply the configuration changes<a class="headerlink" href="#apply-the-configuration-changes" title="Anchor link to this section for reference">#</a></h4>
+<p>Rebuild and restart Apache to apply the changes above. </p>
+<pre><code>/scripts/rebuildhttpdconf &amp;&amp; /scripts/restartsrv_httpd
+</code></pre>
+<p>Then test the domain to see if the proxy worked. As long as the application does not limit external access, you can try comparing the domain with the application as it appears when accessing the service directly via the port number. IE Using the examples above, we would visit http://server.hostname.com:10000 and compare with subdomain.domain2.com.</p>
+<h2 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Anchor link to this section for reference">#</a></h2>
+<p><strong>When navigating to other pages on the site, 404 errors occur.</strong></p>
+<p>First, check how the site appears on the application behind the proxy in case
+this is a development related issue. Then, check the URL that you are directed
+to or the 404 error itself if it provides the path to the resource not found. Is
+there an extra trailing slash in the path/URL?</p>
+<p>It's possible you may need to remove the trailing slash at the end of the path
+and/or localhost URL in the proxy. It depends on how the paths are configured in
+the application itself.</p>
+<p>For example, you may start with the following config.</p>
+<pre><code>ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/&quot;
+</code></pre>
+<p>If you change it to what you see below, you might find the application works.</p>
+<pre><code class="language-xml">ProxyPass           &quot;/&quot;   &quot;http://localhost:10000&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000&quot;
+</code></pre>
+<p>Alternatively, if you started with what you see below and have difficulties</p>
+<pre><code class="language-xml">ProxyPass           &quot;/app/&quot;   &quot;http://localhost:10000/app1/&quot;
+ProxyPassReverse    &quot;/app/&quot;   &quot;http://localhost:10000/app1/&quot;
+</code></pre>
+<p>You may want to try removing the trailing slashes like so.</p>
+<pre><code class="language-xml">ProxyPass           &quot;/app&quot;   &quot;http://localhost:10000/app1&quot;
+ProxyPassReverse    &quot;/app&quot;   &quot;http://localhost:10000/app1&quot;
+</code></pre>
+<p><strong>When accessing the application through the proxy, items cannot get added to the cart, and the user cannot log in despite there being no message indicating authentication failure.</strong>
+It's possible you need to add additional directives to the proxy configuration to ensure that the cookies on the site are functioning properly. </p>
+<p>This problem is common when the path on URL behind the proxy differs from the path on the external URL. Here is an example. </p>
+<pre><code class="language-xml">ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/subdir/&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/subdir/&quot;
+</code></pre>
+<p>Let's say this configuration was added for the virtual host somedomain.com. If this site uses cookies, internally the URL to that cookie will be something like localhost:10000/subdir/my-cookie, but externally the URL should be somedomain.com/my-cookie. The relative path to the cookie might still be considered subdir/my-cookie, so the request for the cookie when we access somedomain.com in a browser ends up being somedomain.com/subdir/my-cookie, which does not exit.</p>
+<p>Here's the solution to establish the appropriate paths and domain for cookies which was lost in translation going through the proxy.</p>
+<pre><code class="language-xml">   ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/subdir/&quot;
+   ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/subdir/&quot;
+   ProxyPassReverseCookiePath /subdir /
+   ProxyPassReverseCookieDomain localhost somedomain.com
+</code></pre>
+<p>It's possible you may need to place a trailing slash in the directives for ProxyPassReverseCookiePath to get things working. As mentioned in a previous section, it seems to depend how the application is coded.</p>
+<h2 id="additional-configuration">Additional Configuration<a class="headerlink" href="#additional-configuration" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="location-blocks">Location Blocks<a class="headerlink" href="#location-blocks" title="Anchor link to this section for reference">#</a></h3>
+<p>Sometimes the ProxyPass and ProxyPassReverse directives are container in Location blocks similar to what you see below.</p>
+<pre><code class="language-xml">&lt;Location &quot;/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/&quot;
+&lt;/Location&gt;
+</code></pre>
+<p>As you can see, when contained within a Location block, these directives take
+only one argument, because the first is aready specified in the <Location> tags.
+Official Apache documentation recommends that you do not mix the two contexts. </p>
+<p>If there are proxy directives in Location blocks already, then any additional
+proxy settings should be contained within its own appropriate location block. In
+reverse, if there is existing configuration within a virtual host containing
+proxy pass directives that are not contained within Location blocks, then
+additional proxy pass directives should be added in the same fashion.</p>
+<p>This is acceptable.</p>
+<pre><code>&lt;Location &quot;/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/&quot;
+&lt;/Location&gt;
+
+&lt;Location &quot;/subdir/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/subdir/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/subdir/&quot;
+&lt;/Location&gt;
+</code></pre>
+<p>This is also acceptable.</p>
+<pre><code>ProxyPass           &quot;/subdir/&quot;   &quot;http://localhost:10000/&quot;
+ProxyPassReverse    &quot;/subdir/&quot;   &quot;http://localhost:10000/&quot;
+
+ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/&quot;
+</code></pre>
+<p>Something like this will potentially cause confusion, and official Apache documentation discourages it.</p>
+<pre><code>ProxyPass           &quot;/subdir/&quot;   &quot;http://localhost:10000/&quot;
+ProxyPassReverse    &quot;/subdir/&quot;   &quot;http://localhost:10000/&quot;
+
+&lt;Location &quot;/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/&quot;
+&lt;/Location&gt;
+</code></pre>
+<h3 id="loading-order">Loading order<a class="headerlink" href="#loading-order" title="Anchor link to this section for reference">#</a></h3>
+<p>You might run into a set up where the URLs in multiple proxy configuration overlap. </p>
+<p>For example, I might want <code>https://mydomain.com</code> to load an application at <code>http://localhost:10000/mystore</code> but I also want <code>https://mydomain.com/blog</code> to load an application at <code>http://localhost:10000/blog</code>. </p>
+<p>This can cause conflict potentially because the URL mydomain.com/blog is a subdirectory of mydomain.com/ which has a proxy set up for a different app. 
+Fortunately, if you place the ProxyPass directives in the correct order, this shouldn't cause issues. The order changes, however, depending on if you are using Location blocks or not.</p>
+<h4 id="loading-order-no-location-block">Loading Order - No Location Block<a class="headerlink" href="#loading-order-no-location-block" title="Anchor link to this section for reference">#</a></h4>
+<p>For proxy rules that are not contained within a location block, you want the longest path/URL first. So in the example above, your configuration file would look like this.</p>
+<pre><code>ProxyPass           &quot;/blog/&quot;   &quot;http://localhost:10000/blog/&quot;
+ProxyPassReverse    &quot;/blog/&quot;   &quot;http://localhost:10000/blog/&quot;
+
+ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/mystore/&quot;
+ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/mystore/&quot;
+</code></pre>
+<h4 id="loading-order-location-block">Loading Order - Location Block<a class="headerlink" href="#loading-order-location-block" title="Anchor link to this section for reference">#</a></h4>
+<p>For proxy rules that are contained within location blocks, you will need to start with the shorter path/URL. In the example above, your configuration file would look like this if you're using location blocks.</p>
+<pre><code>&lt;Location &quot;/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/mystore/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/mystore/&quot;
+&lt;/Location&gt;
+
+&lt;Location &quot;/blog/&quot;&gt;
+   ProxyPass &quot;http://localhost:10000/blog/&quot;
+   ProxyPassReverse &quot;http://localhost:10000/blog/&quot;
+&lt;/Location&gt;
+</code></pre>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

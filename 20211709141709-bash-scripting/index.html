@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Bash Scripting - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#style-and-design-strategy">Style and Design Strategy</a></li>
+        <li><a href="#useful-helpers">Useful Helpers</a></li><li><a href="#variables-and-constants">Variables and Constants</a></li>
+        <li><a href="#redirection">Redirection</a></li>
+        <li><a href="#functions">Functions</a></li>
+        <li><a href="#flow-control">Flow Control</a></li>
+        <li><a href="#looping">Looping</a></li><li><a href="#branching">Branching</a></li><li><a href="#exit-status">Exit Status</a></li>
+        <li><a href="#interactivity">Interactivity</a></li>
+        <li><a href="#ifs">IFS</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#see-also">See also</a></li><li><a href="#parameters">Parameters</a></li>
+        <li><a href="#parameter-expansion">Parameter Expansion</a></li><li><a href="#arithmetic-evaluation-and-expansion">Arithmetic Evaluation and Expansion</a></li>
+        <li><a href="#operators">Operators</a></li><li><a href="#advanced-arithmetic-in-the-shell">Advanced Arithmetic in the Shell</a></li><li><a href="#arrays">Arrays</a></li>
+        <li><a href="#grouping-commands">Grouping Commands</a></li>
+        <li><a href="#traps">Traps</a></li>
+        <li><a href="#temporary-files">Temporary Files</a></li>
+        <li><a href="#asynchronous-execution">Asynchronous Execution</a></li>
+        <li><a href="#named-pipes">Named Pipes</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917142155-bash-script-header/">Bash Script Header</a></li>
+<li><a href="../20210917151734-making-scripts-executable/">Making Scripts Executable</a></li>
+<li><a href="../20210917152040-putting-scripts-in-your-path/">Putting Scripts in Your Path</a></li>
+</ul>
+<h2 id="style-and-design-strategy">Style and Design Strategy<a class="headerlink" href="#style-and-design-strategy" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917151442-bash-scripting-style/">Bash Scripting Style</a></li>
+<li><a href="../20210917181231-indentation-in-bash/">Indentation in Bash</a></li>
+<li><a href="../20210917181415-top-down-design/">Top-Down Design</a></li>
+</ul>
+<h3 id="useful-helpers">Useful Helpers<a class="headerlink" href="#useful-helpers" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="https://www.shellcheck.net/">ShellCheck</a> - just use it always</li>
+<li><a href="https://github.com/xwmx/bash-boilerplate">Boilerplate</a></li>
+<li><a href="https://github.com/dylanaraps/pure-bash-bible">Pure Bash Bible</a></li>
+</ul>
+<h2 id="variables-and-constants">Variables and Constants<a class="headerlink" href="#variables-and-constants" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917152659-variables-in-bash/">Variables in Bash</a></li>
+<li><a href="../20210917180744-scoping-in-bash/">Scoping in Bash</a></li>
+</ul>
+<h2 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917181108-here-documents/">Here Documents</a></li>
+<li><a href="../20220406080732-here-strings/">20220406080732-here-strings</a></li>
+</ul>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917181557-functions-in-bash/">Functions in Bash</a></li>
+</ul>
+<h2 id="flow-control">Flow Control<a class="headerlink" href="#flow-control" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917182135-if-then-constructs/">if/then Constructs</a></li>
+<li><a href="../20210917182322-test-builtin/">test Builtin</a></li>
+<li><a href="../20210917184457-extended-test/">Extended test</a></li>
+<li><a href="../20210917182439-file-test-operators/">File Tests</a></li>
+<li><a href="../20210917183623-integer-comparison-operators/">Integer Comparison</a></li>
+<li><a href="../20210917183838-string-comparison-operators/">String Comparison</a></li>
+<li><a href="../20210917184647-logical-operators/">Logical Operators</a></li>
+<li><a href="../20210917184933-control-operators/">Control Operators</a></li>
+</ul>
+<h3 id="looping">Looping<a class="headerlink" href="#looping" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="../20210917185637-while/">while</a></li>
+<li><a href="../20210917190029-until/">until</a></li>
+<li><a href="../20210917190620-file-redirection-and-looping/">File-Redirection and Looping</a></li>
+<li><a href="../20210917191304-for-loops/">for Loops</a></li>
+<li><a href="../20210917191540-for-c-language-form/">for: C Language Form</a></li>
+</ul>
+<h3 id="branching">Branching<a class="headerlink" href="#branching" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="../20210917192051-case/">case</a></li>
+</ul>
+<h2 id="exit-status">Exit Status<a class="headerlink" href="#exit-status" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917192150-exit-status/">Exit Status</a></li>
+</ul>
+<h2 id="interactivity">Interactivity<a class="headerlink" href="#interactivity" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917192357-read-builtin/">read Builtin</a></li>
+<li><a href="../20210917192431-input-validation/">Input Validation</a></li>
+<li><a href="../20210917192535-menus/">Menus</a></li>
+</ul>
+<h2 id="ifs">IFS<a class="headerlink" href="#ifs" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917192634-internal-field-separator/">Internal Field Separator</a></li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917192913-troubleshooting-strategies/">Troubleshooting Strategies</a></li>
+<li><a href="../20210917193140-defensive-programming/">Defensive Programming</a></li>
+<li><a href="../20210917192431-input-validation/">Verify Input</a></li>
+<li><a href="../20210917193659-testing/">Testing</a></li>
+<li><a href="../20210917194017-debugging/">Debugging</a></li>
+</ul>
+<h3 id="see-also">See also<a class="headerlink" href="#see-also" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="http://redsymbol.net/articles/unofficial-bash-strict-mode/">Use Bash Strict Mode</a></li>
+</ul>
+<h2 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210917194311-positional-parameters/">Positional Parameters</a></li>
+<li><a href="../20210918051411-special-parameters/">Special Parameters</a></li>
+<li><a href="../20210918051647-basic-parameters/">Basic Parameters</a></li>
+</ul>
+<h3 id="parameter-expansion">Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="../20210918051536-parameter-expansion/">Parameter Expansion</a></li>
+<li><a href="../20210918073644-manage-empty-variables/">Manage Empty Variables</a></li>
+<li><a href="../20210918074344-variable-name-expansion/">Variable Name Expansion</a></li>
+<li><a href="../20210918074712-string-operations/">String Operations</a></li>
+<li><a href="../20210918074952-case-modification/">Case Modification</a></li>
+</ul>
+<h2 id="arithmetic-evaluation-and-expansion">Arithmetic Evaluation and Expansion<a class="headerlink" href="#arithmetic-evaluation-and-expansion" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918075345-arithmetic-evaluation/">Arithmetic Evaluation</a></li>
+<li><a href="../20210918075616-arithmetic-expressions/">Arithmetic Expressions</a></li>
+</ul>
+<h3 id="operators">Operators<a class="headerlink" href="#operators" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><a href="../20210918075929-unary-operators/">Unary Operators</a></li>
+<li><a href="../20210918080020-arithmetic-operators/">Arithmetic Operators</a></li>
+<li><a href="../20210918080204-assignment-operators/">Assignment and Increment/Decrement Operators</a></li>
+<li><a href="../20210918080615-bit-operations/">Bit Operations</a></li>
+<li><a href="../20210918081017-logical-operators/">Logical and Comparison Operators</a></li>
+</ul>
+<h3 id="advanced-arithmetic-in-the-shell">Advanced Arithmetic in the Shell<a class="headerlink" href="#advanced-arithmetic-in-the-shell" title="Anchor link to this section for reference">#</a></h3>
+<p>See: <a href="../20210905074329-bc/">bc</a></p>
+<h2 id="arrays">Arrays<a class="headerlink" href="#arrays" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918082049-arrays/">Arrays</a></li>
+<li><a href="../20210918082120-creating-arrays/">Creating Arrays</a></li>
+<li><a href="../20210918082624-array-indexing/">Array Indexing</a></li>
+<li><a href="../20210918084109-array-operations/">Array Operations</a></li>
+<li><a href="../20210918084554-associative-arrays/">Associative Arrays</a></li>
+</ul>
+<h2 id="grouping-commands">Grouping Commands<a class="headerlink" href="#grouping-commands" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918084807-grouping-commands/">Grouping Commands</a></li>
+<li><a href="../20210918084903-process-substitution/">Process Substitution</a></li>
+</ul>
+<h2 id="traps">Traps<a class="headerlink" href="#traps" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918090629-trap-builtin/">trap Builtin</a></li>
+</ul>
+<h2 id="temporary-files">Temporary Files<a class="headerlink" href="#temporary-files" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918090735-temporary-files/">Temporary Files</a></li>
+</ul>
+<h2 id="asynchronous-execution">Asynchronous Execution<a class="headerlink" href="#asynchronous-execution" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918090820-wait-builtin/">wait Builtin</a></li>
+</ul>
+<h2 id="named-pipes">Named Pipes<a class="headerlink" href="#named-pipes" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="../20210918090941-named-pipes/">Named Pipes</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

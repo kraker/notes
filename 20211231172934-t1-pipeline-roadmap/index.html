@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>T1 Pipeline Roadmap - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#linux-cli-fundamentals">Linux CLI Fundamentals</a></li>
+        <li><a href="#learn-cpanel-basics">Learn cPanel Basics</a></li>
+        <li><a href="#install-a-wordpress-site">Install a WordPress site</a></li>
+        <li><a href="#concepts-software-and-protocol-fundamentals">Concepts, Software, and Protocol fundamentals</a></li>
+        <li><a href="#apache-web-server">Apache Web Server</a></li><li><a href="#linux">Linux</a></li><li><a href="#recommended-learning">Recommended Learning</a></li><li><a href="#networkingdns">Networking/DNS</a></li>
+        <li><a href="#commands-to-learn">Commands to learn</a></li><li><a href="#dns">DNS</a></li><li><a href="#recommended-exercises-to-learn-dns">Recommended exercises to learn DNS</a></li><li><a href="#learn-htmlcss-optional">Learn HTML/CSS (Optional)</a></li>
+        <li><a href="#learning-strategies-optional">Learning Strategies (Optional)</a></li>
+        <li><a href="#notes-from-paul-k">Notes from Paul K.</a></li>
+        <li><a href="#alexs-notes">Alex's Notes</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>me at alex@alexkraker.com_</p>
+<p>This <em>roadmap</em> assumes no real prior knowledge of Linux, web-hosting, web
+development, or IT.  This isn't intended to be an exhaustive guide, but rather a
+suggested list of resources that should allow any beginner or beginner to
+intermediate skill level (i.e. "noob") to acquire the necessary skills qualify
+for a Tier 1 Technical Support role working in a web-hosting (Linux) centric
+environment. (Those interested in supporting Windows based environments may still
+benefit from the resources included here, but would probably be best served by
+seeking out a guide that addresses a Windows centric IT support role.)</p>
+<p>It's assumed that if you're reading this, that you're a self-starter, and able
+to <em>fill in the gaps</em> by doing your own research (i.e. google-fu) if something
+doesn't make sense. This is a roadmap not an exhaustive tutorial. Other authors
+and teachers have done a much better job of creating learning materials and
+tutorials than I could ever do myself. Just like with most open source software
+I'm going to borrow heavily from things that have been built by people much more
+capable and experienced than myself. This is the open source way after all. </p>
+<p>This is curated list of what I consider to be essential skills along with the
+best free resources available to learn those skills.  This collection is
+inspired by guide's like the <a href="https://teachyourselfcs.com/">Teach Yourself Computer
+Science</a> and <a href="https://github.com/ossu/computer-science">Open Source Society
+University</a>. The primary difference
+being this is intended to provide a foundation for the aspiring Linux System
+Administrator. While there's quite a bit of overlap between Computer Science and
+System Administration, there are skills and fundamentals that seem to be the
+foundation for competency in IT and System Administration.</p>
+<h2 id="linux-cli-fundamentals">Linux CLI Fundamentals<a class="headerlink" href="#linux-cli-fundamentals" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Gold-standard tutorial: <a href="https://learnpythonthehardway.org/book/appendixa.html">Command Line Crash Course</a></li>
+<li>By Zed Shaw</li>
+<li>Also-good, is <a href="https://linuxcommand.org/lc3_learning_the_shell.php">Learning the Shell</a></li>
+<li>Best in class, video lecture: <a href="https://missing.csail.mit.edu/2020/course-shell/">The Missing Semester: Course Overview + the Shell</a></li>
+</ul>
+<h2 id="learn-cpanel-basics">Learn cPanel Basics<a class="headerlink" href="#learn-cpanel-basics" title="Anchor link to this section for reference">#</a></h2>
+<p><em>This section is web hosting centric. If you're not looking to work in web
+hosting, feel free to skip this section.</em></p>
+<p>It's hard to beat the official cPanel university certifications for learning the
+fundamentals of their platform. If you haven't already I recommend registering
+an account at <a href="https://university.cpanel.net/">cPanel University</a>. </p>
+<ul>
+<li>Complete the <em>cPanel Professional Certification (CPP)</em></li>
+</ul>
+<p>It helps if you have access to a cPanel in order to try out the things in
+cPanel. If you don't already have access to cPanel, this author recommends
+finding a budget host (there are some for as little as $1/mo) and getting a 1
+month subscription to start. It's a few bucks to further your education.</p>
+<h2 id="install-a-wordpress-site">Install a WordPress site<a class="headerlink" href="#install-a-wordpress-site" title="Anchor link to this section for reference">#</a></h2>
+<p><em>This skill is web hosting centric. If not looking to work in web-hosting, or
+you have no interest in front-end development, feel free to skip this section.</em></p>
+<ul>
+<li>Best overall tutorial: <a href="https://wordpress.org/support/article/how-to-install-wordpress/">How to Install WordPress</a></li>
+</ul>
+<h2 id="concepts-software-and-protocol-fundamentals">Concepts, Software, and Protocol fundamentals<a class="headerlink" href="#concepts-software-and-protocol-fundamentals" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>Port</li>
+<li>A port is a number. It's the port that a server uses to send/receive
+  requests. It's part of the Internet Protocol. Whenever your computer connects
+  to a server for any reason, it does so through an open port on that server. </li>
+<li>FTP - File Transfer Protocol</li>
+<li>Used to transfer files. It's in the name.  </li>
+<li>Uses port 21</li>
+<li>SSH - Secure Shell</li>
+<li>Uses an encrypted tunnel to provide a secure connection to a remote terminal 
+  (CLI) </li>
+<li>Uses port 22</li>
+<li>HTTP - Hyper-text Transfer Protocol</li>
+<li>Most of the web uses HTTP (or HTTPS). If you're reading this in a browser
+  it's being served using HTTP by a web server. </li>
+<li>Uses port 80</li>
+<li>HTTPS - Hyper-text Transfer Protocol Security</li>
+<li>This is the secure version of HTTP and runs on a different port number.u
+  Anytime you see that <em>insecure</em> warning in your browser it's usually because 
+  the site you visited isn't sing HTTPS and is therefore insecure. HTTPS uses an 
+  <em>SSL Certificate</em> to create an encrypted connection to the web server that's 
+  running the website you visited. </li>
+<li>Uses port 443</li>
+</ul>
+<h3 id="apache-web-server">Apache Web Server<a class="headerlink" href="#apache-web-server" title="Anchor link to this section for reference">#</a></h3>
+<p><a href="https://httpd.apache.org/">Apache</a> is the most commonly used free open source
+web server in use on the internet. Most servers that host websites run Apache.
+This is the software that <em>serves</em> web-pages over the HTTP and HTTPS protocols
+(ports 80 and 443 respectively).</p>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Anchor link to this section for reference">#</a></h3>
+<p>Linux is an operating system. It's like Windows, MacOS, or Android. It's the
+most common operating system in use on servers. It's free and open source (FOSS)
+meaning anyone can download, install it, and use it however they see fit. You
+can custom compile the Linux Kernel to your own needs if you want. </p>
+<p>Most Linux operating systems are what's known as a distribution which is a
+bundle or package of software that ships with the Linux Kernal, usually
+containing an installer, and a few other <em>nice-to-haves.</em> </p>
+<p>In the web hosting space <a href="https://www.centos.org/">CentOS</a> is a commonly used 
+Linux Distribution that's used for web servers. The main reason being it's
+reputation for long-term stability. It's the free open source (unlicensed)
+version of <em>RedHat Enterprise Linux (RHEL)</em> that's known for it's stability and
+is backed by the support that RedHat offers. </p>
+<p>Another common Linux Distribution that's often used for web-hosting servers and
+which you may have heard of is <a href="https://ubuntu.com/server">Ubuntu Server</a>.</p>
+<h3 id="recommended-learning">Recommended Learning<a class="headerlink" href="#recommended-learning" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>[ ] Download a common FTP client for your OS whether that's Windows or MacOS and
+  figure out how to connect to an FTP server with it. </li>
+<li>[ ] Download an SSH client and connect to a Linux server using SSH</li>
+</ul>
+<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Anchor link to this section for reference">#</a></h4>
+<ul>
+<li>[ ] Find a Linux Distribution that you like and if you have old hardware
+  laying around, figure out how to install it and run it.</li>
+</ul>
+<h2 id="networkingdns">Networking/DNS<a class="headerlink" href="#networkingdns" title="Anchor link to this section for reference">#</a></h2>
+<p>STUB</p>
+<h3 id="commands-to-learn">Commands to learn<a class="headerlink" href="#commands-to-learn" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li><code>dig</code></li>
+<li><code>host</code></li>
+<li><code>whois</code></li>
+<li><code>ping</code></li>
+<li><code>traceroute</code></li>
+</ul>
+<h3 id="dns">DNS<a class="headerlink" href="#dns" title="Anchor link to this section for reference">#</a></h3>
+<ul>
+<li>Video tutorials</li>
+<li>Really good, but long: https://www.youtube.com/watch?v=WDutOk8Piu8<ul>
+<li>Recommended by Paul K.</li>
+</ul>
+</li>
+<li>Basic intro: https://www.youtube.com/watch?v=uOfonONtIuk</li>
+</ul>
+<h3 id="recommended-exercises-to-learn-dns">Recommended exercises to learn DNS<a class="headerlink" href="#recommended-exercises-to-learn-dns" title="Anchor link to this section for reference">#</a></h3>
+<ol>
+<li>Create an <strong>A</strong> record that points your root domain to the server IP where your site is hosted.</li>
+<li>Create a <strong>CNAME</strong> record that aliases the <code>www</code> subdomain to your root domain. i.e. www.yourdomain.com</li>
+<li>Create the appropriate <strong>MX</strong> record to route email to your mailserver</li>
+<li>Create an additional A record (or CNAME) record for the mail subdomain. </li>
+<li>Create both of the <strong>TXT</strong> records that you need to ensure good email deliverability. These are the DKIM and SPF records. These validate the server that the server that the emails were sent from as a valid sender of emails from your domain.</li>
+<li>Make sure you verify that your root domain, and www resolve to your website</li>
+<li>Test sending/receiving email and verify that that all works as it should</li>
+<li>Use <code>whois</code>, <code>dig</code>, <code>host</code> to verify the DNS records that you created</li>
+</ol>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Anchor link to this section for reference">#</a></h4>
+<pre><code class="language-bash">[alexkr@ash-sys-pro-js3:~]$ dig thisinterestingmind.com
+
+; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6.11.cloudlinux.els &lt;&lt;&gt;&gt; thisinterestingmind.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 17150
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;thisinterestingmind.com.       IN      A
+
+;; ANSWER SECTION:
+thisinterestingmind.com. 641    IN      A       209.182.195.45
+
+;; Query time: 0 msec
+;; SERVER: 198.46.80.58#53(198.46.80.58)
+;; WHEN: Tue Jan  4 13:55:01 2022
+;; MSG SIZE  rcvd: 57
+</code></pre>
+<pre><code class="language-bash">[alexkr@ash-sys-pro-js3:~]$ dig cname www.thisinterestingmind.com
+
+; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6.11.cloudlinux.els &lt;&lt;&gt;&gt; cname www.thisinterestingmind.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 63532
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.thisinterestingmind.com.   IN      CNAME
+
+;; ANSWER SECTION:
+www.thisinterestingmind.com. 900 IN     CNAME   thisinterestingmind.com.
+
+;; Query time: 1 msec
+;; SERVER: 198.46.80.58#53(198.46.80.58)
+;; WHEN: Tue Jan  4 13:55:34 2022
+;; MSG SIZE  rcvd: 59
+</code></pre>
+<pre><code class="language-bash">[alexkr@ash-sys-pro-js3:~]$ dig mx thisinterestingmind.com
+
+; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6.11.cloudlinux.els &lt;&lt;&gt;&gt; mx thisinterestingmind.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 33380
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;thisinterestingmind.com.       IN      MX
+
+;; ANSWER SECTION:
+thisinterestingmind.com. 623    IN      MX      0 thisinterestingmind.com.
+
+;; Query time: 0 msec
+;; SERVER: 198.46.80.58#53(198.46.80.58)
+;; WHEN: Tue Jan  4 13:55:52 2022
+;; MSG SIZE  rcvd: 57
+</code></pre>
+<pre><code class="language-bash">[alexkr@ash-sys-pro-js3:~]$ dig txt thisinterestingmind.com
+
+; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.68.rc1.el6.11.cloudlinux.els &lt;&lt;&gt;&gt; txt thisinterestingmind.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 20328
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;thisinterestingmind.com.       IN      TXT
+
+;; ANSWER SECTION:
+thisinterestingmind.com. 900    IN      TXT     &quot;v=spf1 +a +mx +ip4:209.182.195.45 ~all&quot;
+
+;; Query time: 1 msec
+;; SERVER: 198.46.80.58#53(198.46.80.58)
+;; WHEN: Tue Jan  4 14:07:58 2022
+;; MSG SIZE  rcvd: 92
+</code></pre>
+<h4 id="dns-records">DNS Records<a class="headerlink" href="#dns-records" title="Anchor link to this section for reference">#</a></h4>
+<ul>
+<li><a href="../20201117152831-dns-record/">DNS Record Types</a> </li>
+</ul>
+<h2 id="learn-htmlcss-optional">Learn HTML/CSS (Optional)<a class="headerlink" href="#learn-htmlcss-optional" title="Anchor link to this section for reference">#</a></h2>
+<p>While it's not strictly necessary to learn HTML/CSS in order to become a
+competent Linux System administrator. HTML is such a universal thing, that it
+helps to understand it at least a little bit. CSS is really only relevant if you
+have any interest at all in front-end. That said, it's definitely helpful to
+have some awareness of what's possible with HTML/CSS and what it does if you intend
+to work in any part of web hosting. The best way to learn is by doing. </p>
+<ul>
+<li>Best crash-course in HTML/CSS, should only take a few hours: <a href="https://learn.shayhowe.com/">Learn to Code
+HTML &amp; CSS</a></li>
+<li>Create an account at <a href="https://freecodecamp.org">freecodecamp.org</a> and the first two sections of the
+<em>Responsive Web Design</em> course, do a pretty decent job of covering HTML/CSS.</li>
+<li>Recommended book: <a href="https://www.oreilly.com/library/view/head-first-html/9781449324469/">Head First HTML and
+CSS</a></li>
+<li>Don't just take my word for it, read this: <a href="https://sive.rs/prog">Should You Learn Programming?
+  Yes.</a> by Derek Sivers</li>
+</ul>
+<h2 id="learning-strategies-optional">Learning Strategies (Optional)<a class="headerlink" href="#learning-strategies-optional" title="Anchor link to this section for reference">#</a></h2>
+<p>Just some recommendations for learning.</p>
+<ul>
+<li><a href="../20220104103406-learning-strategies/">Learning Strategies</a></li>
+</ul>
+<h2 id="notes-from-paul-k">Notes from Paul K.<a class="headerlink" href="#notes-from-paul-k" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li>https://www.freecodecamp.org/news/learn-the-50-most-used-linux-terminal-commands/</li>
+<li>https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Bash-Variables</li>
+<li>https://learncodethehardway.org/unix/bash_cheat_sheet.pdf</li>
+</ul>
+<h2 id="alexs-notes">Alex's Notes<a class="headerlink" href="#alexs-notes" title="Anchor link to this section for reference">#</a></h2>
+<ul>
+<li><a href="20220104072206-applying-interviewing-and-such.md">Applying, interviewing, and such</a></li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

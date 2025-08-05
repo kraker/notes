@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>find - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#find">find</a></li>
+        <li><a href="#file-types">File Types</a></li><li><a href="#size-units">Size Units</a></li><li><a href="#tests">Tests</a></li><li><a href="#logical-operators">Logical Operators</a></li><li><a href="#actions">Actions</a></li><li><a href="#options">Options</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="find">find<a class="headerlink" href="#find" title="Anchor link to this section for reference">#</a></h1>
+<p>Search for files in a directory hierarchy.</p>
+<p>Examples:</p>
+<pre><code class="language-bash">find ~ -type d | wc -l
+</code></pre>
+<p>List number of directories in home dir </p>
+<pre><code class="language-bash">find ~ -type f | wc -l
+</code></pre>
+<p>List number of regular files in home dir</p>
+<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>File Type</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>Block special device file</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Character special device file</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Directory</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Regular file</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Symbolic link</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-bash">find ~ -type f -name &quot;*.jpg&quot; -size +1M | wc -l 
+</code></pre>
+<p>Find all .jpg files by type, name, and size.</p>
+<h2 id="size-units">Size Units<a class="headerlink" href="#size-units" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b</td>
+<td>512-byte blocks. Default if no unit specified</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Bytes</td>
+</tr>
+<tr>
+<td>w</td>
+<td>2-byte words</td>
+</tr>
+<tr>
+<td>k</td>
+<td>Kilobytes</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Megabytes</td>
+</tr>
+<tr>
+<td>G</td>
+<td>Gigabytes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-cmin n</code></td>
+<td>last modified n minutes ago. +/-n more or less than n minutes ago.</td>
+</tr>
+<tr>
+<td><code>-cnewer file</code></td>
+<td>files/dirs contents/attributes last modified more recently than <em>file</em></td>
+</tr>
+<tr>
+<td><code>-ctime n</code></td>
+<td>files/dirs contents/attributes last modified n*24 hours ago</td>
+</tr>
+<tr>
+<td><code>-empty</code></td>
+<td>empty files/dirs</td>
+</tr>
+<tr>
+<td><code>-group name</code></td>
+<td>belonging to <em>group</em>. May be name or ID.</td>
+</tr>
+<tr>
+<td><code>-iname pattern</code></td>
+<td>like -name but case-insensitive</td>
+</tr>
+<tr>
+<td><code>-inum n</code></td>
+<td>files with inode number n</td>
+</tr>
+<tr>
+<td><code>-mmin n</code></td>
+<td>files/dirs whose contents were last modified n minutes ago</td>
+</tr>
+<tr>
+<td><code>-mtime n</code></td>
+<td>files/dirs whose contents were last modified n*24 hours ago</td>
+</tr>
+<tr>
+<td><code>-name pattern</code></td>
+<td>files/dirs with specified wildcard <em>pattern</em></td>
+</tr>
+<tr>
+<td><code>-newer file</code></td>
+<td>files/dirs whose contents were modified more recently than specified <em>file</em></td>
+</tr>
+<tr>
+<td><code>-nouser</code></td>
+<td>files/dirs that don't belong to a valid user</td>
+</tr>
+<tr>
+<td><code>-nogroup</code></td>
+<td>files/dirs that don't belong to a valid group</td>
+</tr>
+<tr>
+<td><code>-perm mode</code></td>
+<td>files/dirs that have permissions set to the specified <em>mode</em>. Either octal or symbolic</td>
+</tr>
+<tr>
+<td><code>-samefile name</code></td>
+<td>Similar to -inum. Match files that share same inode number as file <em>name</em></td>
+</tr>
+<tr>
+<td><code>-size n</code></td>
+<td>Match files of size <em>n</em></td>
+</tr>
+<tr>
+<td><code>-type c</code></td>
+<td>Match files of type <em>c</em></td>
+</tr>
+<tr>
+<td><code>-user name</code></td>
+<td>files/dirs belonging to user <em>name</em>. Username or user ID</td>
+</tr>
+</tbody>
+</table>
+<h2 id="logical-operators">Logical Operators<a class="headerlink" href="#logical-operators" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-and</code>, <code>-a</code></td>
+<td>Match if tests on both sides of operator are true</td>
+</tr>
+<tr>
+<td><code>-or</code>, <code>-o</code></td>
+<td>Match if tests on either side of operator is true</td>
+</tr>
+<tr>
+<td><code>-not</code>, <code>!</code></td>
+<td>Match if test following the operator is false</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>Group tests and operators together to form larger expressions.</td>
+</tr>
+<tr>
+<td></td>
+<td>Since parentheses have special meaning to the shell, must be quoted/escaped</td>
+</tr>
+</tbody>
+</table>
+<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="predefined">Predefined<a class="headerlink" href="#predefined" title="Anchor link to this section for reference">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-delete</code></td>
+<td>Delete the currently matching file</td>
+</tr>
+<tr>
+<td><code>-ls</code></td>
+<td>Perform the equivalent of <code>ls -dils</code> on the matching file</td>
+</tr>
+<tr>
+<td><code>-print</code></td>
+<td>Output the full pathname of the matching file to stdout</td>
+</tr>
+<tr>
+<td><code>-quit</code></td>
+<td>Quit once a match has been made</td>
+</tr>
+</tbody>
+</table>
+<h3 id="user-defined">User-defined<a class="headerlink" href="#user-defined" title="Anchor link to this section for reference">#</a></h3>
+<p><code>-exec command {} ;</code> <code>-ok command {} ;</code> Note: brace and semicolon
+have special meaning to the shell and must be quoted Note: the -ok
+action in place of -exec will prompt user before execution</p>
+<pre><code class="language-bash">find ~ -type f -name 'foo*' -ok ls -l '{}' ';'
+&lt; ls ... /home/me/bin/foo &gt; ? y
+-rwxr-xr-x 1 me  me 224 2007-10-29 18:44 /home/me/bin/foo
+&lt; ls ... /home/me/foo.txt &gt; ? y
+-rw-r--r-- 1 me  me   0 2016-09-19 12:53 /home/me/foo.txt 
+</code></pre>
+<p>By changing the trailing ';' to a '+' execute the command on the
+whole list of arguments, instead of for each match</p>
+<pre><code class="language-bash">find ~ -type f -name 'foo*' -exec ls -l '{}' +
+-rwxr-xr-x 1 me  me 224 2007-10-29 18:44 /home/me/bin/foo
+-rw-r--r-- 1 me  me   0 2016-09-19 12:53 /home/me/foo.txt
+</code></pre>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Anchor link to this section for reference">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Option</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-depth</code></td>
+<td>Process files in dirs before dirs</td>
+</tr>
+<tr>
+<td><code>-maxdepth levels</code></td>
+<td>Set the max number of levels will descend into directory tree</td>
+</tr>
+<tr>
+<td><code>-mindepth levels</code></td>
+<td>Set the minimum number of levels will descent into a directory tree</td>
+</tr>
+<tr>
+<td><code>-mount</code></td>
+<td>Direct find not to traverse directories that are mounted on other file systems</td>
+</tr>
+<tr>
+<td><code>-noleaf</code></td>
+<td>Direct find not to optimize based on Unix-like file system</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

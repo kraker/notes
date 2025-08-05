@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Linux Commands - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#linux-commands">Linux Commands</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="linux-commands">Linux Commands<a class="headerlink" href="#linux-commands" title="Anchor link to this section for reference">#</a></h1>
+<ul>
+<li><a href="../20200628165056-adduser/">adduser</a></li>
+<li><a href="../20200628165447-alias/">alias</a> - Create an alias for a command</li>
+<li><a href="../20200628165833-apropos/">apropos</a> - Display a list of appropriate commands</li>
+<li><a href="../20200628170239-aspell/">aspell</a> - Interactive spell checker <code>aspell check textfile</code> Can be used to spell-check specific file types like HTML for example.</li>
+<li><a href="../20210905074329-bc/">bc</a></li>
+<li><a href="../20200628170530-bg/">bg</a> - Place a job in the background</li>
+<li><a href="../20200628170734-bzip2/">bzip2</a> - A block sorting file compressor Similar to gzip but uses different compression algorithm. Achieves higher levels of compression at the cost of speed. Similar options to gzip. .bz2 bunzip2, bzcat, bzip2recover</li>
+<li><a href="../20200628171007-cal/">cal</a></li>
+<li><a href="../20200628172014-cat/">cat</a></li>
+<li><a href="../20200628184557-cd/">cd</a></li>
+<li><a href="../20200628184725-chgrp/">chgrp</a> - Change a file's group ownership</li>
+<li><a href="../20200628184910-chmod/">chmod</a> - Change a file's mode Supports <em>octal</em> or <em>symbolic</em></li>
+<li><a href="../20210905080040-cut/">cut</a></li>
+<li><a href="../20210905080222-diff/">diff</a></li>
+<li><a href="../20210428070605-dig/">dig</a></li>
+<li><a href="../20220331080858-expect/">expect</a></li>
+<li><a href="../20210905081005-find/">find</a></li>
+<li><a href="../20210905081054-fmt/">fmt</a></li>
+<li><a href="../20210905081118-fold/">fold</a></li>
+<li><a href="../20210913193531-git/">git</a></li>
+<li><a href="../20210905081435-grep/">grep</a></li>
+<li><a href="../20210905081626-gzip/">gzip</a></li>
+<li><a href="../20210428070842-host/">host</a></li>
+<li><a href="../20210905081726-info/">info</a></li>
+<li><a href="../20210905081820-kill/">kill</a></li>
+<li><a href="../20210905081858-less/">less</a></li>
+<li><a href="../20210905082025-nl/">nl</a></li>
+<li><a href="../20210905082248-printf/">printf</a></li>
+<li><a href="../20210905082420-read/">read</a></li>
+<li><a href="../20210905082449-rsync/">rsync</a></li>
+<li><a href="../20210905082528-sed/">sed</a></li>
+<li><a href="../20210905082557-sort/">sort</a></li>
+<li><a href="../20201111154539-ssh/">ssh</a> - OpenSSH SSH client (remote login program)</li>
+<li><a href="../20210905185813-stow/">stow</a></li>
+<li><a href="../20210316112435-strace/">strace</a></li>
+<li><a href="../20210430112936-symlinks/">symlinks</a></li>
+<li><a href="../20210905082630-tar/">tar</a></li>
+<li><a href="../20230306145823-tcpdump/">tcpdump</a></li>
+<li><a href="../20210908112801-tmux/">tmux</a></li>
+<li><a href="../20210905082701-tr/">tr</a></li>
+<li><a href="../20240217085000-tree/">tree</a></li>
+<li><a href="../20240217085500-tty/">tty</a></li>
+<li><a href="../20210905082726-umask/">umask</a></li>
+<li><a href="../20210905082750-uniq/">uniq</a></li>
+<li><a href="../20210905082857-xargs/">xargs</a></li>
+<li><code>chown</code> - Change a file's owner</li>
+<li><code>clear</code> - Clear the screen</li>
+<li><code>comm</code> - Compare two sorted files line by line <code>comm file1.txt file2.txt</code></li>
+<li><code>cp</code></li>
+<li><code>date</code></li>
+<li><code>dd</code> - Convert and copy a file</li>
+<li><code>df</code></li>
+<li><code>echo</code> - Display a line of text <code>echo -e "Time's up\a" # enable interpretation of escapes</code></li>
+<li><code>exit</code></li>
+<li><code>expand</code> - Change tabs to spaces from stdin. Goes with unexpand</li>
+<li><code>export</code> - Export environment to subsequently executed programs</li>
+<li><code>fdisk</code> - Manipulate disk partition table</li>
+<li><code>fg</code> - Place a job in the foreground</li>
+<li><code>file</code> - Determines a file's type</li>
+<li><code>free</code></li>
+<li><code>fsck</code> - Check and repair a file system</li>
+<li><code>ftp</code> - Internet file transfer program</li>
+<li><code>genisoimage</code> (mkisofs) - Create an ISO 9660 image file</li>
+<li><code>groff</code> - A document formatting system Good to know a tool exists for formatting and exporting pretty documents.</li>
+<li><code>groupadd</code></li>
+<li><code>head</code> - Output the first part of a file</li>
+<li><code>help</code> - Get help for shell builtins</li>
+<li><code>history</code> - Display the contents of the history list</li>
+<li><code>id</code> - Display user identity</li>
+<li><code>id</code> - print real and effective user and group IDs</li>
+<li><code>ip</code> - Show / manipulate routing, devices, policy routing and tunnels</li>
+<li><code>jobs</code> - List active jobs</li>
+<li><code>join</code> - Join lines of two files on a common field Combine fields from two tables using a shared key</li>
+<li><code>killall</code> - Kill processes by name <code>killall [-u user] [-signal] name...</code></li>
+<li><code>lftp</code> - A better way to <code>ftp</code></li>
+<li><code>ln</code></li>
+<li><code>locate</code> - Find files by name <code>locate bin/zip</code></li>
+<li><code>ls</code></li>
+<li><code>lscpu</code> - display information about the CPU architecture</li>
+<li><code>make</code> - Utility to maintain programs Smart enough to only compile files with newer source to new targets After downloading and unzipping a source package, usually you run <code>./configure</code> <code>make</code> <code>sudo make install</code> <em>Assuming there were no errors in ./configure</em></li>
+<li><code>man</code> - Display a command's manual page</li>
+<li><code>md5sum</code> - Calculate an MD5 checksum</li>
+<li><code>mkdir</code></li>
+<li><code>mkfs</code> - Create a file system</li>
+<li><code>mount</code> - Mount a file system</li>
+<li><code>mv</code></li>
+<li><code>netstat</code> - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships</li>
+<li><code>passwd</code> - Change a user's password</li>
+<li><code>paste</code> - Merge lines of files Combines multiple files into single stream on stdout.</li>
+<li><code>patch</code> - Apply a diff file to an original after preparation with diff <code>patch &lt; diff_file</code></li>
+<li><code>pcregrep</code></li>
+<li><code>ping</code> - Send an ICMP ECHO REQUEST to network hosts</li>
+<li><code>pr</code> - Prepare text for printing The pr program is used to paginate text.</li>
+<li><code>printenv</code> - Print part or all of the environment</li>
+<li><a href="../20240303091800-ps/">ps</a> - Report a snapshot of current processes</li>
+<li><code>pstree</code> - Outputs a process list arranged in a tree</li>
+<li><code>pwd</code></li>
+<li><code>rm</code></li>
+<li><code>scp</code> - Secure copy. Part of OpenSSH package.</li>
+<li><code>script</code></li>
+<li><code>set</code> - Set shell options</li>
+<li><code>sftp</code> - Secure file transfer protocol. Part of OpenSSH package.</li>
+<li><code>shutdown</code> - Shutdown or reboot the system</li>
+<li><code>stat</code> - Display file or file system status</li>
+<li><code>su</code> - Run a shell as another user</li>
+<li><code>sudo</code> - Execute a command as another user</li>
+<li><code>tail</code> - Output the last part of a file</li>
+<li><code>tee</code> - Read from standard input and write to standard output and files</li>
+<li><code>tload</code> - Similar to <em>xload</em> program but draws the graph in the terminal.</li>
+<li><code>top</code> - Display tasks</li>
+<li><code>touch</code> - Change file times</li>
+<li><code>traceroute</code> - Print the route packets trace to a network host</li>
+<li><code>type</code> - Indicate how a command name is interpreted</li>
+<li><code>umount</code> - Unmount a file system</li>
+<li><code>unexpand</code> - Change spaces to tabs from stdin. Goes with expand</li>
+<li><code>unzip</code></li>
+<li><code>useradd</code></li>
+<li><code>vmstat</code> - Outputs a snapshot of system resource usage including, memory, swap, and disk I/O. To see a continuous display, follow the command with a time delay (in seconds) for updates. Here’s an example: vmstat 5. Terminate the output with Ctrl-c.</li>
+<li><code>wc</code> - Print newline, word, and byte counts for each file</li>
+<li><code>wget</code> - Non-interactive network downloader</li>
+<li><code>whatis</code> - Display one-line manual page descriptions</li>
+<li><code>which</code> - Display which executable program will be executed</li>
+<li><code>who</code> - show who is logged on</li>
+<li><code>whoami</code> - print effective userid</li>
+<li><code>wodim</code> (cdrecord) - Write data to optical storage media</li>
+<li><code>write</code> - send a message to another user</li>
+<li><code>xload</code> - A graphical program that draws a graph showing system load over time</li>
+<li><code>zcat</code></li>
+<li><code>zgrep</code> - Like grep but for compressed files</li>
+<li><code>zip</code> - Package and compress files zip, unzip .zip <code>zip -r playground.zip playground</code></li>
+<li><code>zless</code></li>
+<li>w (1)                - Show who is logged on and what they are doing.</li>
+<li>last (1)             - show a listing of last logged in users</li>
+<li>lastb (1)            - show a listing of failed login attempts</li>
+<li>lastlog (8)          - reports the most recent login of all users or of a given user</li>
+<li>id (1)               - print real and effective user and group IDs</li>
+<li>groups (1)           - print the groups a user is in</li>
+<li>chage (1)            - change user password expiry information</li>
+<li>groupadd (8)         - create a new group</li>
+<li>groupdel (8)         - delete a group</li>
+<li>groupmod (8)         - modify a group definition on the system</li>
+<li>logname (1)          - print user's login name</li>
+<li><code>env</code> - print all of part of the environment</li>
+<li>unset (1p)           - unset values and attributes of variables and functions</li>
+<li>pidof (1)            - find the process ID of a running program</li>
+<li>[root@server1 ~]# whatis pgrep
+pgrep (1)            - look up, signal, or wait for processes based on name and other attributes</li>
+</ul>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

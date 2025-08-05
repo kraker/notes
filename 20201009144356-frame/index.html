@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>Frame - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#answer">Answer</a></li>
+        <li><a href="#generic-frame">Generic Frame</a></li>
+        <li><a href="#unicast-frame">Unicast frame</a></li>
+        <li><a href="#ethernet-frame">Ethernet frame</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <p>What is a frame?</p>
+<h2 id="answer">Answer<a class="headerlink" href="#answer" title="Anchor link to this section for reference">#</a></h2>
+<p>Container for a chunk of data as it moves across the network.
+<a href="../20201009143049-nic/">NIC</a>s create and send as well as receive and read frames.</p>
+<h2 id="generic-frame">Generic Frame<a class="headerlink" href="#generic-frame" title="Anchor link to this section for reference">#</a></h2>
+<p>| Destination | Source      | Type | Data | FCS |
+| MAC address | MAC address |      |      |     |
+<em>Usually holds at most 1500 bytes of data.</em></p>
+<ul>
+<li>Preamble
+    <em>See below</em></li>
+<li><a href="../20201009143255-mac/">MAC address</a></li>
+<li>Type
+    Identifies data encoding at a very basic level. IPv4 vs IPv6, for example.</li>
+<li>Data
+    Whatever payload the frame carries. IP <a href="../20201010182424-packet/">packet</a> for example</li>
+<li>Pad
+    The minimum Ethernet frame is 64 bytes. If a frame has fewer than 64 bytes of
+    data the sending NIC will automatically add extra data.</li>
+<li>FCS<ul>
+<li><strong>FCS:</strong> Frame Check Sequence</li>
+<li>4 bytes long</li>
+<li>Uses CRC to check the integrity of the data</li>
+<li><strong>CRC:</strong> cyclic redundancy check</li>
+</ul>
+</li>
+</ul>
+<h2 id="unicast-frame">Unicast frame<a class="headerlink" href="#unicast-frame" title="Anchor link to this section for reference">#</a></h2>
+<p>Any frame specifically addressed to another device's MAC address.
+<em>unicast addressing</em></p>
+<h2 id="ethernet-frame"><a href="../20210626072017-ethernet-frame/">Ethernet frame</a><a class="headerlink" href="#ethernet-frame" title="Anchor link to this section for reference">#</a></h2>
+<p>Same basic fields as the <em>generic frame</em>.
+* Transmission starts with a <em>preamble</em> and can also include extra filler
+* called a pad.
+* <strong>preamble:</strong> 7-byte series of alternating 1s and 0s followed by a 1-byte
+    <em>start frame delimiter</em>.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>
