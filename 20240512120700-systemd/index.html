@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20240512120700-systemd/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,9 +212,9 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="systemd">systemd<a class="headerlink" href="#systemd" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="systemd">systemd<a class="headerlink" href="#systemd" title="Permanent link">#</a></h1>
 <p>The service manager on most modern Linux distributions. Systemd is the very first process that starts after the kernel is loaded, and it takes care of starting all other processes and services on a Linux system.</p>
-<h2 id="unit">unit<a class="headerlink" href="#unit" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="unit">unit<a class="headerlink" href="#unit" title="Permanent link">#</a></h2>
 <p>An item that is managed by Systemd. Different types of units exist:</p>
 <pre><code class="language-bash">[root@rocky9 ~]# systemctl -t help
 Available unit types:
@@ -128,7 +230,7 @@ path
 slice
 scope
 </code></pre>
-<h3 id="overview-of-units-targets">Overview of units &amp; targets<a class="headerlink" href="#overview-of-units-targets" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="overview-of-units-targets">Overview of units &amp; targets<a class="headerlink" href="#overview-of-units-targets" title="Permanent link">#</a></h3>
 <p><em>systemctl</em> overview commands:</p>
 <table>
 <thead>
@@ -172,32 +274,32 @@ scope
 </tr>
 </tbody>
 </table>
-<h3 id="unit-dependencies">Unit dependencies<a class="headerlink" href="#unit-dependencies" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="unit-dependencies">Unit dependencies<a class="headerlink" href="#unit-dependencies" title="Permanent link">#</a></h3>
 <p>Find out which dependencies a unit has:</p>
 <pre><code class="language-bash">systemctl list-dependencies &lt;unitname&gt;
 </code></pre>
 <p>Find out which units are required for this unit to be started:</p>
 <pre><code class="language-bash">systemctl list-dependencies &lt;unitname&gt; --reverse
 </code></pre>
-<h3 id="print-existing-unit-file">Print existing unit file<a class="headerlink" href="#print-existing-unit-file" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="print-existing-unit-file">Print existing unit file<a class="headerlink" href="#print-existing-unit-file" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">systemctl cat &lt;unitname&gt;
 </code></pre>
-<h3 id="unit-options">Unit options<a class="headerlink" href="#unit-options" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="unit-options">Unit options<a class="headerlink" href="#unit-options" title="Permanent link">#</a></h3>
 <p>Show available unit options:</p>
 <pre><code class="language-bash">systemctl show
 # or
 systemctl show &lt;unitname&gt;
 </code></pre>
-<h3 id="editing-units">Editing units<a class="headerlink" href="#editing-units" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="editing-units">Editing units<a class="headerlink" href="#editing-units" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">systemctl edit &lt;unitname&gt;
 </code></pre>
-<h3 id="reload-systemd-units">Reload systemd units<a class="headerlink" href="#reload-systemd-units" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="reload-systemd-units">Reload systemd units<a class="headerlink" href="#reload-systemd-units" title="Permanent link">#</a></h3>
 <p>Reload systemd unit files after editing or making changes:</p>
 <pre><code class="language-bash">systemctl daemon-reload
 </code></pre>
-<h2 id="target">target<a class="headerlink" href="#target" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="target">target<a class="headerlink" href="#target" title="Permanent link">#</a></h2>
 <p>In Systemd, a collection of unit files that can be managed together.</p>
-<h3 id="set-default-boot-target">Set default boot target<a class="headerlink" href="#set-default-boot-target" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="set-default-boot-target">Set default boot target<a class="headerlink" href="#set-default-boot-target" title="Permanent link">#</a></h3>
 <p>Check current default boot target:</p>
 <pre><code class="language-bash">[root@rhel9-a ~]# systemctl get-default
 multi-user.target
@@ -205,7 +307,7 @@ multi-user.target
 <p>Set default boot target:</p>
 <pre><code class="language-bash">systemctl set-default multi-user
 </code></pre>
-<h3 id="halt-poweroff-reboot-and-shutdown">halt, poweroff, reboot, and shutdown<a class="headerlink" href="#halt-poweroff-reboot-and-shutdown" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="halt-poweroff-reboot-and-shutdown">halt, poweroff, reboot, and shutdown<a class="headerlink" href="#halt-poweroff-reboot-and-shutdown" title="Permanent link">#</a></h3>
 <p><code>halt</code>, <code>poweroff</code>, <code>reboot</code>, and <code>shutdown</code> are systemd targets in later versions of RHEL. They're symbolic links to <code>systemctl</code>.</p>
 <pre><code class="language-bash">[root@rhel9-a ~]# ll /usr/sbin/{halt,poweroff,reboot,shutdown}
 lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/halt -&gt; ../bin/systemctl
@@ -213,7 +315,7 @@ lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/poweroff -&gt; ../bin/systemct
 lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/reboot -&gt; ../bin/systemctl
 lrwxrwxrwx. 1 root root 16 Apr  8 11:53 /usr/sbin/shutdown -&gt; ../bin/systemctl
 </code></pre>
-<h2 id="want">want<a class="headerlink" href="#want" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="want">want<a class="headerlink" href="#want" title="Permanent link">#</a></h2>
 <p>An indication for a Systemd unit file that is supposed to be started from a specific Systemd target.</p>
 <pre><code>...
 [Install]

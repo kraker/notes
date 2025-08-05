@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201105142629-network-address-translation/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -111,15 +213,15 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="nat">NAT<a class="headerlink" href="#nat" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="nat">NAT<a class="headerlink" href="#nat" title="Permanent link">#</a></h1>
 <p>NAT replaces the source IP address of a device with the source IP from the outside router.</p>
-<h2 id="port-address-translation-pat"><a href="../20201105143031-port-address-translation-pat/">Port Address Translation (PAT)</a><a class="headerlink" href="#port-address-translation-pat" title="Anchor link to this section for reference">#</a></h2>
-<h1 id="port-forwarding"><a href="../20201105143809-port-forwarding/">Port Forwarding</a><a class="headerlink" href="#port-forwarding" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="static-nat-snat">Static NAT (SNAT)<a class="headerlink" href="#static-nat-snat" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="port-address-translation-pat"><a href="../20201105143031-port-address-translation-pat/">Port Address Translation (PAT)</a><a class="headerlink" href="#port-address-translation-pat" title="Permanent link">#</a></h2>
+<h1 id="port-forwarding"><a href="../20201105143809-port-forwarding/">Port Forwarding</a><a class="headerlink" href="#port-forwarding" title="Permanent link">#</a></h1>
+<h2 id="static-nat-snat">Static NAT (SNAT)<a class="headerlink" href="#static-nat-snat" title="Permanent link">#</a></h2>
 <p>Maps a single routable IP address (public) to a single machine on the network on a one-to-one basis.</p>
-<h2 id="dynamic-nat-dnat">Dynamic NAT (DNAT)<a class="headerlink" href="#dynamic-nat-dnat" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="dynamic-nat-dnat">Dynamic NAT (DNAT)<a class="headerlink" href="#dynamic-nat-dnat" title="Permanent link">#</a></h2>
 <p>Uses a pool of IP addresses to serve a larger number of devices on the LAN. This still needs many true routable IP addresses which can be expensive. And if more devices try to connect than are available in the IP pool, then a device won't be able to connect.</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.comptia.org/content/guides/what-is-network-address-translation">CompTIA - What is NAT?</a></li>
 </ul>

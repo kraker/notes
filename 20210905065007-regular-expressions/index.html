@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210905065007-regular-expressions/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -115,8 +217,8 @@
 
 <section id="mkdocs-terminal-content">
     <p>Symbolic notations used to identify patterns in text</p>
-<h2 id="literal-characters">literal characters<a class="headerlink" href="#literal-characters" title="Anchor link to this section for reference">#</a></h2>
-<h2 id="metacharacters">metacharacters<a class="headerlink" href="#metacharacters" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="literal-characters">literal characters<a class="headerlink" href="#literal-characters" title="Permanent link">#</a></h2>
+<h2 id="metacharacters">metacharacters<a class="headerlink" href="#metacharacters" title="Permanent link">#</a></h2>
 <p>^ $ . [ ] { } - ? * + ( ) | \ <em>Most of these have meaning to the
 shell and must be quoted</em></p>
 <p>Metacharacters</p>
@@ -240,7 +342,7 @@ shell and must be quoted</em></p>
 <li>POSIX Basic vs Extended Regular Expressions
    BRE <code>^ $ . \[ \] \*</code> ERE <code>( ) { } ? + | *</code> and the BRE characters</li>
 </ol>
-<h2 id="alternation">Alternation<a class="headerlink" href="#alternation" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="alternation">Alternation<a class="headerlink" href="#alternation" title="Permanent link">#</a></h2>
 <p>'|' - or</p>
 <pre><code class="language-bash">~$ echo &quot;AAA&quot; | grep -E 'AAA|BBB'
 AAA
@@ -249,7 +351,7 @@ BBB
 ~$ echo &quot;CCC&quot; | grep -E 'AAA|BBB'
 ~$
 </code></pre>
-<h2 id="quantifiers">Quantifiers<a class="headerlink" href="#quantifiers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="quantifiers">Quantifiers<a class="headerlink" href="#quantifiers" title="Permanent link">#</a></h2>
 <p>'?' - Match an Element Zero or One Time</p>
 <p>Example: (nnn) nnn-nnnn or nnn nnn-nnnn ^(?[0-9][0-9][0-9])?
 [0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$</p>
@@ -288,19 +390,19 @@ separated by single spaces. <code>^([[:alpha:]]+ ?)+$</code></p>
 </table>
 <p>Specifying the Number of Matches</p>
 <p>Simplified phone number example: ^(?[0-9]{3})? [0-9]{3}-[0-9]{4}$</p>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Regular_expression">Regular expression</a></li>
 <li><a href="https://regexone.com/">Regex One</a></li>
 <li><a href="https://youtu.be/dL2PDkU-rOw">3 Top Secret Regex Debugging Techniques Experts Use</a></li>
 <li><a href="https://metacpan.org/pod/Regexp::Debugger">Perl Regex Debugger</a></li>
 </ul>
-<h3 id="books">Books<a class="headerlink" href="#books" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="books">Books<a class="headerlink" href="#books" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://www.amazon.com/Mastering-Regular-Expressions-Understand-Productive-ebook/dp/B007I8S1X0/ref=sr_1_1?crid=T82AM1SS4ARZ&amp;keywords=mastering+regular+expressions&amp;qid=1648731362&amp;s=digital-text&amp;sprefix=mastering+regular+expressions%2Cdigital-text%2C79&amp;sr=1-1">Mastering Regular Expressions</a></li>
 <li>Recommended by Noah A.</li>
 </ul>
-<h3 id="interesting-articles">Interesting articles<a class="headerlink" href="#interesting-articles" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="interesting-articles">Interesting articles<a class="headerlink" href="#interesting-articles" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://susam.in/maze/zero-length-regular-expression.html">Zero Length Regular Expression</a></li>
 </ul>

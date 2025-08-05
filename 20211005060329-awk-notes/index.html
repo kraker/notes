@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211005060329-awk-notes/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -114,7 +216,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="printing">Printing<a class="headerlink" href="#printing" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="printing">Printing<a class="headerlink" href="#printing" title="Permanent link">#</a></h2>
 <p>In Awk each line is a <em>record</em> and each column is a <em>field</em>.</p>
 <p>You can print the whole line or individual <em>fields</em> like so.</p>
 <pre><code class="language-bash">i[akraker@localhost:~/awk]$ echo &quot;one two three&quot; | awk '{ print }'
@@ -146,7 +248,7 @@ four five six&quot; | awk '{ print $1, $2 }'
 one two
 four five
 </code></pre>
-<h2 id="fields">Fields<a class="headerlink" href="#fields" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link">#</a></h2>
 <p>In Awk columns are called <em>fields</em>. Fields are indexed starting from 1. </p>
 <p>In Awk there's a special variable <code>$NF</code> which stands for <em>Number of Fields</em>.</p>
 <p>That's why this variable allows us to print the last field in a record because
@@ -159,14 +261,14 @@ i&gt; | awk '{ print $NF }'
 three
 six
 </code></pre>
-<h2 id="field-separators">Field Separators<a class="headerlink" href="#field-separators" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="field-separators">Field Separators<a class="headerlink" href="#field-separators" title="Permanent link">#</a></h2>
 <p>By default Awk assumes fields in a record are whitespace delimited. The field
 separator can be anything you want though.</p>
 <p>Example:</p>
 <pre><code class="language-bash"></code></pre>
 <p>Field separators can be defined by a regex too:</p>
 <pre><code class="language-bash"></code></pre>
-<h2 id="records">Records<a class="headerlink" href="#records" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="records">Records<a class="headerlink" href="#records" title="Permanent link">#</a></h2>
 <p>In Awk a record is a line, just like fields are columns. Records are also
 indexed starting from 1 just like with fields. Awk has the special variable
 <code>$NR</code> that stands for <em>Number of Records</em>. For each line in a file <em>NR</em> stands
@@ -184,7 +286,7 @@ numbers:</p>
 9 Five Stars
 10 Five Stars
 </code></pre>
-<h2 id="pattern-matching">Pattern Matching<a class="headerlink" href="#pattern-matching" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="pattern-matching">Pattern Matching<a class="headerlink" href="#pattern-matching" title="Permanent link">#</a></h2>
 <p>Only print records that have a match:</p>
 <pre><code class="language-bash">i[akraker@localhost:~/awk]$ echo &quot;aa
 i&gt; bb
@@ -198,7 +300,7 @@ i&gt; bb 20
 i&gt; cc 30&quot; | awk '/bb/ { print $2 }'
 20
 </code></pre>
-<h3 id="matching-within-fields">Matching within fields<a class="headerlink" href="#matching-within-fields" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="matching-within-fields">Matching within fields<a class="headerlink" href="#matching-within-fields" title="Permanent link">#</a></h3>
 <p>Matching within a field:</p>
 <pre><code class="language-bash">awk '$4~/hello/ { print &quot;This field contains hello&quot;, $4}'
 </code></pre>

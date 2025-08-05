@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211105151202-aps-pipeline-roadmap/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -122,11 +224,11 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="linux-system-administration-basics">Linux System Administration Basics<a class="headerlink" href="#linux-system-administration-basics" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="linux-system-administration-basics">Linux System Administration Basics<a class="headerlink" href="#linux-system-administration-basics" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.linode.com/docs/guides/linux-system-administration-basics/">Linux System Administration Basics</a></li>
 </ul>
-<h2 id="intermediate-linux-cli">Intermediate Linux CLI<a class="headerlink" href="#intermediate-linux-cli" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="intermediate-linux-cli">Intermediate Linux CLI<a class="headerlink" href="#intermediate-linux-cli" title="Permanent link">#</a></h2>
 <ul>
 <li>Gold-standard book: <a href="https://www.linuxcommand.org/tlcl.php">The Linux Command Line</a></li>
 <li>Free PDF download, but purchase optional</li>
@@ -134,32 +236,32 @@
 <li>Sections 1 and 2. Section 3 is bash scripting which is also helpful to know,
   but more in the scope of T2S/MH pipeline.</li>
 </ul>
-<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h3>
 <ul>
 <li><code>ftp</code> and <code>lftp</code></li>
 <li><code>scp</code> ?</li>
 <li><code>ssh</code></li>
 </ul>
-<h2 id="bash">Bash<a class="headerlink" href="#bash" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="io-redirection">I/O Redirection<a class="headerlink" href="#io-redirection" title="Anchor link to this section for reference">#</a></h3>
-<h5 id="standard-output">Standard Output<a class="headerlink" href="#standard-output" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="standard-input">Standard Input<a class="headerlink" href="#standard-input" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Anchor link to this section for reference">#</a></h5>
-<h4 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Anchor link to this section for reference">#</a></h4>
-<h5 id="pathname-expansion">Pathname Expansion<a class="headerlink" href="#pathname-expansion" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="tilde-expansion">Tilde Expansion<a class="headerlink" href="#tilde-expansion" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="brace-expansion">Brace Expansion<a class="headerlink" href="#brace-expansion" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="parameter-expansion">Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="command-substitution">Command Substitution<a class="headerlink" href="#command-substitution" title="Anchor link to this section for reference">#</a></h5>
-<h4 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Anchor link to this section for reference">#</a></h4>
-<h5 id="double-quotes">Double Quotes<a class="headerlink" href="#double-quotes" title="Anchor link to this section for reference">#</a></h5>
-<h5 id="single-quotes">Single Quotes<a class="headerlink" href="#single-quotes" title="Anchor link to this section for reference">#</a></h5>
-<h4 id="escaping-characters">Escaping Characters<a class="headerlink" href="#escaping-characters" title="Anchor link to this section for reference">#</a></h4>
-<h2 id="basic-regex">Basic Regex<a class="headerlink" href="#basic-regex" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="bash">Bash<a class="headerlink" href="#bash" title="Permanent link">#</a></h2>
+<h3 id="io-redirection">I/O Redirection<a class="headerlink" href="#io-redirection" title="Permanent link">#</a></h3>
+<h5 id="standard-output">Standard Output<a class="headerlink" href="#standard-output" title="Permanent link">#</a></h5>
+<h5 id="standard-input">Standard Input<a class="headerlink" href="#standard-input" title="Permanent link">#</a></h5>
+<h5 id="pipes">Pipes<a class="headerlink" href="#pipes" title="Permanent link">#</a></h5>
+<h4 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">#</a></h4>
+<h5 id="pathname-expansion">Pathname Expansion<a class="headerlink" href="#pathname-expansion" title="Permanent link">#</a></h5>
+<h5 id="tilde-expansion">Tilde Expansion<a class="headerlink" href="#tilde-expansion" title="Permanent link">#</a></h5>
+<h5 id="brace-expansion">Brace Expansion<a class="headerlink" href="#brace-expansion" title="Permanent link">#</a></h5>
+<h5 id="parameter-expansion">Parameter Expansion<a class="headerlink" href="#parameter-expansion" title="Permanent link">#</a></h5>
+<h5 id="command-substitution">Command Substitution<a class="headerlink" href="#command-substitution" title="Permanent link">#</a></h5>
+<h4 id="quoting">Quoting<a class="headerlink" href="#quoting" title="Permanent link">#</a></h4>
+<h5 id="double-quotes">Double Quotes<a class="headerlink" href="#double-quotes" title="Permanent link">#</a></h5>
+<h5 id="single-quotes">Single Quotes<a class="headerlink" href="#single-quotes" title="Permanent link">#</a></h5>
+<h4 id="escaping-characters">Escaping Characters<a class="headerlink" href="#escaping-characters" title="Permanent link">#</a></h4>
+<h2 id="basic-regex">Basic Regex<a class="headerlink" href="#basic-regex" title="Permanent link">#</a></h2>
 <ul>
 <li>Gold-standard tutorial: <a href="https://regexone.com">regexone.com</a></li>
 </ul>
-<h2 id="basic-text-processing">Basic Text Processing<a class="headerlink" href="#basic-text-processing" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="basic-text-processing">Basic Text Processing<a class="headerlink" href="#basic-text-processing" title="Permanent link">#</a></h2>
 <ul>
 <li><code>sort</code></li>
 <li><code>uniq</code></li>
@@ -169,17 +271,17 @@
 <li><code>tr</code></li>
 <li><code>cut</code></li>
 </ul>
-<h3 id="intro-to-sed-and-awk">Intro to Sed and Awk<a class="headerlink" href="#intro-to-sed-and-awk" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="intro-to-sed-and-awk">Intro to Sed and Awk<a class="headerlink" href="#intro-to-sed-and-awk" title="Permanent link">#</a></h3>
 <ul>
 <li><code>sed</code></li>
 <li><code>awk</code></li>
 </ul>
-<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="optional">Optional<a class="headerlink" href="#optional" title="Permanent link">#</a></h4>
 <ul>
 <li><code>fmt</code></li>
 <li><code>pr</code></li>
 </ul>
-<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">#</a></h2>
 <ul>
 <li><code>stat</code></li>
 <li><code>chmod</code></li>
@@ -188,9 +290,9 @@
 <li><code>chown</code></li>
 <li><code>chgrp</code></li>
 </ul>
-<h3 id="file-perms">File perms<a class="headerlink" href="#file-perms" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="user-management">User Management<a class="headerlink" href="#user-management" title="Anchor link to this section for reference">#</a></h3>
-<h2 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Anchor link to this section for reference">#</a></h2>
+<h3 id="file-perms">File perms<a class="headerlink" href="#file-perms" title="Permanent link">#</a></h3>
+<h3 id="user-management">User Management<a class="headerlink" href="#user-management" title="Permanent link">#</a></h3>
+<h2 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Permanent link">#</a></h2>
 <ul>
 <li><code>ps</code></li>
 <li><code>kill</code></li>
@@ -198,33 +300,33 @@
 <li><code>bg</code></li>
 <li><code>fg</code></li>
 </ul>
-<h2 id="finding-files">Finding Files<a class="headerlink" href="#finding-files" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="finding-files">Finding Files<a class="headerlink" href="#finding-files" title="Permanent link">#</a></h2>
 <ul>
 <li><code>find</code></li>
 <li><code>locate</code></li>
 </ul>
-<h2 id="disk-utilization">Disk utilization<a class="headerlink" href="#disk-utilization" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="disk-utilization">Disk utilization<a class="headerlink" href="#disk-utilization" title="Permanent link">#</a></h2>
 <ul>
 <li><code>du</code></li>
 <li><code>df</code></li>
 </ul>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">#</a></h2>
+<h3 id="sessions">Sessions<a class="headerlink" href="#sessions" title="Permanent link">#</a></h3>
 <ul>
 <li><code>ssh</code></li>
 <li><code>screen</code></li>
 </ul>
-<h4 id="firewalls">Firewalls<a class="headerlink" href="#firewalls" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="firewalls">Firewalls<a class="headerlink" href="#firewalls" title="Permanent link">#</a></h4>
 <ul>
 <li><code>apf</code></li>
 <li><code>csf</code></li>
 </ul>
-<h2 id="backups-and-archives">Backups and Archives<a class="headerlink" href="#backups-and-archives" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="backups-and-archives">Backups and Archives<a class="headerlink" href="#backups-and-archives" title="Permanent link">#</a></h2>
 <ul>
 <li><code>tar</code></li>
 <li><code>rsync</code></li>
 </ul>
-<h3 id="proposed-lab">Proposed lab:<a class="headerlink" href="#proposed-lab" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="proposed-lab">Proposed lab:<a class="headerlink" href="#proposed-lab" title="Permanent link">#</a></h3>
 <p>Perform a migration:</p>
 <ul>
 <li>Setup SSH keys</li>
@@ -232,24 +334,24 @@
 <li>Create a tar ball</li>
 <li>migrate with rsync</li>
 </ul>
-<h2 id="basic-performance-troubleshooting">Basic Performance Troubleshooting<a class="headerlink" href="#basic-performance-troubleshooting" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="basic-performance-troubleshooting">Basic Performance Troubleshooting<a class="headerlink" href="#basic-performance-troubleshooting" title="Permanent link">#</a></h2>
 <ul>
 <li><code>top</code> &amp; <code>htop</code></li>
 <li><code>free</code></li>
 <li><code>uptime</code></li>
 <li><code>sar</code></li>
 </ul>
-<h3 id="apache-domlogs">Apache Domlogs<a class="headerlink" href="#apache-domlogs" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="apache-domlogs">Apache Domlogs<a class="headerlink" href="#apache-domlogs" title="Permanent link">#</a></h3>
 <ul>
 <li>dedrads: <code>nlp</code></li>
 </ul>
-<h2 id="lamp">LAMP<a class="headerlink" href="#lamp" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="lamp">LAMP<a class="headerlink" href="#lamp" title="Permanent link">#</a></h2>
 <ul>
 <li><code>apachectl</code></li>
 <li><code>mysql</code></li>
 <li><code>php</code> CLI</li>
 </ul>
-<h3 id="proposed-lab_1">Proposed lab:<a class="headerlink" href="#proposed-lab_1" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="proposed-lab_1">Proposed lab:<a class="headerlink" href="#proposed-lab_1" title="Permanent link">#</a></h3>
 <p>Install a lamp stack from scratch, configure vhosts, setup mysql, install PHP
 and modules and get a WP site served on a unique domain with hosts file mod.</p>
 </section>

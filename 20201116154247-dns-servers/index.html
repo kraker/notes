@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201116154247-dns-servers/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,24 +212,24 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="dns-servers">DNS Servers<a class="headerlink" href="#dns-servers" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="dns-servers">DNS Servers<a class="headerlink" href="#dns-servers" title="Permanent link">#</a></h1>
 <p>A DNS server is a computer running DNS server software.
 * Protocols: Primarily UDP but sometimes TCP
 * Port: 53</p>
-<h2 id="root-servers">Root Servers<a class="headerlink" href="#root-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="root-servers">Root Servers<a class="headerlink" href="#root-servers" title="Permanent link">#</a></h2>
 <ul>
 <li>DNS starts with a '.'</li>
 <li>Delegates name resolution to other DNS servers</li>
 </ul>
-<h2 id="top-level-domain-tld-servers">Top-Level Domain (TLD) Servers<a class="headerlink" href="#top-level-domain-tld-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="top-level-domain-tld-servers">Top-Level Domain (TLD) Servers<a class="headerlink" href="#top-level-domain-tld-servers" title="Permanent link">#</a></h2>
 <ul>
 <li>These are all the '.com' '.org' '.net' '.edu' '.gov', etc.</li>
 <li><a href="../20201116155024-icann/">ICANN</a> has the authority to create new TLDs.</li>
 </ul>
-<h2 id="second-level-dns-servers">Second-Level DNS Servers<a class="headerlink" href="#second-level-dns-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="second-level-dns-servers">Second-Level DNS Servers<a class="headerlink" href="#second-level-dns-servers" title="Permanent link">#</a></h2>
 <p>Handle millions of names like totalsem.com, alexkraker.net, etc</p>
-<h2 id="name-servers"><a href="../20201117152350-name-servers/">Name Servers</a><a class="headerlink" href="#name-servers" title="Anchor link to this section for reference">#</a></h2>
-<h2 id="dns-zone"><a href="../20201117152732-zone/">DNS Zone</a><a class="headerlink" href="#dns-zone" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="name-servers"><a href="../20201117152350-name-servers/">Name Servers</a><a class="headerlink" href="#name-servers" title="Permanent link">#</a></h2>
+<h2 id="dns-zone"><a href="../20201117152732-zone/">DNS Zone</a><a class="headerlink" href="#dns-zone" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="2021-02-02--06-56-38Z--foward_lookup_zone.md.md">Foward Lookup Zone</a>
     Where IPs and FQDNs for the devices in a domain are stored.</li>
@@ -135,7 +237,7 @@
 <li><strong>Cached Lookups</strong>
     Previously resolved <a href="../20201117152114-fqdn/">FQDN</a>'s are <em>cached</em>.</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>Authoritative</strong>
     Store IP addresses and FQDN's of systems for a particular domain or domains.</li>
@@ -143,8 +245,8 @@
     Never the authoritative nameserver. Communicate with other DNS servers to 
     resolve domains.</li>
 </ul>
-<h2 id="dns-records"><a href="../20201117152831-dns-record/">DNS Records</a><a class="headerlink" href="#dns-records" title="Anchor link to this section for reference">#</a></h2>
-<h2 id="location-of-dns-servers">Location of DNS Servers<a class="headerlink" href="#location-of-dns-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="dns-records"><a href="../20201117152831-dns-record/">DNS Records</a><a class="headerlink" href="#dns-records" title="Permanent link">#</a></h2>
+<h2 id="location-of-dns-servers">Location of DNS Servers<a class="headerlink" href="#location-of-dns-servers" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>Local</strong><ul>
 <li>Usually private DNS</li>
@@ -154,7 +256,7 @@
 <li><strong>External</strong>
     Any DNS server that is not internal to an organization.</li>
 </ul>
-<h2 id="dynamic-dns">Dynamic DNS<a class="headerlink" href="#dynamic-dns" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="dynamic-dns">Dynamic DNS<a class="headerlink" href="#dynamic-dns" title="Permanent link">#</a></h2>
 <p>Works together with <a href="2020-10-21--13-18-28Z--dhcp.org">DHCP</a> to
 dynamically update IP addresses of forward lookup zones
 * IPAM

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201010181222-tcp/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -127,9 +229,9 @@ sent.</p>
 * Data comes from the <a href="../20201011180448-application-layer/">application layer</a> 
     and is packaged by TCP into <em>segments</em> which are then handed to the 
     <a href="../20201011171739-internet-layer/">internet layer</a>.</p>
-<h2 id="tcp-segment"><a href="../20201011174727-tcp-segment/">TCP Segment</a><a class="headerlink" href="#tcp-segment" title="Anchor link to this section for reference">#</a></h2>
-<h2 id="protocol-operation">Protocol operation<a class="headerlink" href="#protocol-operation" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="connection-establishment">Connection establishment<a class="headerlink" href="#connection-establishment" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="tcp-segment"><a href="../20201011174727-tcp-segment/">TCP Segment</a><a class="headerlink" href="#tcp-segment" title="Permanent link">#</a></h2>
+<h2 id="protocol-operation">Protocol operation<a class="headerlink" href="#protocol-operation" title="Permanent link">#</a></h2>
+<h3 id="connection-establishment">Connection establishment<a class="headerlink" href="#connection-establishment" title="Permanent link">#</a></h3>
 <p><em>TCP 3-way handshake</em></p>
 <p>Before transmission sending and receiving devices must acknowledge each other's
 presence and readiness to send and receive data.</p>
@@ -151,12 +253,12 @@ other direction. Following the completion of these steps, both the client and
 server have received acknowledgements anda full-duplex communication is
 established.</em></p>
 <p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Connection_establishment">Source</a></p>
-<h3 id="connection-termination">Connection termination<a class="headerlink" href="#connection-termination" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="connection-termination">Connection termination<a class="headerlink" href="#connection-termination" title="Permanent link">#</a></h3>
 <p>Once transmission is complete -
 Sending device: FIN
 Receiving device: ACK, FIN
 Sending device: ACK</p>
-<h2 id="tcp-header"><a href="../20201021130955-tcp-header/">TCP Header</a><a class="headerlink" href="#tcp-header" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="tcp-header"><a href="../20201021130955-tcp-header/">TCP Header</a><a class="headerlink" href="#tcp-header" title="Permanent link">#</a></h2>
 </section>
 
 <section id="mkdocs-terminal-after-content">

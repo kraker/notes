@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211013061838-performance-and-optimization/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,15 +212,15 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="performance-optimization">Performance &amp; Optimization<a class="headerlink" href="#performance-optimization" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="performance-optimization">Performance &amp; Optimization<a class="headerlink" href="#performance-optimization" title="Permanent link">#</a></h1>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.brendangregg.com/blog/2017-08-08/linux-load-averages.html">Explanation of what load averages really means</a></li>
 <li><a href="https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55">Commands you should run in the first 60 seconds on a misbehaving server</a></li>
 <li><a href="https://medium.com/netflix-techblog/netflix-at-velocity-2015-linux-performance-tools-51964ddb81cf">In-depth analysis of Linux Performance tools</a></li>
 <li><a href="https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html">30 Linux monitoring tools every sysadmin should know</a></li>
 </ul>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://medium.com/netflix-techblog/netflix-at-velocity-2015-linux-performance-tools-51964ddb81cf">Source</a></li>
 <li><a href="https://www.slideshare.net/brendangregg/velocity-2015-linux-perf-tools">Slides from presentation</a></li>
@@ -126,11 +228,11 @@
 <p>It's important to have a methodology. I've run these tools in this manner and I
 didn't find anything that indicates a performance issue on the server. I think
 you should check your code.</p>
-<h3 id="anti-methods">Anti-Methods<a class="headerlink" href="#anti-methods" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="anti-methods">Anti-Methods<a class="headerlink" href="#anti-methods" title="Permanent link">#</a></h3>
 <p>Drunk man looking for their keys under a streetlamp because that's where the
 light is.</p>
 <p>Blame someone else anti-method.</p>
-<h3 id="actual-methodologies">Actual Methodologies<a class="headerlink" href="#actual-methodologies" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="actual-methodologies">Actual Methodologies<a class="headerlink" href="#actual-methodologies" title="Permanent link">#</a></h3>
 <ul>
 <li>Problem statement</li>
 <li>Workload characterization</li>
@@ -141,7 +243,7 @@ light is.</p>
 <li>Active Benchmarking</li>
 <li>Static Performance Tuning</li>
 </ul>
-<h4 id="problem-statement-method">Problem Statement Method<a class="headerlink" href="#problem-statement-method" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="problem-statement-method">Problem Statement Method<a class="headerlink" href="#problem-statement-method" title="Permanent link">#</a></h4>
 <ol>
 <li>What makes you <strong>think</strong> there is a performance problem?</li>
 <li>Has this system <strong>ever</strong> performed well?</li>
@@ -155,14 +257,14 @@ light is.</p>
 <li>What is the <strong>environment</strong>? Software, hardware, instance types? Versions?
    Configuration?</li>
 </ol>
-<h4 id="workload-characterization-method">Workload Characterization Method<a class="headerlink" href="#workload-characterization-method" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="workload-characterization-method">Workload Characterization Method<a class="headerlink" href="#workload-characterization-method" title="Permanent link">#</a></h4>
 <ol>
 <li><strong>Who</strong> is causing the load? PID, UID, IP addr, ...</li>
 <li><strong>Why</strong> is the load called? code path, stack trace</li>
 <li><strong>What</strong> is the load? IOPS, tput, type, r/w</li>
 <li><strong>How</strong> is the load changing over time?</li>
 </ol>
-<h4 id="the-use-method">The USE Method<a class="headerlink" href="#the-use-method" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="the-use-method">The USE Method<a class="headerlink" href="#the-use-method" title="Permanent link">#</a></h4>
 <p>Only check these 3 things for all of your resources.</p>
 <p>For every resource check:</p>
 <ol>
@@ -179,12 +281,12 @@ light is.</p>
 <p>It helps if you have a functional (block) diagram of your system / software /
 environment, showing all resources</p>
 <p>Start with questions, then find the tools.</p>
-<h5 id="use-method-linux-performance-checklist">USE Method: Linux Performance Checklist<a class="headerlink" href="#use-method-linux-performance-checklist" title="Anchor link to this section for reference">#</a></h5>
+<h5 id="use-method-linux-performance-checklist">USE Method: Linux Performance Checklist<a class="headerlink" href="#use-method-linux-performance-checklist" title="Permanent link">#</a></h5>
 <p><a href="https://www.brendangregg.com/USEmethod/use-linux.html">USE Linux</a></p>
-<h4 id="off-cpu-analysis">Off-CPU Analysis<a class="headerlink" href="#off-cpu-analysis" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="off-cpu-analysis">Off-CPU Analysis<a class="headerlink" href="#off-cpu-analysis" title="Permanent link">#</a></h4>
 <p><em>See slides</em></p>
 <p>I'm not sure I understand this really...worth more research.</p>
-<h4 id="cpu-profile-method">CPU Profile Method<a class="headerlink" href="#cpu-profile-method" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="cpu-profile-method">CPU Profile Method<a class="headerlink" href="#cpu-profile-method" title="Permanent link">#</a></h4>
 <ol>
 <li>Take a CPU profile</li>
 <li>
@@ -197,7 +299,7 @@ environment, showing all resources</p>
 </ol>
 <p>If you profile what's on CPU then narrows down what parts of the software (i.e.
 MySQL) is actually turned on and therefore needs to be looked at.</p>
-<h4 id="rtfm">RTFM<a class="headerlink" href="#rtfm" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="rtfm">RTFM<a class="headerlink" href="#rtfm" title="Permanent link">#</a></h4>
 <p>How to understand performance tools or metrics?</p>
 <ol>
 <li>Man pages</li>
@@ -212,7 +314,7 @@ MySQL) is actually turned on and therefore needs to be looked at.</p>
 </ol>
 <p>Reading through source code. Writing a bit of code that should tax the resource
 in the way we're looking for.</p>
-<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">#</a></h3>
 <p>Objectives:</p>
 <ul>
 <li>Perform the USE Method for resource utilization</li>
@@ -226,7 +328,7 @@ in the way we're looking for.</p>
 <li>Understand tuning risks</li>
 <li>Perform Static Performance Tuning</li>
 </ul>
-<h4 id="tool-types">Tool Types<a class="headerlink" href="#tool-types" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="tool-types">Tool Types<a class="headerlink" href="#tool-types" title="Permanent link">#</a></h4>
 <table>
 <thead>
 <tr>
@@ -253,7 +355,7 @@ in the way we're looking for.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="basic-observability-tools">Basic Observability Tools<a class="headerlink" href="#basic-observability-tools" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="basic-observability-tools">Basic Observability Tools<a class="headerlink" href="#basic-observability-tools" title="Permanent link">#</a></h4>
 <ul>
 <li>uptime</li>
 <li>top or htop</li>
@@ -263,7 +365,7 @@ in the way we're looking for.</p>
 <li>mpstat</li>
 <li>free</li>
 </ul>
-<h4 id="intermediate-observability-tools">Intermediate Observability Tools<a class="headerlink" href="#intermediate-observability-tools" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="intermediate-observability-tools">Intermediate Observability Tools<a class="headerlink" href="#intermediate-observability-tools" title="Permanent link">#</a></h4>
 <ul>
 <li>strace</li>
 <li>tcpdump</li>

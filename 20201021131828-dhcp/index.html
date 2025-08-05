@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201021131828-dhcp/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -119,25 +221,25 @@
 <section id="mkdocs-terminal-content">
     <p><strong>Dynamic Host Configuration Protocol</strong>
 * Automatically assigns an <a href="../20201010180322-ip-address/">IP address</a> whenever a device connects to the network.</p>
-<h2 id="dhcp-four-way-handshake">DHCP four-way handshake<a class="headerlink" href="#dhcp-four-way-handshake" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="dhcp-four-way-handshake">DHCP four-way handshake<a class="headerlink" href="#dhcp-four-way-handshake" title="Permanent link">#</a></h2>
 <p><strong>DORA</strong>
 Discover
 Offer
 Request
 Acknowledgement</p>
-<h2 id="portsprotocols">Ports/Protocols<a class="headerlink" href="#portsprotocols" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="portsprotocols">Ports/Protocols<a class="headerlink" href="#portsprotocols" title="Permanent link">#</a></h2>
 <p>Uses <a href="../20201011173654-udp/">UDP</a> ports 67 and 68
 * Sending: 67
 * Receiving: 68</p>
-<h2 id="dhcp-relays">DHCP relays<a class="headerlink" href="#dhcp-relays" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="dhcp-relays">DHCP relays<a class="headerlink" href="#dhcp-relays" title="Permanent link">#</a></h2>
 <p>On larger networks with multiple LANs sometimes it's necessary to relay DHCP broadcasts through to the central DHCP server. <a href="../20201010180851-router/">Routers</a> block DHCP broadcasts by default.</p>
-<h2 id="ip-reservation">IP reservation<a class="headerlink" href="#ip-reservation" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="ip-reservation">IP reservation<a class="headerlink" href="#ip-reservation" title="Permanent link">#</a></h2>
 <p>Can configure DHCP servers to reserve certain IPs in use as static IPs on some machines</p>
-<h2 id="mac-reservations">MAC Reservations<a class="headerlink" href="#mac-reservations" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="mac-reservations">MAC Reservations<a class="headerlink" href="#mac-reservations" title="Permanent link">#</a></h2>
 <p>Rarely used, but sometimes it makes more sense to have the same MAC address always associated with the same IP.</p>
-<h2 id="no-dhcp-server">No DHCP Server<a class="headerlink" href="#no-dhcp-server" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="zeroconf"><a href="../20201103145619-zeroconf/">Zeroconf</a><a class="headerlink" href="#zeroconf" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="no-dhcp-server">No DHCP Server<a class="headerlink" href="#no-dhcp-server" title="Permanent link">#</a></h2>
+<h3 id="zeroconf"><a href="../20201103145619-zeroconf/">Zeroconf</a><a class="headerlink" href="#zeroconf" title="Permanent link">#</a></h3>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h3>
 <ol>
 <li>Try to re-establish lease manually
     Windows: <code>ipconfig /release</code>
@@ -147,9 +249,9 @@ Acknowledgement</p>
     Linux:   <code>sudo dhclient -r</code>
          <code>sudo dhclient</code></li>
 </ol>
-<h2 id="multiple-dhcp-servers">Multiple DHCP Servers<a class="headerlink" href="#multiple-dhcp-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="multiple-dhcp-servers">Multiple DHCP Servers<a class="headerlink" href="#multiple-dhcp-servers" title="Permanent link">#</a></h2>
 <p>Usually in a failover configuration.</p>
-<h2 id="rogue-dhcp-server">Rogue DHCP Server<a class="headerlink" href="#rogue-dhcp-server" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="rogue-dhcp-server">Rogue DHCP Server<a class="headerlink" href="#rogue-dhcp-server" title="Permanent link">#</a></h2>
 <p>A DHCP server is added to the network and is giving out incorrect IP addresses. Often this is either a user brings in a router from home and plugs it into the network or it's a malicious actor that has gained access to the network.</p>
 </section>
 

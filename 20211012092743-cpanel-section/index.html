@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211012092743-cpanel-section/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -116,14 +218,14 @@
     <ul>
 <li><a href="https://360.articulate.com/review/content/fcb7fff4-d67c-425a-8071-704974423c9a/review">Source</a></li>
 </ul>
-<h2 id="daily-process-log">Daily Process Log<a class="headerlink" href="#daily-process-log" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="daily-process-log">Daily Process Log<a class="headerlink" href="#daily-process-log" title="Permanent link">#</a></h2>
 <p>I would argue that familiarity with the GUI-based Daily Process Log as a
 troubleshooting and diagnostics tool is more appropriate in T1E training. By the
 time an agent is entering the APS pipeline then they should be getting
 introduced to CLI-based and cPanel agnostic tools like, <code>top</code>, <code>htop</code>, <code>sar</code>,
 <code>ps</code>, <code>uptime</code>, <code>free</code>, etc in order to diagnose and troubleshoot resource
 issues.</p>
-<h2 id="cagefs">CageFS<a class="headerlink" href="#cagefs" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="cagefs">CageFS<a class="headerlink" href="#cagefs" title="Permanent link">#</a></h2>
 <p>It's rare that CageFS issues are encountered, but they do happen. Since this is
 specific to our Shared hosting environment running on CloudLinux, I really feel
 that this is more appropriate as part of the official APS training and not
@@ -135,7 +237,7 @@ directories, symlinks, hard-links, linux ACL, etc. Virtualized file-systems like
 CageFS, and things like <em>bind-mounts</em> I would argue are an advanced linux
 file-system topic. This is more appropriate in the official APS training after
 the agent has a certain level of proficiency in linux file-system fundamentals.</p>
-<h2 id="regenerating-dovecot-index-files">Regenerating Dovecot index files<a class="headerlink" href="#regenerating-dovecot-index-files" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="regenerating-dovecot-index-files">Regenerating Dovecot index files<a class="headerlink" href="#regenerating-dovecot-index-files" title="Permanent link">#</a></h2>
 <p>Fixing dovecot index issues like this is a common escalation as an APS agent.
 But this is very specific to Dovecot and cPanel. This is really more appropriate
 in the official APS training I feel like. </p>
@@ -143,7 +245,7 @@ in the official APS training I feel like. </p>
 <code>/var/log/maillog</code> and <code>/var/log/exim_mainlog</code> in order to diagnose and
 troubleshoot common issues, this might be a good place to
 introduce the topic of <em>regex</em> too.</p>
-<h2 id="service-manager">Service Manager<a class="headerlink" href="#service-manager" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="service-manager">Service Manager<a class="headerlink" href="#service-manager" title="Permanent link">#</a></h2>
 <p>This is probably more appropriate as T1E training. Anything cPanel GUI based is
 probably something a competent T1E should understand. </p>
 <p>We should be introducing init systems like systemd and the <code>systemctl</code> utility

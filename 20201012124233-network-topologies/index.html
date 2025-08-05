@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201012124233-network-topologies/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -114,29 +216,29 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="bus">Bus<a class="headerlink" href="#bus" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="bus">Bus<a class="headerlink" href="#bus" title="Permanent link">#</a></h2>
 <p>All computers connected together in-line or on a <em>bus</em>.
 <em>Not fault tolerant</em></p>
-<h2 id="ring">Ring<a class="headerlink" href="#ring" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="ring">Ring<a class="headerlink" href="#ring" title="Permanent link">#</a></h2>
 <p>All connected in a loop or <em>ring</em>.
 <em>Not fault tolerant</em></p>
-<h2 id="star">Star<a class="headerlink" href="#star" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="star">Star<a class="headerlink" href="#star" title="Permanent link">#</a></h2>
 <p>All devices connected to a hub
 <em>Fault tolerant</em></p>
-<h2 id="hybrid">Hybrid<a class="headerlink" href="#hybrid" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="hybrid">Hybrid<a class="headerlink" href="#hybrid" title="Permanent link">#</a></h2>
 <p>Early network systems <em>shrank</em> the bus and ring into a box.</p>
-<h3 id="physical-topology">Physical topology<a class="headerlink" href="#physical-topology" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="physical-topology">Physical topology<a class="headerlink" href="#physical-topology" title="Permanent link">#</a></h3>
 <p>Physically how the network looks.</p>
-<h3 id="logical-topology">Logical topology<a class="headerlink" href="#logical-topology" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="logical-topology">Logical topology<a class="headerlink" href="#logical-topology" title="Permanent link">#</a></h3>
 <p>Logically how the network functions. (i.e. ring or bus)</p>
-<h3 id="star-ring-and-star-bus-topologies">Star-ring and star-bus topologies<a class="headerlink" href="#star-ring-and-star-bus-topologies" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="star-ring-and-star-bus-topologies">Star-ring and star-bus topologies<a class="headerlink" href="#star-ring-and-star-bus-topologies" title="Permanent link">#</a></h3>
 <p>Eventually <em>star-ring</em> lost market share and now <em>star-bus</em> is the predominant
 topology in use.</p>
-<h2 id="mesh">Mesh<a class="headerlink" href="#mesh" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="mesh">Mesh<a class="headerlink" href="#mesh" title="Permanent link">#</a></h2>
 <p>Wireless network topologies.</p>
-<h3 id="partially-meshed">Partially Meshed<a class="headerlink" href="#partially-meshed" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="partially-meshed">Partially Meshed<a class="headerlink" href="#partially-meshed" title="Permanent link">#</a></h3>
 <p>At least 2 devices have redundant connections.</p>
-<h3 id="fully-meshed">Fully Meshed<a class="headerlink" href="#fully-meshed" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="fully-meshed">Fully Meshed<a class="headerlink" href="#fully-meshed" title="Permanent link">#</a></h3>
 <p>Every device connects directly to every other device.</p>
 </section>
 

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210930062737-pathlib-module/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -126,7 +228,7 @@ i&gt;&gt;&gt; str(Path('spam', 'bacon', 'eggs'))
 </code></pre>
 <p>Note, for Windows systems this will return a WindowsPath object and
 corresponding path using back-slashes.</p>
-<h2 id="concatenate-paths">Concatenate paths<a class="headerlink" href="#concatenate-paths" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="concatenate-paths">Concatenate paths<a class="headerlink" href="#concatenate-paths" title="Permanent link">#</a></h2>
 <p>You can use the <code>/</code> operator to concatenate Path objects and strings.</p>
 <pre><code class="language-python">i&gt;&gt;&gt; Path('spam') / 'bacon' / 'eggs'
 PosixPath('spam/bacon/eggs')
@@ -134,7 +236,7 @@ PosixPath('spam/bacon/eggs')
 <p>Note this is safer than using <a href="../20210910201646-string-concatenation-and-replication/">string concatenation</a>
 or the <a href="../20210925143301-join/">join()</a> method when dealing with file-paths,
 especially if cross-platform compatibility is important.</p>
-<h2 id="current-working-directory">Current working directory<a class="headerlink" href="#current-working-directory" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="current-working-directory">Current working directory<a class="headerlink" href="#current-working-directory" title="Permanent link">#</a></h2>
 <p>You can use the Path.cwd() to get the current working directory.</p>
 <pre><code class="language-python">i&gt;&gt;&gt; from pathlib import Path
 i&gt;&gt;&gt; import os
@@ -145,22 +247,22 @@ i&gt;&gt;&gt; Path.cwd()
 PosixPath('/home/akraker')
 </code></pre>
 <p><code>os.chdir()</code> allows you to change directories.</p>
-<h2 id="home-directory">Home directory<a class="headerlink" href="#home-directory" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="home-directory">Home directory<a class="headerlink" href="#home-directory" title="Permanent link">#</a></h2>
 <pre><code class="language-python">i&gt;&gt;&gt; Path.home()
 PosixPath('/home/akraker')
 </code></pre>
-<h2 id="make-dirs">Make dirs<a class="headerlink" href="#make-dirs" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="make-dirs">Make dirs<a class="headerlink" href="#make-dirs" title="Permanent link">#</a></h2>
 <pre><code class="language-python">i&gt;&gt;&gt; from pathlib import Path
 i&gt;&gt;&gt; Path(r'/home/akraker/test').mkdir()
 </code></pre>
-<h2 id="absolute-vs-relative-paths">Absolute vs relative paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="absolute-vs-relative-paths">Absolute vs relative paths<a class="headerlink" href="#absolute-vs-relative-paths" title="Permanent link">#</a></h2>
 <ul>
 <li><strong>absolute path</strong> always begins at root folder</li>
 <li><strong>relative path</strong> is relative to programs current working directory</li>
 </ul>
 <p>There's also the <code>.</code> and <code>..</code> which is this directory and the parent directory,
 respectively.</p>
-<h3 id="handling-absolute-and-relative-paths">Handling absolute and relative paths<a class="headerlink" href="#handling-absolute-and-relative-paths" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="handling-absolute-and-relative-paths">Handling absolute and relative paths<a class="headerlink" href="#handling-absolute-and-relative-paths" title="Permanent link">#</a></h3>
 <pre><code class="language-python">i&gt;&gt;&gt; from pathlib import Path
 i&gt;&gt;&gt; Path.cwd()
 PosixPath('/home/akraker')
@@ -189,7 +291,7 @@ i&gt;&gt;&gt; os.path.relpath('/home', '/')
 i&gt;&gt;&gt; os.path.relpath('/home', '/spam/eggs')
 '../../home'
 </code></pre>
-<h3 id="getting-the-parts-of-a-file-path">Getting the parts of a file-path<a class="headerlink" href="#getting-the-parts-of-a-file-path" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="getting-the-parts-of-a-file-path">Getting the parts of a file-path<a class="headerlink" href="#getting-the-parts-of-a-file-path" title="Permanent link">#</a></h3>
 <pre><code class="language-python">i&gt;&gt;&gt; p = Path('/home/akraker/test.txt')
 i&gt;&gt;&gt; p.anchor
 '/'
@@ -204,10 +306,10 @@ i&gt;&gt;&gt; p.suffix
 i&gt;&gt;&gt; p.drive
 ''
 </code></pre>
-<h2 id="theres-more">There's more...<a class="headerlink" href="#theres-more" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="theres-more">There's more...<a class="headerlink" href="#theres-more" title="Permanent link">#</a></h2>
 <p>I didn't take all the notes from this chapter in <em>Automate The Boring Stuff</em>, so
 review may be necessary or review the docs for the modules themselves.</p>
-<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://docs.python.org/3/library/pathlib.html">pathlib docs</a></li>
 <li><a href="https://docs.python.org/3/library/os.path.html#module-os.path">os.path module</a></li>

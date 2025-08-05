@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210905081005-find/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,7 +212,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="find">find<a class="headerlink" href="#find" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="find">find<a class="headerlink" href="#find" title="Permanent link">#</a></h1>
 <p>Search for files in a directory hierarchy.</p>
 <p>Examples:</p>
 <pre><code class="language-bash">find ~ -type d | wc -l
@@ -119,7 +221,7 @@
 <pre><code class="language-bash">find ~ -type f | wc -l
 </code></pre>
 <p>List number of regular files in home dir</p>
-<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -153,7 +255,7 @@
 <pre><code class="language-bash">find ~ -type f -name &quot;*.jpg&quot; -size +1M | wc -l 
 </code></pre>
 <p>Find all .jpg files by type, name, and size.</p>
-<h2 id="size-units">Size Units<a class="headerlink" href="#size-units" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="size-units">Size Units<a class="headerlink" href="#size-units" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -188,7 +290,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -271,7 +373,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="logical-operators">Logical Operators<a class="headerlink" href="#logical-operators" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="logical-operators">Logical Operators<a class="headerlink" href="#logical-operators" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -302,8 +404,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="predefined">Predefined<a class="headerlink" href="#predefined" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">#</a></h2>
+<h3 id="predefined">Predefined<a class="headerlink" href="#predefined" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -330,7 +432,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="user-defined">User-defined<a class="headerlink" href="#user-defined" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="user-defined">User-defined<a class="headerlink" href="#user-defined" title="Permanent link">#</a></h3>
 <p><code>-exec command {} ;</code> <code>-ok command {} ;</code> Note: brace and semicolon
 have special meaning to the shell and must be quoted Note: the -ok
 action in place of -exec will prompt user before execution</p>
@@ -346,7 +448,7 @@ whole list of arguments, instead of for each match</p>
 -rwxr-xr-x 1 me  me 224 2007-10-29 18:44 /home/me/bin/foo
 -rw-r--r-- 1 me  me   0 2016-09-19 12:53 /home/me/foo.txt
 </code></pre>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>

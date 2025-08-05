@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211013051544-class-inheritance/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -116,7 +218,7 @@
     <p>Sometimes it's useful to have a class which is a specialized version of another
 class. To do this, you can use <strong>inheritance</strong>. In this case the <em>child</em> class
 will inherit attributes and methods from the <em>parent</em> class.</p>
-<h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">#</a></h2>
 <p>To inherit things from the <em>parent</em> class call the <code>__init__()</code> method from the
 parent class. Call your parent.</p>
 <pre><code class="language-python">class Car:
@@ -166,7 +268,7 @@ print(my_tesla.get_descriptive_name())
 </code></pre>
 <p>Note, using the <code>super()</code> function comes from the convention of calling the
 parent class a <em>superclass</em> and the child class a <em>subclass</em>.</p>
-<h2 id="defining-attributes-and-methods-for-the-child-class">Defining Attributes and Methods for the Child Class<a class="headerlink" href="#defining-attributes-and-methods-for-the-child-class" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="defining-attributes-and-methods-for-the-child-class">Defining Attributes and Methods for the Child Class<a class="headerlink" href="#defining-attributes-and-methods-for-the-child-class" title="Permanent link">#</a></h2>
 <pre><code class="language-python">class Car:
   -- snip --
 
@@ -192,11 +294,11 @@ my_tesla.describe_battery()
 <pre><code>2019 Tesla Model S
 This car has a 75-kWh battery.
 </code></pre>
-<h2 id="overriding-methods-from-the-parent-class">Overriding Methods from the Parent Class<a class="headerlink" href="#overriding-methods-from-the-parent-class" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="overriding-methods-from-the-parent-class">Overriding Methods from the Parent Class<a class="headerlink" href="#overriding-methods-from-the-parent-class" title="Permanent link">#</a></h2>
 <p>You can override a method from the parent class by just using the same name as
 the one in the parent class. Python will use the method in the child class
 instead of the one in the parent if they're the same name.</p>
-<h2 id="instances-as-attributes">Instances as Attributes<a class="headerlink" href="#instances-as-attributes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="instances-as-attributes">Instances as Attributes<a class="headerlink" href="#instances-as-attributes" title="Permanent link">#</a></h2>
 <p>It may make sense to split a class into multiple classes if it's getting too
 long. In the example above we might split the stuff about batteries into it's
 own class.</p>

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20230904163600-linux-ts-non-sa/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -114,7 +216,7 @@
 
 <section id="mkdocs-terminal-content">
     <p>This is a primer on common commands used to troubleshoot Linux Servers for the non-sysadmin.</p>
-<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">#</a></h2>
 <p>It's 2am and you're called in for a P1, what commands should I run to triage a Linux server?</p>
 <ul>
 <li><code>ping &lt;IP or hostname&gt;</code> - Check if a server is up and is reachable</li>
@@ -140,20 +242,20 @@
 <li><code>/etc/fstab</code> - Drive mount configuration. If <code>dmesg</code> shows <em>NFS</em> or <em>CIFS</em> errors, <code>cat</code> this file to show network mounts.</li>
 <li><code>/proc/cpuinfo</code> - CPU information. <code>lscpu</code> or <code>grep processor /proc/cpuinfo | wc -l</code> to show number of CPUs.</li>
 </ul>
-<h2 id="linux-cli-fundamentals">Linux CLI Fundamentals<a class="headerlink" href="#linux-cli-fundamentals" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="linux-cli-fundamentals">Linux CLI Fundamentals<a class="headerlink" href="#linux-cli-fundamentals" title="Permanent link">#</a></h2>
 <p>This guide assumes you've already acquired some Linux CLI fundamentals. Commands like <code>ls</code>, <code>pwd</code>, <code>cd</code>, etc. should be commands you're already familiar with. But, if not, no worries, it's not hard to acquire some basic CLI fundamentals. Others have done a much better job of covering this topic, so I won't bother to do that here. Instead I've provided the following suggested resources for learning Linux CLI basics.</p>
 <ul>
 <li>Gold-standard tutorial: <a href="https://learnpythonthehardway.org/book/appendixa.html" title="https://learnpythonthehardway.org/book/appendixa.html">Command Line Crash Course</a> by Zed Shaw</li>
 <li>Also-good, is <a href="https://linuxcommand.org/lc3_learning_the_shell.php" title="https://linuxcommand.org/lc3_learning_the_shell.php">Learning the Shell</a></li>
 <li>Best in class, video lecture (MIT): <a href="https://missing.csail.mit.edu/2020/course-shell/" title="https://missing.csail.mit.edu/2020/course-shell/">The Missing Semester: Course Overview + the Shell</a></li>
 </ul>
-<h2 id="basic-linux-troubleshooting">Basic Linux Troubleshooting<a class="headerlink" href="#basic-linux-troubleshooting" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="cli-options">CLI Options<a class="headerlink" href="#cli-options" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="basic-linux-troubleshooting">Basic Linux Troubleshooting<a class="headerlink" href="#basic-linux-troubleshooting" title="Permanent link">#</a></h2>
+<h3 id="cli-options">CLI Options<a class="headerlink" href="#cli-options" title="Permanent link">#</a></h3>
 <p>For a quick refresher on options available for any particular command, and for manpage (i.e. <em>manual</em>) use the <code>man</code> command.</p>
 <p>For example:</p>
 <p><code>man free</code></p>
-<h3 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="analyzing-cpu-load">Analyzing CPU Load<a class="headerlink" href="#analyzing-cpu-load" title="Anchor link to this section for reference">#</a></h4>
+<h3 id="performance-monitoring">Performance Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">#</a></h3>
+<h4 id="analyzing-cpu-load">Analyzing CPU Load<a class="headerlink" href="#analyzing-cpu-load" title="Permanent link">#</a></h4>
 <p>List server uptime and 1, 5 and 15 minute CPU load averages with the <code>uptime</code> command. This is useful for diagnosing issues related to server load, latency, or if applications are unresponsive. For example:</p>
 <pre><code class="language-bash">~ # uptime
 20:53pm up 7 days 11:05, 1 user, load average: 19.31, 18.21, 12.10
@@ -181,7 +283,7 @@ CPU(s): 32
 </blockquote>
 <p>A general rule of thumb is there's a 1:1 ratio between load average and number of CPUs. Basically if load average is more than the number of CPU's it means load is over 100% and warrants further investigation.</p>
 <p>The other thing to be on the lookout for here is if load average is trending upwards between 15, 5 and 1 minute load averages (reading from right to left).</p>
-<h4 id="memory-utilization">Memory utilization<a class="headerlink" href="#memory-utilization" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="memory-utilization">Memory utilization<a class="headerlink" href="#memory-utilization" title="Permanent link">#</a></h4>
 <p>To show memory and swap utilization on a server run the <code>free</code> command. By default it will output memory utilization statistics in bytes, but with the <code>-h</code> option it will display memory utilization in <em>human readable</em> format:</p>
 <pre><code class="language-bash">~ # free -h
               total        used        free      shared  buff/cache   available
@@ -189,31 +291,31 @@ Mem:           15Gi       6.0Gi       4.3Gi       1.3Gi       6.9Gi       9.5Gi
 Swap:         2.0Gi       1.0Mi       2.0Gi
 </code></pre>
 <p>Pay attention to the <em>free</em> column, when <em>free</em> memory is 0 that's often cause for concern. Especially if swap usage is high. It's important to keep in mind that the Linux kernel treats free memory as wasted memory and it will try to cache as much in memory as possible. So while the example above only shows 1.2G of memory free out of a total of 204G, this is not really cause for alarm. Especially since virtually no swap is being used.</p>
-<h4 id="view-top-processes-in-realtime">View top processes in realtime<a class="headerlink" href="#view-top-processes-in-realtime" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="view-top-processes-in-realtime">View top processes in realtime<a class="headerlink" href="#view-top-processes-in-realtime" title="Permanent link">#</a></h4>
 <p>With the <code>top</code> and <code>htop</code> (human readable top), you can view top processes as well as other system stats such as load average, memory utilization, etc all displayed in realtime.</p>
 <p><img alt="" src="blob:https://benimblsupport.atlassian.net/a6a4b1c5-aac2-4d86-80bb-171d94f0b328#media-blob-url=true&amp;id=f321b9f4-febd-4d7d-890a-0f143519ae25&amp;collection=contentId-48857091&amp;contextId=48857091&amp;height=557&amp;width=710&amp;alt=" /></p>
 <p>htop example</p>
 <p><em>Note that</em> <code>htop</code> is easier to read, but isn't installed by default so it's not always available. In those cases, just use <code>top</code>.</p>
 <p>Things to look for are high CPU utilization, high memory utilization, and the processes that seem to be consuming the most CPU and MEM.</p>
-<h4 id="monitor-disk-io">Monitor Disk I/O<a class="headerlink" href="#monitor-disk-io" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="monitor-disk-io">Monitor Disk I/O<a class="headerlink" href="#monitor-disk-io" title="Permanent link">#</a></h4>
 <p>Less common, but sometimes disk I/O is a source of issues. You can view disk I/O statistics with <code>iostat</code>.</p>
 <p><code>swiglsb2db:~ # iostat -h Linux 4.12.14-122.127-default (swiglsb2db) 08/05/2022 _x86_64_ (32 CPU) avg-cpu: %user %nice %system %iowait %steal %idle 4.6% 0.0% 1.1% 1.1% 0.0% 93.2% tps kB_read/s kB_wrtn/s kB_read kB_wrtn Device 46.11 96.9k 467.5k 60.0G 289.5G sdc 0.18 0.8k 29.6k 494.6M 18.3G sdd 451.25 66.7M 48.7M 41.3T 30.1T sde 0.14 0.1k 26.3k 57.8M 16.3G sdf 0.11 1.4k 32.1k 911.3M 19.9G sdg 310.22 47.6M 6.5M 29.5T 4.0T sdh 0.00 0.0k 13.6M 7.1M 8.4T sdi 0.00 0.0k 0.0k 11.4M 21.1M sdb 0.57 3.3k 79.5k 2.0G 49.2G sda 45.66 93.9k 284.3k 58.2G 176.0G dm-0 0.48 3.0k 183.3k 1.8G 113.5G dm-1 0.01 0.7k 12.8k 424.4M 7.9G dm-2 0.17 0.1k 16.9k 69.9M 10.5G dm-3 451.25 66.7M 48.7M 41.3T 30.1T dm-4 0.00 0.0k 9.7k 1.4M 6.0G dm-5 0.16 0.1k 16.7k 56.0M 10.4G dm-6 0.12 1.4k 32.2k 910.9M 19.9G dm-7 72.73 11.1M 1.6M 6.9T 1006.8G dm-8 72.56 11.1M 1.6M 6.9T 1007.0G dm-9 72.39 11.1M 1.6M 6.9T 1007.0G dm-10 72.31 11.1M 1.6M 6.9T 1006.9G dm-11 16.65 3.1M 161.5k 1.9T 100.0G dm-12</code></p>
 <p>Things to look out for are high kb/s reads and writes. If uptime shows load is relatively healthy but the server seems sluggish, high I/O might be a bottleneck and that would show up here.</p>
-<h3 id="kernel-messages">Kernel Messages<a class="headerlink" href="#kernel-messages" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="kernel-messages">Kernel Messages<a class="headerlink" href="#kernel-messages" title="Permanent link">#</a></h3>
 <ul>
 <li><code>sudo dmesg | tail</code> - last 10 lines of kernel messages</li>
 </ul>
 <p>Example:</p>
 <p><code>ec2-user@monelapb1:~&gt; sudo dmesg | tail [ 5280.794554] RSP: 0018:ffff9e4f009abd58 EFLAGS: 00010202 [ 5280.796129] RAX: ffffffff8fd4d910 RBX: ffff89c18301a600 RCX: 0000000000000002 [ 5280.798165] RDX: 0000000000000080 RSI: ffff9e4f009abd70 RDI: ffff89c194837400 [ 5280.800363] RBP: 0000000000000080 R08: 0000000000000003 R09: 0000000000000000 [ 5280.802377] R10: 0000000000000000 R11: 0000000000000000 R12: ffff89c18301a600 [ 5280.804586] R13: 0000557927791310 R14: ffff9e4f009abd70 R15: 0000000000000000 [ 5280.806611] FS: 00007fbdb1d33740(0000) GS:ffff89c2a8000000(0000) knlGS:0000000000000000 [ 5280.808914] CS: 0010 DS: 0000 ES: 0000 CR0: 0000000080050033 [ 5280.810574] CR2: ffffffffc1463ba2 CR3: 0000000125a8c000 CR4: 00000000003506f0 [60273.918490] nvme nvme0: rescanning namespaces.</code></p>
 <p><em>As of this writing</em> <code>monelapb1</code> has a known kernel bug, some related output can be seen here.</p>
-<h3 id="processes">Processes<a class="headerlink" href="#processes" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="processes">Processes<a class="headerlink" href="#processes" title="Permanent link">#</a></h3>
 <p>You can list running processes with the <code>ps</code> utility, and most commonly this command is ran with following options: <code>ps aux</code>. If you've identified a process that seems to be a problem from <code>top</code> or <code>htop</code> you can <em>search</em> for it with something like the following:</p>
 <p><code>ps aux | grep &lt;search_string&gt;</code></p>
 <p>In this example we search for a specific PID <em>4729</em> identified previously during our troubleshooting:</p>
 <p><code>swiglsb2db:~ # ps aux | grep [4]729 db2pse 4729 119 57.3 151050000 123005184 ? Sl Jul29 12899:12 db2sysc 0</code></p>
 <p><em>Note the</em> <code>[]</code> brackets around the first character is a shell trick to prevent our search displaying our own <code>grep</code> command. See without the brackets:</p>
 <p><code>swiglsb2db:~ # ps aux | grep 4729 db2pse 4729 119 57.3 151050000 123005184 ? Sl Jul29 12902:18 db2sysc 0 root 29347 0.0 0.0 10548 1600 pts/0 S+ 22:27 0:00 grep --color=auto 4729</code></p>
-<h4 id="killing-processes">Killing Processes<a class="headerlink" href="#killing-processes" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="killing-processes">Killing Processes<a class="headerlink" href="#killing-processes" title="Permanent link">#</a></h4>
 <p><em>Note: Use with caution!</em></p>
 <ul>
 <li>
@@ -225,11 +327,11 @@ Swap:         2.0Gi       1.0Mi       2.0Gi
 </ul>
 <p><em>Note: PID is <strong>Process ID Number</strong>, you can find this with</em> <code>top</code>, <code>htop</code>, or <code>ps</code>.</p>
 <p>Only kill processes if you know what it is and know it's safe to do so. When in doubt reach out to a sysadmin.</p>
-<h4 id="a-note-about-listeners">A note about listeners<a class="headerlink" href="#a-note-about-listeners" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="a-note-about-listeners">A note about listeners<a class="headerlink" href="#a-note-about-listeners" title="Permanent link">#</a></h4>
 <p>Listeners are processes that are "listening" for connections. A common example of an application that "listens" for connections and then serves something to those connections is a webserver. You can list processes "listening" for TCP and UDP connections with <code>netstat</code>. It's common to run <code>netstat</code> with the following options, for example:</p>
 <p><code>swiglsb2db:~ # netstat -tulpn Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN 2805/sshd tcp 0 0 0.0.0.0:34333 0.0.0.0:* LISTEN - tcp 0 0 0.0.0.0:5918 0.0.0.0:* LISTEN 4729/db2sysc 0 tcp 0 0 0.0.0.0:1128 0.0.0.0:* LISTEN 2832/sapstartsrv tcp 0 0 0.0.0.0:1129 0.0.0.0:* LISTEN 2832/sapstartsrv tcp 0 0 :::7820 :::* LISTEN 1471/node_exporter tcp 0 0 :::33933 :::* LISTEN - tcp 0 0 :::22 :::* LISTEN 2805/sshd udp 4608 0 0.0.0.0:68 0.0.0.0:* 1496/wickedd-dhcp4 udp 0 0 10.110.1.103:123 0.0.0.0:* 2531/ntpd udp 0 0 127.0.0.1:123 0.0.0.0:* 2531/ntpd udp 0 0 0.0.0.0:123 0.0.0.0:* 2531/ntpd udp 0 0 fe80::4001:aff:fe6e:123 :::* 2531/ntpd udp 0 0 ::1:123 :::* 2531/ntpd udp 0 0 :::123 :::* 2531/ntpd</code></p>
 <p>This can be useful for determining if an application is up or not. For example, on most Linux servers you'll often see <em>sshd</em> which is the SSH server. This listens on port 22 by default. If you know what port your application is supposed to be listening on and you don't see it here, that could indicate there's a problem. If it's an SAP application, you can notify a Basis admin and have them look into it. For anything else, you'll probably be reaching out to a sysadmin at this point.</p>
-<h4 id="troubleshooting-services">Troubleshooting services<a class="headerlink" href="#troubleshooting-services" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="troubleshooting-services">Troubleshooting services<a class="headerlink" href="#troubleshooting-services" title="Permanent link">#</a></h4>
 <p>Linux uses an application called systemd to manage what are called "services". Systemd is rather complex and is what Linux uses to bootstrap itself to a running system. We don't need to get into all of that here. Mostly what you would need to do with systemd is check the <em>status</em> of a service and attempt to <em>start</em> the service if it's "failed." Systemd uses the <code>systemctl</code> (system control) utility to manage services.</p>
 <p>Check status of a service:</p>
 <p><code>sudo systemctl status &lt;service&gt;</code></p>
@@ -243,59 +345,59 @@ Swap:         2.0Gi       1.0Mi       2.0Gi
 <p>Check if starting it was successful:</p>
 <p><code>akraker@amyelprd00:~&gt; sudo systemctl status sap_host_exporter ● sap_host_exporter.service - SAP Host (NetWeaver) Exporter     Loaded: loaded (/etc/systemd/system/sap_host_exporter.service; enabled; vendor preset: disabled)     Active: active (running) since Thu 2022-08-04 06:51:33 PDT; 3s ago ...</code></p>
 <p>In this example it looks like we were successful in starting the <code>sap_host_exporter</code>.</p>
-<h3 id="reading-and-searching-files">Reading and Searching Files<a class="headerlink" href="#reading-and-searching-files" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="less">less<a class="headerlink" href="#less" title="Anchor link to this section for reference">#</a></h4>
+<h3 id="reading-and-searching-files">Reading and Searching Files<a class="headerlink" href="#reading-and-searching-files" title="Permanent link">#</a></h3>
+<h4 id="less">less<a class="headerlink" href="#less" title="Permanent link">#</a></h4>
 <ul>
 <li><code>less &lt;file&gt;</code> - Read a file using a pager</li>
 </ul>
 <p>Here's an example running <code>less /var/log/messages</code>. This is a common way to review log entries from the kernel and for services.</p>
 <p><img alt="" src="blob:https://benimblsupport.atlassian.net/db173195-8be3-40ba-9d3a-1af32ff93306#media-blob-url=true&amp;id=d4090da6-f4e7-4719-8cc8-4575d4a23dbc&amp;collection=contentId-48857091&amp;contextId=48857091&amp;height=287&amp;width=710&amp;alt=" /></p>
 <p>less example</p>
-<h4 id="cat">cat<a class="headerlink" href="#cat" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="cat">cat<a class="headerlink" href="#cat" title="Permanent link">#</a></h4>
 <ul>
 <li><code>cat file</code> - Print the contents a file to your terminal</li>
 </ul>
 <p>A common example were this might be used is to view the <code>/etc/hosts</code> file:</p>
 <p><code>swiglsb2db:~ # cat /etc/hosts # # hosts This file describes a number of hostname-to-address # mappings for the TCP/IP subsystem. It is mostly # used at boot time, when no name servers are running. # On small systems, this file can be used instead of a # "named" name server. # Syntax: # # IP-Address Full-Qualified-Hostname Short-Hostname # 127.0.0.1 localhost # special IPv6 addresses ::1 localhost ipv6-localhost ipv6-loopback fe00::0 ipv6-localnet ff00::0 ipv6-mcastprefix ff02::1 ipv6-allnodes ff02::2 ipv6-allrouters ff02::3 ipv6-allhosts # Pre-set matadata server shortcut to speed up access image build overlay 169.254.169.254 metadata.google.internal metadata.google.internal # Added by SMT registration do not remove, retain comment as well 35.186.173.156 smt-gce.susecloud.net smt-gce</code></p>
 <p>Sometimes custom entries in the <em>hosts</em> file can be the cause of DNS issues.</p>
-<h4 id="head">head<a class="headerlink" href="#head" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="head">head<a class="headerlink" href="#head" title="Permanent link">#</a></h4>
 <ul>
 <li><code>head file</code> - Print the first 10 lines of a file</li>
 </ul>
 <p>Here we use <code>head</code> to print the first 10 lines of a backup log:</p>
 <p><code>swiglsb2db:~ # head backup.log Checking existing backups in GCS Checking PSE.0.db2pse.DBPART000.20220801101623.002 gs://sb1-backups/PSE.0.db2pse.DBPART000.20220801101623.002 Removing local file PSE.0.db2pse.DBPART000.20220801101623.002 Checking PSE.0.db2pse.DBPART000.20220801101623.003 gs://sb1-backups/PSE.0.db2pse.DBPART000.20220801101623.003 Removing local file PSE.0.db2pse.DBPART000.20220801101623.003 Initiating backup SQL2059W A device full warning was encountered on device "/backup". Do you want to continue(c), terminate this device only(d), abort the utility(t) ? (c/d/t) SQL2001N The utility was interrupted. The output data may be incomplete.</code></p>
-<h4 id="tail">tail<a class="headerlink" href="#tail" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="tail">tail<a class="headerlink" href="#tail" title="Permanent link">#</a></h4>
 <ul>
 <li><code>tail file</code> - Print the last 10 lines of a file</li>
 </ul>
 <p>A common operation is to "follow" a log with <code>tail -f</code> the <code>-f</code> means follow the log and anything new written to it will automatically be displayed:</p>
 <p><code>tail -f /var/log/messages</code></p>
-<h4 id="grep">grep<a class="headerlink" href="#grep" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="grep">grep<a class="headerlink" href="#grep" title="Permanent link">#</a></h4>
 <ul>
 <li><code>grep "string" file</code> - Search for a <em>string</em> in a <em>file</em></li>
 </ul>
 <p>An example usecase would be to search the system logs for errors or problems:</p>
 <p><code>akraker@amyelprd00:~&gt; sudo grep CloudEndure /var/log/messages 2022-08-22T09:04:11.203672-07:00 amyelprd00 systemd[1]: Stopping LSB: CloudEndure agent deamon... 2022-08-22T09:04:11.274524-07:00 amyelprd00 systemd[1]: Stopped LSB: CloudEndure agent deamon. 2022-08-22T09:04:11.274963-07:00 amyelprd00 systemd[1]: Starting LSB: CloudEndure agent deamon... 2022-08-22T09:04:16.380062-07:00 amyelprd00 ce-agent[29428]: 29532 /bin/bash ./CloudEndure_Agent.sh /usr/bin/nice -n 3 /usr/bin/ionice -c2 -n7 ./jre/bin/java -client -Xms300m -Xmx300m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=./client.hprof -classpath External/*:*:. -XX:ErrorFile=./java_error.log -XX:-CreateMinidumpOnCrash -Djavax.net.ssl.keyStore=agent_keystore -Djavax.net.ssl.trustStore=cacerts -Djava.io.tmpdir=/var/lib/cloudendure/.tmp -Djna.nosys=true com.cloudendure.agent.Main agent.config</code></p>
-<h3 id="dns-networking">DNS &amp; Networking<a class="headerlink" href="#dns-networking" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="ping">ping<a class="headerlink" href="#ping" title="Anchor link to this section for reference">#</a></h4>
+<h3 id="dns-networking">DNS &amp; Networking<a class="headerlink" href="#dns-networking" title="Permanent link">#</a></h3>
+<h4 id="ping">ping<a class="headerlink" href="#ping" title="Permanent link">#</a></h4>
 <p>Run a <code>ping</code> test to see if a server is up or is reachable:</p>
 <p><code>[MONOCLESYS\akraker@a-15ndvvy99jgw1 ~]$ ping 10.26.66.55 PING 10.26.66.55 (10.26.66.55) 56(84) bytes of data. 64 bytes from 10.26.66.55: icmp_seq=1 ttl=64 time=62.5 ms 64 bytes from 10.26.66.55: icmp_seq=2 ttl=64 time=62.4 ms ^C --- 10.26.66.55 ping statistics --- 2 packets transmitted, 2 received, 0% packet loss, time 1001ms rtt min/avg/max/mdev = 62.447/62.479/62.511/0.032 ms</code></p>
-<h4 id="nslookup">nslookup<a class="headerlink" href="#nslookup" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="nslookup">nslookup<a class="headerlink" href="#nslookup" title="Permanent link">#</a></h4>
 <p><code>nslookup</code></p>
 <p>Used to lookup DNS. Use this to check if an domain name is resolvable:</p>
 <p><code>[MONOCLESYS\akraker@a-15ndvvy99jgw1 ~]$ nslookup benimbl.com Server: 192.149.8.2 Address: 192.149.8.2#53 Non-authoritative answer: Name: benimbl.com Address: 172.30.4.4 Name: benimbl.com Address: 172.30.4.5</code></p>
-<h3 id="hardware-devices">Hardware Devices<a class="headerlink" href="#hardware-devices" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="disk-usage">Disk Usage<a class="headerlink" href="#disk-usage" title="Anchor link to this section for reference">#</a></h4>
+<h3 id="hardware-devices">Hardware Devices<a class="headerlink" href="#hardware-devices" title="Permanent link">#</a></h3>
+<h4 id="disk-usage">Disk Usage<a class="headerlink" href="#disk-usage" title="Permanent link">#</a></h4>
 <p>Often disks will fill up and cause problems. We can use <code>df</code> to help diagnose.</p>
 <ul>
 <li><code>df -h</code></li>
 </ul>
 <p><code>swiglsb2db:~ # df -h /backup Filesystem Size Used Avail Use% Mounted on /dev/mapper/db2backup-backup 9.8T 9.5T 280G 98% /backup</code></p>
 <p>In this case the <code>/backup</code> directory is almost full.</p>
-<h3 id="quick-note-about-pipes">Quick note about pipes<a class="headerlink" href="#quick-note-about-pipes" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="quick-note-about-pipes">Quick note about pipes<a class="headerlink" href="#quick-note-about-pipes" title="Permanent link">#</a></h3>
 <p>You can pipe the output of one command into the input of another command. For example let's say that you want to search (i.e. <code>grep</code>) the command <code>history</code> for a specific command like <code>rm</code> .</p>
 <p><code>dmoelakb1:~ # history | grep 'rm ' 2986 2022-08-16 17:00:51 UTC: trim_file() { local tmp_file; tmp_file="/tmp/$(basename "$1")"; cp "$1" "${tmp_file}"; tail -"$2" "${tmp_file}" &gt; "$1"; rm -f "${tmp_file}"; } 3212 2022-06-29 14:42:51 UTC: rm -f /var/lib/sss/db/* 3524 2022-07-18 19:49:49 UTC: rm -rf sudoers.d/ 3527 2022-07-18 19:50:14 UTC: rm 10-ansible-automation 3528 2022-07-18 19:50:21 UTC: rm 15-sap-users 3529 2022-07-18 19:50:30 UTC: rm 20-nimbl-cloud-users 3530 2022-07-18 19:50:36 UTC: rm 25-nimbl-basis-users 3532 2022-07-18 19:50:46 UTC: rm Notes.txt 3754 2022-08-16 17:00:51 UTC: trim_file() { local tmp_file; tmp_file="/tmp/$(basename "$1")"; cp "$1" "${tmp_file}"; tail -"$2" "${tmp_file}" &gt; "$1"; rm -f "${tmp_file}"; } 3835 2022-08-23 00:13:13 UTC: history | grep 'rm '</code></p>
-<h3 id="who-did-what-when">Who did what when?<a class="headerlink" href="#who-did-what-when" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="who-did-what-when">Who did what when?<a class="headerlink" href="#who-did-what-when" title="Permanent link">#</a></h3>
 <p>Show <code>who</code> is currently logged into the server:</p>
 <p><code>dmoelakb1:~ # who root pts/0 2022-08-23 00:11 (192.149.8.83)</code></p>
 <p>Show recently logged in users with <code>last</code>:</p>
@@ -303,7 +405,7 @@ Swap:         2.0Gi       1.0Mi       2.0Gi
 <p>Show recent reboots with <code>last</code>:</p>
 <p><code>dmoelakb1:~ # last reboot reboot system boot 5.14.21-150400.2 Fri Aug 19 14:35 still running reboot system boot 5.3.18-150300.59 Fri Aug 19 14:17 - 14:35 (00:18) reboot system boot 5.3.18-150300.59 Fri Aug 19 13:55 - 14:17 (00:21) wtmp begins Thu Jul 28 03:40:45 2022</code></p>
 <p>Useful for determining when or if the server was recently rebooted.</p>
-<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p><a href="https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55" title="https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55">https://netflixtechblog.com/linux-performance-analysis-in-60-000-milliseconds-accc10403c55</a></p>

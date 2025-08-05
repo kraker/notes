@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210909083255-apache-reverse-proxy-setup/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -113,15 +215,15 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h3>
+    <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://httpd.apache.org/docs/2.4/mod/mod_proxy.html">Apache Mod Proxy</a></li>
 <li><a href="https://docs.cpanel.net/ea4/apache/modify-apache-virtual-hosts-with-include-files/">cPanel - Apache Vhosts</a></li>
 <li><a href="https://docs.cpanel.net/ea4/tomcat/tomcat-proxies/">Tomcat Proxies</a></li>
 </ul>
-<h2 id="process">Process<a class="headerlink" href="#process" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="determine-where-to-place-the-configuration-changes">Determine where to place the configuration changes<a class="headerlink" href="#determine-where-to-place-the-configuration-changes" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="process">Process<a class="headerlink" href="#process" title="Permanent link">#</a></h2>
+<h3 id="determine-where-to-place-the-configuration-changes">Determine where to place the configuration changes<a class="headerlink" href="#determine-where-to-place-the-configuration-changes" title="Permanent link">#</a></h3>
 <p>Determine the location where the files should be placed by checking the Apache
 configuration file for the location of the virtual host include paths.</p>
 <pre><code class="language-bash">grep /etc/apache2/conf.d/userdata /usr/local/apache/conf/httpd.conf
@@ -142,7 +244,7 @@ configuration file for the location of the virtual host include paths.</p>
 <p>Many of the lines are commented out, but if you place a .conf file in that path and rebuild Apache, the line containing that path will be uncommented automatically. The reason we double check the path is because some servers use <code>/etc/apache2/conf.d/userdata/ssl/2/</code> and <code>/etc/apache2/conf.d/userdata/std/2/</code> instead.</p>
 <p><em>Note: The folder for an addon domain will go by the name of the Virtual Host which will match the subdomain tied to that addon when it's created in cPanel.</em></p>
 <p>The path under ssl/ is for HTTPS and the path under std/ is for HTTP. I recommend placing the proxy under the ssl path, and then forcing HTTPS in the std path or .htaccess file.</p>
-<h3 id="making-reverse-proxy-configuration-changes-for-a-domain">Making Reverse Proxy Configuration Changes for a Domain<a class="headerlink" href="#making-reverse-proxy-configuration-changes-for-a-domain" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="making-reverse-proxy-configuration-changes-for-a-domain">Making Reverse Proxy Configuration Changes for a Domain<a class="headerlink" href="#making-reverse-proxy-configuration-changes-for-a-domain" title="Permanent link">#</a></h3>
 <p>Create the folders that match the appropriate include path for the domain you're working with, similar to below.</p>
 <pre><code>mkdir -p /etc/apache2/conf.d/userdata/ssl/2_4/cpuser2/subdomain.domain2.com/
 </code></pre>
@@ -153,7 +255,7 @@ configuration file for the location of the virtual host include paths.</p>
 <pre><code>ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/&quot;
 ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/&quot;
 </code></pre>
-<h4 id="set-up-redirect-for-https">Set up Redirect for HTTPS<a class="headerlink" href="#set-up-redirect-for-https" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="set-up-redirect-for-https">Set up Redirect for HTTPS<a class="headerlink" href="#set-up-redirect-for-https" title="Permanent link">#</a></h4>
 <p>Finally, we will force HTTPS in the .htaccess file within the document root of that domain.</p>
 <pre><code>vim /home/cpuser2/subdomain.domain2.com/.htaccess
 </code></pre>
@@ -169,12 +271,12 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ## /etc/apache2/conf.d/userdata/std/2/cpuser2/subdomain.domain2.com/ssl.conf
 ## /etc/apache2/conf.d/userdata/ssl/2/cpuser2/subdomain.domain2.com/proxy.conf
 </code></pre>
-<h4 id="apply-the-configuration-changes">Apply the configuration changes<a class="headerlink" href="#apply-the-configuration-changes" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="apply-the-configuration-changes">Apply the configuration changes<a class="headerlink" href="#apply-the-configuration-changes" title="Permanent link">#</a></h4>
 <p>Rebuild and restart Apache to apply the changes above. </p>
 <pre><code>/scripts/rebuildhttpdconf &amp;&amp; /scripts/restartsrv_httpd
 </code></pre>
 <p>Then test the domain to see if the proxy worked. As long as the application does not limit external access, you can try comparing the domain with the application as it appears when accessing the service directly via the port number. IE Using the examples above, we would visit http://server.hostname.com:10000 and compare with subdomain.domain2.com.</p>
-<h2 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="common-issues">Common Issues<a class="headerlink" href="#common-issues" title="Permanent link">#</a></h2>
 <p><strong>When navigating to other pages on the site, 404 errors occur.</strong></p>
 <p>First, check how the site appears on the application behind the proxy in case
 this is a development related issue. Then, check the URL that you are directed
@@ -213,8 +315,8 @@ ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/subdir/&quot;
    ProxyPassReverseCookieDomain localhost somedomain.com
 </code></pre>
 <p>It's possible you may need to place a trailing slash in the directives for ProxyPassReverseCookiePath to get things working. As mentioned in a previous section, it seems to depend how the application is coded.</p>
-<h2 id="additional-configuration">Additional Configuration<a class="headerlink" href="#additional-configuration" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="location-blocks">Location Blocks<a class="headerlink" href="#location-blocks" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="additional-configuration">Additional Configuration<a class="headerlink" href="#additional-configuration" title="Permanent link">#</a></h2>
+<h3 id="location-blocks">Location Blocks<a class="headerlink" href="#location-blocks" title="Permanent link">#</a></h3>
 <p>Sometimes the ProxyPass and ProxyPassReverse directives are container in Location blocks similar to what you see below.</p>
 <pre><code class="language-xml">&lt;Location &quot;/&quot;&gt;
    ProxyPass &quot;http://localhost:10000/&quot;
@@ -256,12 +358,12 @@ ProxyPassReverse    &quot;/subdir/&quot;   &quot;http://localhost:10000/&quot;
    ProxyPassReverse &quot;http://localhost:10000/&quot;
 &lt;/Location&gt;
 </code></pre>
-<h3 id="loading-order">Loading order<a class="headerlink" href="#loading-order" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="loading-order">Loading order<a class="headerlink" href="#loading-order" title="Permanent link">#</a></h3>
 <p>You might run into a set up where the URLs in multiple proxy configuration overlap. </p>
 <p>For example, I might want <code>https://mydomain.com</code> to load an application at <code>http://localhost:10000/mystore</code> but I also want <code>https://mydomain.com/blog</code> to load an application at <code>http://localhost:10000/blog</code>. </p>
 <p>This can cause conflict potentially because the URL mydomain.com/blog is a subdirectory of mydomain.com/ which has a proxy set up for a different app. 
 Fortunately, if you place the ProxyPass directives in the correct order, this shouldn't cause issues. The order changes, however, depending on if you are using Location blocks or not.</p>
-<h4 id="loading-order-no-location-block">Loading Order - No Location Block<a class="headerlink" href="#loading-order-no-location-block" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="loading-order-no-location-block">Loading Order - No Location Block<a class="headerlink" href="#loading-order-no-location-block" title="Permanent link">#</a></h4>
 <p>For proxy rules that are not contained within a location block, you want the longest path/URL first. So in the example above, your configuration file would look like this.</p>
 <pre><code>ProxyPass           &quot;/blog/&quot;   &quot;http://localhost:10000/blog/&quot;
 ProxyPassReverse    &quot;/blog/&quot;   &quot;http://localhost:10000/blog/&quot;
@@ -269,7 +371,7 @@ ProxyPassReverse    &quot;/blog/&quot;   &quot;http://localhost:10000/blog/&quot
 ProxyPass           &quot;/&quot;   &quot;http://localhost:10000/mystore/&quot;
 ProxyPassReverse    &quot;/&quot;   &quot;http://localhost:10000/mystore/&quot;
 </code></pre>
-<h4 id="loading-order-location-block">Loading Order - Location Block<a class="headerlink" href="#loading-order-location-block" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="loading-order-location-block">Loading Order - Location Block<a class="headerlink" href="#loading-order-location-block" title="Permanent link">#</a></h4>
 <p>For proxy rules that are contained within location blocks, you will need to start with the shorter path/URL. In the example above, your configuration file would look like this if you're using location blocks.</p>
 <pre><code>&lt;Location &quot;/&quot;&gt;
    ProxyPass &quot;http://localhost:10000/mystore/&quot;

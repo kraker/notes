@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20240320095100-dnf/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,8 +212,8 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="dnf">dnf<a class="headerlink" href="#dnf" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="query-repos-and-rpm-db">Query repos and rpm db<a class="headerlink" href="#query-repos-and-rpm-db" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="dnf">dnf<a class="headerlink" href="#dnf" title="Permanent link">#</a></h1>
+<h2 id="query-repos-and-rpm-db">Query repos and rpm db<a class="headerlink" href="#query-repos-and-rpm-db" title="Permanent link">#</a></h2>
 <p>List repositories verbosely:</p>
 <pre><code class="language-bash">dnf repolist -v
 </code></pre>
@@ -127,7 +229,7 @@
 <p>List all available updates:</p>
 <pre><code class="language-bash">dnf list updates
 </code></pre>
-<h2 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="install-packages">Install packages<a class="headerlink" href="#install-packages" title="Permanent link">#</a></h2>
 <p>Install a package:</p>
 <pre><code class="language-bash">dnf install package
 </code></pre>
@@ -140,11 +242,11 @@
 <p>Update all packages (aka system update):</p>
 <pre><code class="language-bash">dnf -y update
 </code></pre>
-<h2 id="package-info">Package info<a class="headerlink" href="#package-info" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="package-info">Package info<a class="headerlink" href="#package-info" title="Permanent link">#</a></h2>
 <p>View information about a package:</p>
 <pre><code class="language-bash">dnf info package
 </code></pre>
-<h2 id="removing-packages">Removing packages<a class="headerlink" href="#removing-packages" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="removing-packages">Removing packages<a class="headerlink" href="#removing-packages" title="Permanent link">#</a></h2>
 <p>Remove a package and it's dependencies:</p>
 <pre><code class="language-bash">dnf remove package
 </code></pre>

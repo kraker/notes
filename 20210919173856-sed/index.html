@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210919173856-sed/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -116,7 +218,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">#</a></h2>
 <p>Stream editor for filtering and transforming text</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ echo &quot;front&quot; | sed 's/front/back/'
 back
@@ -131,7 +233,7 @@ lines of input streams are to be edited.</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ echo &quot;front&quot; | sed '1s/front/back/'
 back
 </code></pre>
-<h2 id="address-notation">Address Notation<a class="headerlink" href="#address-notation" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="address-notation">Address Notation<a class="headerlink" href="#address-notation" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -187,7 +289,7 @@ back
 </tbody>
 </table>
 <p>sed Address Notation</p>
-<h2 id="editing-commands">Editing Commands<a class="headerlink" href="#editing-commands" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="editing-commands">Editing Commands<a class="headerlink" href="#editing-commands" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -243,14 +345,14 @@ back
 </tbody>
 </table>
 <p>sed Basic Editing Commands</p>
-<h2 id="substitution">Substitution<a class="headerlink" href="#substitution" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="substitution">Substitution<a class="headerlink" href="#substitution" title="Permanent link">#</a></h2>
 <p>sed s/day/night \&lt;old<sub>file</sub> &gt;new<sub>file</sub> sed
 s/day/night old<sub>file</sub> &gt;new<sub>file</sub> <em>These both do the
 same thing</em></p>
 <p>echo day | sed s/day/night/</p>
 <p>Best practice is to use quotes in case there are meta-characters in the
 command. sed 's/day/night/' \&lt;old &gt;new</p>
-<h3 id="delimiters">Delimiters<a class="headerlink" href="#delimiters" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="delimiters">Delimiters<a class="headerlink" href="#delimiters" title="Permanent link">#</a></h3>
 <p>You can use anything as a delimiter as long as it's not in the string
 your trying to substitute.</p>
 <p>/ and _ are the most commonly used</p>
@@ -259,13 +361,13 @@ your trying to substitute.</p>
 <p>Some others are : and |</p>
 <p>sed 's:/usr/local/bin:/common/bin:' \&lt;old &gt;new sed
 's|/usr/local/bin|/common/bin|' \&lt;old &gt;new</p>
-<h3 id="using-for-matched-string">Using '&amp;' for Matched String<a class="headerlink" href="#using-for-matched-string" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="using-for-matched-string">Using '&amp;' for Matched String<a class="headerlink" href="#using-for-matched-string" title="Permanent link">#</a></h3>
 <p>sed 's/[a-z]*/(&amp;)/' \&lt;old &gt;new <em>this puts parentheses around the
 matched string</em></p>
-<h3 id="extended-regular-expressions">Extended Regular Expressions<a class="headerlink" href="#extended-regular-expressions" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="extended-regular-expressions">Extended Regular Expressions<a class="headerlink" href="#extended-regular-expressions" title="Permanent link">#</a></h3>
 <p>sed -r echo "123 abc" | sed -r 's/[0-9]+/&amp; &amp;/' <em>Otherwise can't use
 the '+'</em></p>
-<h3 id="back-references">Back-References<a class="headerlink" href="#back-references" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="back-references">Back-References<a class="headerlink" href="#back-references" title="Permanent link">#</a></h3>
 <p>Keep the first word and remove the rest. sed 's/([a-z]*).*/\1/'</p>
 <p>echo abcd123 | sed 's/([a-z]<em>).*/\1/' </em>This will output "abcd" and
 delete the numbers.*</p>
@@ -274,7 +376,7 @@ delete the numbers.*</p>
 print lines containing duplicated words</em></p>
 <p>You can have up to 9 back-references. Reverse the first 3 characters in
 a line. sed 's/^(.)(.)(.)/\3\2\1/'</p>
-<h3 id="pattern-flags">Pattern Flags<a class="headerlink" href="#pattern-flags" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="pattern-flags">Pattern Flags<a class="headerlink" href="#pattern-flags" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -293,14 +395,14 @@ a line. sed 's/^(.)(.)(.)/\3\2\1/'</p>
 </tr>
 </tbody>
 </table>
-<h2 id="sources">Sources:<a class="headerlink" href="#sources" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="sources">Sources:<a class="headerlink" href="#sources" title="Permanent link">#</a></h2>
 <p><a href="https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/">https://www.thegeekstuff.com/2009/10/unix-sed-tutorial-advanced-sed-substitution-examples/</a>
 <a href="https://stackoverflow.com/questions/2232200/regular-expression-in-sed-for-masking-credit-card">https://stackoverflow.com/questions/2232200/regular-expression-in-sed-for-masking-credit-card</a>
 <a href="https://www.grymoire.com/Unix/Sed.html">https://www.grymoire.com/Unix/Sed.html</a>
 <a href="http://tldp.org/LDP/abs/html/x23170.html">http://tldp.org/LDP/abs/html/x23170.html</a>
 <a href="https://www.folkstalk.com/2012/01/sed-command-in-unix-examples.html">https://www.folkstalk.com/2012/01/sed-command-in-unix-examples.html</a></p>
-<h2 id="todo-sed-introduction-httpswwwgrymoirecomunixsedhtml"><span class="todo TODO">TODO</span> Sed Introduction: <a href="https://www.grymoire.com/Unix/Sed.html">https://www.grymoire.com/Unix/Sed.html</a><a class="headerlink" href="#todo-sed-introduction-httpswwwgrymoirecomunixsedhtml" title="Anchor link to this section for reference">#</a></h2>
-<h1 id="time-tracking">Time Tracking<a class="headerlink" href="#time-tracking" title="Anchor link to this section for reference">#</a></h1>
+<h2 id="todo-sed-introduction-httpswwwgrymoirecomunixsedhtml"><span class="todo TODO">TODO</span> Sed Introduction: <a href="https://www.grymoire.com/Unix/Sed.html">https://www.grymoire.com/Unix/Sed.html</a><a class="headerlink" href="#todo-sed-introduction-httpswwwgrymoirecomunixsedhtml" title="Permanent link">#</a></h2>
+<h1 id="time-tracking">Time Tracking<a class="headerlink" href="#time-tracking" title="Permanent link">#</a></h1>
 </section>
 
 <section id="mkdocs-terminal-after-content">

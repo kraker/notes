@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20230305110526-docker/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,26 +212,26 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="docker">Docker<a class="headerlink" href="#docker" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">#</a></h1>
 <ul>
 <li><a href="https://docs.docker.com/get-started/docker_cheatsheet.pdf">Docker Cheat Sheet</a></li>
 <li><a href="../Docker_CheatSheet_08.09.2016_0.pdf">Docker_CheatSheet_08.09.2016_0</a></li>
 </ul>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">#</a></h2>
 <p>Install the Docker Engine (not the Docker Desktop): https://docs.docker.com/engine/install/</p>
 <p>Make sure that stuff can talk to docker:</p>
 <pre><code class="language-bash">sudo usermod -aG docker $USER
 sudo chmod 666 /var/run/docker.sock # Maybe optional?
 </code></pre>
 <p>Source: https://stackoverflow.com/questions/64662372/docker-compose-up-error-while-fetching-server-api-version-connection-aborte</p>
-<h2 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="docker-images">Docker images<a class="headerlink" href="#docker-images" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://hub.docker.com/">Docker Hub</a></li>
 </ul>
-<h2 id="learning-docker">Learning Docker<a class="headerlink" href="#learning-docker" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="courses">Courses<a class="headerlink" href="#courses" title="Anchor link to this section for reference">#</a></h4>
-<h5 id="docker-mastery-udemy">Docker Mastery - Udemy<a class="headerlink" href="#docker-mastery-udemy" title="Anchor link to this section for reference">#</a></h5>
+<h2 id="learning-docker">Learning Docker<a class="headerlink" href="#learning-docker" title="Permanent link">#</a></h2>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h3>
+<h4 id="courses">Courses<a class="headerlink" href="#courses" title="Permanent link">#</a></h4>
+<h5 id="docker-mastery-udemy">Docker Mastery - Udemy<a class="headerlink" href="#docker-mastery-udemy" title="Permanent link">#</a></h5>
 <ul>
 <li><a href="https://www.udemy.com/course/docker-mastery/">Docker Mastery</a> - Udemy</li>
 <li><a href="https://github.com/BretFisher/udemy-docker-mastery">Docker Mastery - Lectures</a> - GitHub (<em>FREE!</em>)</li>
@@ -137,12 +239,12 @@ sudo chmod 666 /var/run/docker.sock # Maybe optional?
 <li><a href="https://www.bretfisher.com/kubernetes-vs-docker/">Kubernetes vs. Docker</a></li>
 <li><a href="https://blog.aquasec.com/a-brief-history-of-containers-from-1970s-chroot-to-docker-2016">A Brief History of Containers</a></li>
 </ul>
-<h4 id="books">Books<a class="headerlink" href="#books" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="books">Books<a class="headerlink" href="#books" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="https://docker-handbook.farhan.dev/">The Docker Handbook</a> - Free online</li>
 <li><a href="https://nigelpoulton.com/books/">Docker Deep Dive</a></li>
 </ul>
-<h4 id="playgroundslabs">Playgrounds/Labs<a class="headerlink" href="#playgroundslabs" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="playgroundslabs">Playgrounds/Labs<a class="headerlink" href="#playgroundslabs" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="https://training.play-with-docker.com/">Play with Docker Classroom</a></li>
 <li><a href="https://labs.play-with-docker.com/">Play with Docker</a></li>

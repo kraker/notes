@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211008054927-creating-and-using-a-class/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -132,13 +234,13 @@
         print(f&quot;{self.name} rolled over!&quot;)
 </code></pre>
 <p>Convention is to capitalize Names that refer to classes.</p>
-<h2 id="the-init-method">The <strong>init</strong>() Method<a class="headerlink" href="#the-init-method" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="the-init-method">The <strong>init</strong>() Method<a class="headerlink" href="#the-init-method" title="Permanent link">#</a></h2>
 <p>A function that's part of a class is a <em>method</em>. The <strong><strong>init</strong>()</strong> method is a
 special method that Python runs automatically whenever a new instance is created
 based on the class.</p>
 <p>Classes always pass the <em>self</em> parameter which is just a reference to the class
 itself with any attributes and methods in the class.</p>
-<h2 id="making-an-instance-of-a-class">Making an Instance of a Class<a class="headerlink" href="#making-an-instance-of-a-class" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="making-an-instance-of-a-class">Making an Instance of a Class<a class="headerlink" href="#making-an-instance-of-a-class" title="Permanent link">#</a></h2>
 <p>A <em>class</em> is just a set of instructions for how to make an <strong>instance</strong>.</p>
 <pre><code class="language-python">my_dog = Dog('Willie', 6)
 print(f&quot;My dog's name is {my_dog.name}.&quot;)
@@ -149,7 +251,7 @@ My dog is 6 years old.
 </code></pre>
 <p>This creates an instance of Dog and using dot notation prints the values for
 <em>self.name</em> and <em>self.age</em> from that class.</p>
-<h2 id="calling-methods">Calling Methods<a class="headerlink" href="#calling-methods" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="calling-methods">Calling Methods<a class="headerlink" href="#calling-methods" title="Permanent link">#</a></h2>
 <pre><code class="language-python">class Dog:
     --snip--
 
@@ -161,7 +263,7 @@ my_dog.roll_over()
 <pre><code>Willie is now sitting.
 Willie rolled over!
 </code></pre>
-<h2 id="creating-multiple-instances">Creating Multiple Instances<a class="headerlink" href="#creating-multiple-instances" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="creating-multiple-instances">Creating Multiple Instances<a class="headerlink" href="#creating-multiple-instances" title="Permanent link">#</a></h2>
 <p>You can create as many instances from a class as you need.</p>
 <pre><code class="language-python">class Dog:
     --snip--
@@ -185,7 +287,7 @@ Your dog's name is Lucy.
 Your dog is 3 years old.
 Lucy is now sitting.
 </code></pre>
-<h2 id="working-with-classes-and-instances">Working with Classes and Instances<a class="headerlink" href="#working-with-classes-and-instances" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="working-with-classes-and-instances">Working with Classes and Instances<a class="headerlink" href="#working-with-classes-and-instances" title="Permanent link">#</a></h2>
 <pre><code class="language-python">class Car:
     &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
 
@@ -205,7 +307,7 @@ print(my_new_car.get_descriptive_name())
 </code></pre>
 <pre><code>2019 Audi A4
 </code></pre>
-<h3 id="setting-a-default-value-for-an-attribute">Setting a Default Value for an Attribute<a class="headerlink" href="#setting-a-default-value-for-an-attribute" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="setting-a-default-value-for-an-attribute">Setting a Default Value for an Attribute<a class="headerlink" href="#setting-a-default-value-for-an-attribute" title="Permanent link">#</a></h3>
 <pre><code class="language-python">class Car:
     &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
 
@@ -233,14 +335,14 @@ my_new_car.read_odometer()
 <pre><code>2019 Audi A4
 This car has 0 miles on it.
 </code></pre>
-<h3 id="modifying-attribute-values">Modifying Attribute Values<a class="headerlink" href="#modifying-attribute-values" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="modifying-attribute-values">Modifying Attribute Values<a class="headerlink" href="#modifying-attribute-values" title="Permanent link">#</a></h3>
 <p>Three methods:</p>
 <ol>
 <li>Change value through an instance</li>
 <li>Set value through a method</li>
 <li>Increment value through a method</li>
 </ol>
-<h4 id="modify-attribute-directly-through-an-instance">Modify attribute directly through an instance<a class="headerlink" href="#modify-attribute-directly-through-an-instance" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="modify-attribute-directly-through-an-instance">Modify attribute directly through an instance<a class="headerlink" href="#modify-attribute-directly-through-an-instance" title="Permanent link">#</a></h4>
 <pre><code class="language-python">class Car:
     &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
 
@@ -269,7 +371,7 @@ my_new_car.read_odometer()
 <pre><code>2019 Audi A4
 This car has 23 miles on it.
 </code></pre>
-<h4 id="define-a-method-that-updates-attributes">Define a method that updates attributes<a class="headerlink" href="#define-a-method-that-updates-attributes" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="define-a-method-that-updates-attributes">Define a method that updates attributes<a class="headerlink" href="#define-a-method-that-updates-attributes" title="Permanent link">#</a></h4>
 <pre><code class="language-python">class Car:
     &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
 
@@ -303,7 +405,7 @@ my_new_car.read_odometer()
 <pre><code>2019 Audi A4
 This car has 23 miles on it.
 </code></pre>
-<h4 id="define-a-method-that-increments-an-attributes-value">Define a method that increments an attribute's value<a class="headerlink" href="#define-a-method-that-increments-an-attributes-value" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="define-a-method-that-increments-an-attributes-value">Define a method that increments an attribute's value<a class="headerlink" href="#define-a-method-that-increments-an-attributes-value" title="Permanent link">#</a></h4>
 <pre><code class="language-python">class Car:
     &quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
 

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20220105072936-pandoc/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -113,23 +215,23 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h1>
 <blockquote>
 <p>If you need to convert files from one markup format into another, pandoc is
 your swiss-army knife. <a href="https://pandoc.org">Cite</a></p>
 </blockquote>
-<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
 <p>Pandoc is free open source software. This utility is available for Windows and
 most major Linux distrobutions. Please review the official documentation for how
 to <a href="https://pandoc.org/installing.html">install</a> this software for your OS. </p>
-<h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
 <p>Pandoc is a command-line tool. There is no graphic user interface. In order to
 use it, <a href="https://pandoc.org/getting-started.html#step-2-open-a-terminal">open a
 terminal</a>. </p>
 <p>Verify that Pandoc is installed:</p>
 <pre><code>pandoc --version
 </code></pre>
-<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">#</a></h2>
 <p>Pandoc can be used as a command-line interpretor.  Pandoc can take input that's
 written in a syntax that it recognizes and convert it to another syntax.  By
 default pandoc interprets input as Markdown and output as HTML. </p>
@@ -176,7 +278,7 @@ output directly to a file. </p>
 <p>or pandoc has a flag for writing output to a file as well</p>
 <pre><code>pandoc test1.md -f markdown -t html -s -o test1.html
 </code></pre>
-<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">#</a></h2>
 <p>For more advanced usage feel free to review the official <a href="https://pandoc.org/getting-started.html#step-2-open-a-terminal">getting
 started</a> guide,
 the <a href="https://pandoc.org/MANUAL.html">official manual</a>, or use the built-in help
@@ -185,7 +287,7 @@ docs:</p>
 </code></pre>
 <pre><code>man pandoc
 </code></pre>
-<h1 id="see-also">See Also<a class="headerlink" href="#see-also" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h1>
 <ul>
 <li><a href="https://pandoc.org">pandoc.org</a></li>
 </ul>

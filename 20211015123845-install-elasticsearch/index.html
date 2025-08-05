@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211015123845-install-elasticsearch/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -111,19 +213,19 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.15/rpm.html">Install Elasticsearch 7.15 with RPM</a></li>
 </ul>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <p>As of this writing latest version is 7.15. This is how to install the latest
 version.  For installation of previous versions, see the official docs.</p>
 <p>Elasticsearch ships with a bundled version of OpenJDK, so it's no longer
 necessary to install this separately (unless you want to).</p>
-<h3 id="import-the-elasticsearch-gpg-key">Import the Elasticsearch GPG Key<a class="headerlink" href="#import-the-elasticsearch-gpg-key" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="import-the-elasticsearch-gpg-key">Import the Elasticsearch GPG Key<a class="headerlink" href="#import-the-elasticsearch-gpg-key" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 </code></pre>
-<h3 id="installing-from-the-rpm-repository">Installing from the RPM repository<a class="headerlink" href="#installing-from-the-rpm-repository" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="installing-from-the-rpm-repository">Installing from the RPM repository<a class="headerlink" href="#installing-from-the-rpm-repository" title="Permanent link">#</a></h3>
 <p>Create the following file:</p>
 <pre><code class="language-bash">touch /etc/yum.repos.d/elasticsearch.repo
 </code></pre>
@@ -145,12 +247,12 @@ installed instead of v7.15.</p>
 <p>Install using <code>yum</code>:</p>
 <pre><code class="language-bash">yum install --enablerepo=elasticsearch elasticsearch
 </code></pre>
-<h3 id="run-and-enable-elasticsearch-with-systemd">Run and enable Elasticsearch with systemd<a class="headerlink" href="#run-and-enable-elasticsearch-with-systemd" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="run-and-enable-elasticsearch-with-systemd">Run and enable Elasticsearch with systemd<a class="headerlink" href="#run-and-enable-elasticsearch-with-systemd" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">systemctl daemon-reload
 systemctl enable elasticsearch
 systemctl start elasticsearch
 </code></pre>
-<h3 id="check-that-elasticsearch-is-running">Check that Elasticsearch is running<a class="headerlink" href="#check-that-elasticsearch-is-running" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="check-that-elasticsearch-is-running">Check that Elasticsearch is running<a class="headerlink" href="#check-that-elasticsearch-is-running" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">curl -X GET &quot;localhost:9200&quot;
 </code></pre>
 <p>Example:</p>

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211014053321-importing-classes/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -114,8 +216,8 @@
 <section id="mkdocs-terminal-content">
     <p>Just like with builtin modules or modules that other's have build you can import
 your own groups of classes the same way.</p>
-<h2 id="importing-classes">Importing Classes<a class="headerlink" href="#importing-classes" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="importing-a-single-class">Importing a single class<a class="headerlink" href="#importing-a-single-class" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="importing-classes">Importing Classes<a class="headerlink" href="#importing-classes" title="Permanent link">#</a></h2>
+<h3 id="importing-a-single-class">Importing a single class<a class="headerlink" href="#importing-a-single-class" title="Permanent link">#</a></h3>
 <p>Always include a docstring at the head of a module you create.</p>
 <p>You can import modules just like with any other module.</p>
 <pre><code class="language-python">from car import Car
@@ -129,33 +231,33 @@ my_new_car.read_odometer()
 <pre><code>2019 Audi A4
 This car has 23 miles on it.
 </code></pre>
-<h3 id="storing-multiple-classes-in-a-module">Storing multiple classes in a module<a class="headerlink" href="#storing-multiple-classes-in-a-module" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="storing-multiple-classes-in-a-module">Storing multiple classes in a module<a class="headerlink" href="#storing-multiple-classes-in-a-module" title="Permanent link">#</a></h3>
 <p>You can store as many classes as you like in a module, but they should be
 related. </p>
-<h3 id="you-can-import-multiple-classes">You can import multiple classes<a class="headerlink" href="#you-can-import-multiple-classes" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="you-can-import-multiple-classes">You can import multiple classes<a class="headerlink" href="#you-can-import-multiple-classes" title="Permanent link">#</a></h3>
 <pre><code class="language-python">from car import Car, ElectricCar
 ...
 </code></pre>
-<h3 id="or-you-can-import-the-entire-module">Or you can import the entire module<a class="headerlink" href="#or-you-can-import-the-entire-module" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="or-you-can-import-the-entire-module">Or you can import the entire module<a class="headerlink" href="#or-you-can-import-the-entire-module" title="Permanent link">#</a></h3>
 <pre><code class="language-python">import car
 
 my_beetle = car.Car('volkswagen', 'beetle', 2019)
 ...
 </code></pre>
-<h3 id="importing-all-classes-from-a-module">Importing all classes from a Module<a class="headerlink" href="#importing-all-classes-from-a-module" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="importing-all-classes-from-a-module">Importing all classes from a Module<a class="headerlink" href="#importing-all-classes-from-a-module" title="Permanent link">#</a></h3>
 <p>Use <code>*</code> syntax:</p>
 <pre><code class="language-python">from module_name import *
 </code></pre>
 <p>This method is discouraged though. It's better to know what's imported based on
 the import statement at the head of the file.</p>
-<h2 id="importing-a-module-into-a-module">Importing a Module into a Module<a class="headerlink" href="#importing-a-module-into-a-module" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="importing-a-module-into-a-module">Importing a Module into a Module<a class="headerlink" href="#importing-a-module-into-a-module" title="Permanent link">#</a></h2>
 <p>Sometimes modules depend on other modules, so you can just import that module
 into the other module using the same syntax:</p>
 <pre><code class="language-python">from car import Car
 
 Some classes that depend on car...
 </code></pre>
-<h2 id="using-aliases">Using Aliases<a class="headerlink" href="#using-aliases" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="using-aliases">Using Aliases<a class="headerlink" href="#using-aliases" title="Permanent link">#</a></h2>
 <pre><code class="language-python">from electric_car import ElectricCar as EC
 </code></pre>
 </section>

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210811101908-introduction-to-vi/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -120,7 +222,7 @@ Linux systems. Most if not all of what's in this tutorial is interchangeable
 between Vi or Vim.</p>
 <p>Vi was first written in 1976 by Bill Joy at the University of California at
 berkley. vim was written by and is still maintained by Bram Moolenaar.</p>
-<h1 id="why-learn-vivim">Why Learn Vi/Vim?<a class="headerlink" href="#why-learn-vivim" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="why-learn-vivim">Why Learn Vi/Vim?<a class="headerlink" href="#why-learn-vivim" title="Permanent link">#</a></h1>
 <ul>
 <li>Vi is almost always available on Linux systems. If you're ssh'd into a server
     and you don't have the ability (or the authority...) to install additional
@@ -132,7 +234,7 @@ berkley. vim was written by and is still maintained by Bram Moolenaar.</p>
 <li>You want other Linux nerds to respect you and you're irrationally concerned
     with being judged by based on your bash history.</li>
 </ul>
-<h1 id="basics">Basics<a class="headerlink" href="#basics" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">#</a></h1>
 <p>Starting vi (vim):</p>
 <pre><code class="language-bash">$ vi
 $ # Or ...
@@ -176,11 +278,11 @@ an argument:</p>
 argument:</p>
 <pre><code class="language-bash">$ vi /path/to/somefile.txt
 </code></pre>
-<h2 id="editing-modes">Editing Modes<a class="headerlink" href="#editing-modes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="editing-modes">Editing Modes<a class="headerlink" href="#editing-modes" title="Permanent link">#</a></h2>
 <p>Vi is a modal editor. When vi starts it's in <em>command mode.</em> In this mode
 almost everything is a command. Be careful what you type in this mode, you may
 end up executing commands you didn't intend.</p>
-<h3 id="entering-insert-mode">Entering Insert Mode<a class="headerlink" href="#entering-insert-mode" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="entering-insert-mode">Entering Insert Mode<a class="headerlink" href="#entering-insert-mode" title="Permanent link">#</a></h3>
 <p>After you've opened or created a file that you're trying to edit, in order to
 add some text you need to enter <em>insert mode.</em> To do this press the <strong>i</strong> key.
 You should see the following at the bottom of the screen:</p>
@@ -190,7 +292,7 @@ You should see the following at the bottom of the screen:</p>
 <pre><code class="language-txt">the quick brown fox jumped over the lazy dog.
 </code></pre>
 <p>To exit insert mode and return to command mode, press the <strong>Esc</strong> key.</p>
-<h3 id="saving-your-work">Saving Your Work<a class="headerlink" href="#saving-your-work" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="saving-your-work">Saving Your Work<a class="headerlink" href="#saving-your-work" title="Permanent link">#</a></h3>
 <p>To save changes to your file enter an <em>ex command</em> while in command mode. You
 can do this by typing <strong>:</strong>.  You should see a colon character appear at the
 bottom of your terminal.</p>
@@ -205,7 +307,7 @@ bottom of your terminal that looks similar to this:</p>
 </code></pre>
 <p><strong>Tip:</strong> the vim documentation confusingly calls command mode <em>normal mode</em> and
 that <em>ex</em> commands are called <em>command mode.</em></p>
-<h3 id="moving-around-the-buffer">Moving Around the Buffer<a class="headerlink" href="#moving-around-the-buffer" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="moving-around-the-buffer">Moving Around the Buffer<a class="headerlink" href="#moving-around-the-buffer" title="Permanent link">#</a></h3>
 <p>While in command mode, vi offers a large amount of movement commands.  Many of
 these are shared with the <code>less</code> pager. In fact many Linux utilities have some
 type of vi mode.  Once you learn these, this skill is farily <em>portable.</em></p>
@@ -292,13 +394,13 @@ type of vi mode.  Once you learn these, this skill is farily <em>portable.</em><
 commonly the letters <em>h</em>, <em>j</em>, <em>k</em>, and <em>l</em> were used.  Many commands in vi can
 be prefixed with a number. We can specify the number of times a command will be
 executed. For example, <code>5j</code> will move the cursor down 5 lines.</p>
-<h3 id="basic-editing">Basic Editing<a class="headerlink" href="#basic-editing" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="basic-editing">Basic Editing<a class="headerlink" href="#basic-editing" title="Permanent link">#</a></h3>
 <p>In general editing text consists of basic operations like inserting text,
 deleting text, moving text around by cutting and pasting, etc. Vi supports all
 of this and more. Vi also provides undo if you press <strong>u</strong> while in command mode.
 This undo's the last change you made and will come in handy while you practice
 some basic text editing in Vi.</p>
-<h4 id="appending-and-inserting-text">Appending and Inserting Text<a class="headerlink" href="#appending-and-inserting-text" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="appending-and-inserting-text">Appending and Inserting Text<a class="headerlink" href="#appending-and-inserting-text" title="Permanent link">#</a></h4>
 <p>To <em>append</em> text after the cursor press <strong>a</strong> and then type the text that you
 with to add.</p>
 <p>Try moving the cursor to the end of the line in your text file and appending
@@ -314,7 +416,7 @@ mode before the cursor, but capital <strong>I</strong> puts you in insert mode a
 beginning of the line. As you grow more familiar with the variety of Vi commands
 at your disposal you'll learn that for most things that you would want to do,
 there's often a short-cut available like this.</p>
-<h4 id="opening-a-line">Opening a Line<a class="headerlink" href="#opening-a-line" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="opening-a-line">Opening a Line<a class="headerlink" href="#opening-a-line" title="Permanent link">#</a></h4>
 <p>We can also insert a line above or below the current line and enter insert mode.
 To do this type <strong>o</strong> to insert a line below the current one and type <strong>O</strong> to
 insert a line above the one your cursor is currently on.</p>
@@ -324,7 +426,7 @@ The quick brown fox jumped over the lazy dog. It was cool.
 Line below.
 </code></pre>
 <p>Again to exit insert mode just type <strong>Esc</strong>.</p>
-<h4 id="deleting-text">Deleting text<a class="headerlink" href="#deleting-text" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="deleting-text">Deleting text<a class="headerlink" href="#deleting-text" title="Permanent link">#</a></h4>
 <p>Vi offers a variety of ways to delete text. To delete the character underneath
 the cursor type <strong>x</strong>. You may preceed <strong>x</strong> with a number to delete that many
 characters. The <strong>d</strong> command is more general purpose. <strong>d</strong> is followed by a
@@ -385,7 +487,7 @@ delete command that many times.</p>
 <p>If you make a mistake, you can undo a deletion with the <strong>u</strong> command.</p>
 <p><strong>Note:</strong> Real vi supports only a single level of undo. Vim supports multiple
 levels of undo.</p>
-<h4 id="cutting-copying-and-pasting-text">Cutting, Copying, and Pasting Text<a class="headerlink" href="#cutting-copying-and-pasting-text" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="cutting-copying-and-pasting-text">Cutting, Copying, and Pasting Text<a class="headerlink" href="#cutting-copying-and-pasting-text" title="Permanent link">#</a></h4>
 <p>The <strong>d</strong> command not only deletes text but it also "cuts" text. Anytime you use
 the <strong>d</strong> command it will save that snippet of text into a paste buffer that can
 later be used. To paste text use the <strong>p</strong> command to paste the contents
@@ -439,15 +541,15 @@ with the <strong>y</strong> command can be pasted back into your file using eith
 <strong>P</strong>.</p>
 <p>Feel free to practice adding, deleting, yanking and pasting text into your text
 file. Remember, you can always undo with <strong>u</strong>.</p>
-<h3 id="search-and-replace">Search-and-Replace<a class="headerlink" href="#search-and-replace" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="search-and-replace">Search-and-Replace<a class="headerlink" href="#search-and-replace" title="Permanent link">#</a></h3>
 <p>In vi you can search a single line or a whole file. You can also perform text
 replacements as in a <em>search-replace</em>, also known as a <em>substitution</em>.</p>
-<h4 id="searching-within-a-line">Searching Within a Line<a class="headerlink" href="#searching-within-a-line" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="searching-within-a-line">Searching Within a Line<a class="headerlink" href="#searching-within-a-line" title="Permanent link">#</a></h4>
 <p>The <strong>f</strong> command searches a line and moves the cursor to the next instance of a
 specified character. For example <strong>fa</strong> would move the cursor to the next
 occurrence of the character <strong>a</strong>.  After performing a character search the
 search may be repeated by typing <strong>;</strong>.</p>
-<h4 id="searching-the-entire-file">Searching the Entire File<a class="headerlink" href="#searching-the-entire-file" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="searching-the-entire-file">Searching the Entire File<a class="headerlink" href="#searching-the-entire-file" title="Permanent link">#</a></h4>
 <p>To search for a word or phrase the <strong>/</strong> command is used. After typing <strong>/</strong>
 type a string to search for and press <strong>Enter</strong>. This will move the cursor to
 next occurrence of that string in the file. You can repeat the search forward
@@ -456,7 +558,7 @@ the file by pressing <strong>N</strong>.</p>
 <p>Vi's search function allows for the use of Regular Expressions, but that is
 outside of the scope of this tutorial. Feel free to type <code>:help</code> in command mode
 to refer to vim's help docs.</p>
-<h4 id="global-search-and-replace">Global Search-and-Replace<a class="headerlink" href="#global-search-and-replace" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="global-search-and-replace">Global Search-and-Replace<a class="headerlink" href="#global-search-and-replace" title="Permanent link">#</a></h4>
 <p>The basic syntax for searching a whole file and replacing every occurrence of a
 string is:</p>
 <pre><code>:%s/search/replace/g
@@ -481,8 +583,8 @@ string.</p>
 <pre><code>replace with Line (y/n/a/q/l/^E/^Y)?
 </code></pre>
 <p><em>yes, no, all, quit, last, Ctrl-e (scroll up), Ctrl-y (scroll down)</em></p>
-<h1 id="resources">Resources<a class="headerlink" href="#resources" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="vimtutor">Vimtutor<a class="headerlink" href="#vimtutor" title="Anchor link to this section for reference">#</a></h2>
+<h1 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h1>
+<h2 id="vimtutor">Vimtutor<a class="headerlink" href="#vimtutor" title="Permanent link">#</a></h2>
 <p>There's actually a tutorial built right into Vim that is highly recommended.
 The above introduction is just that, an introduction.  There's quite a bit more
 that you can do with vim and which is unfortunately ouside of the scope of this
@@ -497,14 +599,14 @@ about 20 minutes each time and restarting the tutor each time you complete it.
 Practice and repetition is a good way to solidify your skills and commit many of
 the keyboard commands and skills to memory. After a week of practice you'll be
 well on your way to becoming proficient in Vim.</p>
-<h2 id="other-resources">Other Resources<a class="headerlink" href="#other-resources" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="other-resources">Other Resources<a class="headerlink" href="#other-resources" title="Permanent link">#</a></h2>
 <p>As always there's the official help docs which ship with vim if you run <code>:help</code>
 from any vim buffer.</p>
 <ul>
 <li><a href="https://www.vim.org/docs.php">Official docs</a></li>
 <li><a href="https://vim.rtorr.com">Cheat sheet</a></li>
 </ul>
-<h1 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">#</a></h1>
 <p>This "Introduction to Vi" is largely based on the "Gentle Introduction to Vi"
 that's written by William Shotts and that's available online for free download
 on his <a href="http://www.linuxcommand.org/tlcl.php/tlcl.php">site</a> as part of his book

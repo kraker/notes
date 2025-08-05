@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210918084109-array-operations/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -115,7 +217,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="outputting-contents">Outputting Contents<a class="headerlink" href="#outputting-contents" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="outputting-contents">Outputting Contents<a class="headerlink" href="#outputting-contents" title="Permanent link">#</a></h2>
 <p><code>*</code> and <code>@</code> can be used to access every element in an array.</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ animals=(&quot;a dog&quot; &quot;a cat&quot; &quot;a fish&quot;)
 [me@linuxbox ~]$ for i in ${animals[*]}; do echo $i; done
@@ -139,14 +241,14 @@ a dog
 a cat
 a fish
 </code></pre>
-<h2 id="number-of-array-elements">Number of array elements<a class="headerlink" href="#number-of-array-elements" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="number-of-array-elements">Number of array elements<a class="headerlink" href="#number-of-array-elements" title="Permanent link">#</a></h2>
 <pre><code class="language-bash">[me@linuxbox ~]$ a[100]=foo
 [me@linuxbox ~]$ echo ${#a[@]} # number of array elements
 1
 [me@linuxbox ~]$ echo ${#a[100]} # length of element 100
 3
 </code></pre>
-<h2 id="finding-subscripts-indexes">Finding subscripts (indexes)<a class="headerlink" href="#finding-subscripts-indexes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="finding-subscripts-indexes">Finding subscripts (indexes)<a class="headerlink" href="#finding-subscripts-indexes" title="Permanent link">#</a></h2>
 <p><code>${!array[*]} ${!array[@]}</code> both return indexes of the array</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ foo=([2]=a [u]=b [6]=c)
 [me@linuxbox ~]$ for i in &quot;${foo[@]}&quot;; do echo $i; done
@@ -158,7 +260,7 @@ c
 4
 6
 </code></pre>
-<h2 id="adding-elements-to-arrays">Adding elements to arrays<a class="headerlink" href="#adding-elements-to-arrays" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="adding-elements-to-arrays">Adding elements to arrays<a class="headerlink" href="#adding-elements-to-arrays" title="Permanent link">#</a></h2>
 <p>Appending elements to arrays</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ foo=(a b c)
 [me@linuxbox ~]$ echo ${foo[@]}
@@ -167,7 +269,7 @@ a b c
 [me@linuxbox ~]$ echo ${foo[@]}
 a b c d e f
 </code></pre>
-<h2 id="sorting-arrays">Sorting arrays<a class="headerlink" href="#sorting-arrays" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="sorting-arrays">Sorting arrays<a class="headerlink" href="#sorting-arrays" title="Permanent link">#</a></h2>
 <pre><code class="language-bash">#!/bin/bash
 
 # array-sort: Sort an array
@@ -182,7 +284,7 @@ echo &quot;Sorted array: ${a_sorted[@]}&quot;
 Original array: f e d c b a
 Sorted array: a b c d e f
 </code></pre>
-<h2 id="deleting-arrays-and-elements">Deleting Arrays and Elements<a class="headerlink" href="#deleting-arrays-and-elements" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="deleting-arrays-and-elements">Deleting Arrays and Elements<a class="headerlink" href="#deleting-arrays-and-elements" title="Permanent link">#</a></h2>
 <p>Use <code>unset</code> foo=(a b c d e f) unset foo echo ${foo[@]}</p>
 <p>or unset 'foo[2]' echo ${foo[@]} a b d e f</p>
 <p><em>Note: assigning an empty value to an array doesn't empty it's

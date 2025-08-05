@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20240508100500-cron/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,8 +212,8 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="cron">cron<a class="headerlink" href="#cron" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="crontab">Crontab<a class="headerlink" href="#crontab" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="cron">cron<a class="headerlink" href="#cron" title="Permanent link">#</a></h1>
+<h2 id="crontab">Crontab<a class="headerlink" href="#crontab" title="Permanent link">#</a></h2>
 <p>Print crontabs for all users:</p>
 <pre><code class="language-bash">find /var/spool/cron -type f -printf 'USER: %u \n' -exec cat {} \;
 </code></pre>
@@ -121,7 +223,7 @@ USER: root
 USER: vagrant 
 * * * * * sleep 3
 </code></pre>
-<h3 id="crontab-syntax">crontab syntax<a class="headerlink" href="#crontab-syntax" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="crontab-syntax">crontab syntax<a class="headerlink" href="#crontab-syntax" title="Permanent link">#</a></h3>
 <pre><code class="language-bash">[root@rhel9-a ~]# cat /etc/crontab
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
@@ -139,7 +241,7 @@ MAILTO=root
 # *  *  *  *  * user-name  command to be executed
 </code></pre>
 <p>Helpful crontab syntax editor: <a href="https://crontab.guru/">crontab guru</a></p>
-<h2 id="useful-linksreferences">Useful links/references<a class="headerlink" href="#useful-linksreferences" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="useful-linksreferences">Useful links/references<a class="headerlink" href="#useful-linksreferences" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/title/cron">ArchWiki - cron</a></li>
 <li><a href="https://www.adminschoice.com/crontab-quick-reference">Crontab - Quck Reference</a></li>
@@ -148,7 +250,7 @@ MAILTO=root
 <li><a href="https://github.com/livialima/linuxupskillchallenge/blob/master/docs/10.md">LinuxUpskillChallenge: Day 10 - Scheduling Tasks</a> - I rewrote/edited this</li>
 <li><a href="https://blog.sanctum.geek.nz/cron-best-practices/">Arabesque: Cron best practices</a></li>
 </ul>
-<h3 id="monitoring-cronjobs">Monitoring cronjobs<a class="headerlink" href="#monitoring-cronjobs" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="monitoring-cronjobs">Monitoring cronjobs<a class="headerlink" href="#monitoring-cronjobs" title="Permanent link">#</a></h3>
 <p>Monitoring cronjobs with <a href="../20240508101100-prometheus/">Prometheus</a>...</p>
 <ul>
 <li><a href="https://blog.sanctum.geek.nz/cron-best-practices/">Arabesque: Cron best practices</a>. See section "Don't throw away useful output"</li>

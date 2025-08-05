@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20220318125354-openssh/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,36 +212,36 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="openssh">OpenSSH<a class="headerlink" href="#openssh" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="openssh">OpenSSH<a class="headerlink" href="#openssh" title="Permanent link">#</a></h1>
 <p>OpenSSH is the premier connectivity tool for remote login with the SSH protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. In addition, OpenSSH provides a large suite of secure tunneling capabilities, several authentication methods, and sophisticated configuration options.</p>
 <p><a href="https://www.openssh.com/">Source - openssh.com</a></p>
-<h2 id="cli">CLI<a class="headerlink" href="#cli" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://www.cyberciti.biz/faq/unix-linux-execute-command-using-ssh/">How To Run / Execute Command Using SSH</a></li>
 </ul>
-<h2 id="remote-operations">Remote Operations<a class="headerlink" href="#remote-operations" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="ssh"><code>ssh</code><a class="headerlink" href="#ssh" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="remote-operations">Remote Operations<a class="headerlink" href="#remote-operations" title="Permanent link">#</a></h2>
+<h3 id="ssh"><code>ssh</code><a class="headerlink" href="#ssh" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20220318125629-ssh-client/">20220318125629-ssh-client</a></li>
 </ul>
-<h3 id="scp"><code>scp</code><a class="headerlink" href="#scp" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="sftp"><code>sftp</code><a class="headerlink" href="#sftp" title="Anchor link to this section for reference">#</a></h3>
-<h2 id="key-management">Key Management<a class="headerlink" href="#key-management" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="ssh-add"><code>ssh-add</code><a class="headerlink" href="#ssh-add" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="ssh-keysign"><code>ssh-keysign</code><a class="headerlink" href="#ssh-keysign" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="ssh-keyscan"><code>ssh-keyscan</code><a class="headerlink" href="#ssh-keyscan" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="ssh-keygen"><code>ssh-keygen</code><a class="headerlink" href="#ssh-keygen" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="scp"><code>scp</code><a class="headerlink" href="#scp" title="Permanent link">#</a></h3>
+<h3 id="sftp"><code>sftp</code><a class="headerlink" href="#sftp" title="Permanent link">#</a></h3>
+<h2 id="key-management">Key Management<a class="headerlink" href="#key-management" title="Permanent link">#</a></h2>
+<h3 id="ssh-add"><code>ssh-add</code><a class="headerlink" href="#ssh-add" title="Permanent link">#</a></h3>
+<h3 id="ssh-keysign"><code>ssh-keysign</code><a class="headerlink" href="#ssh-keysign" title="Permanent link">#</a></h3>
+<h3 id="ssh-keyscan"><code>ssh-keyscan</code><a class="headerlink" href="#ssh-keyscan" title="Permanent link">#</a></h3>
+<h3 id="ssh-keygen"><code>ssh-keygen</code><a class="headerlink" href="#ssh-keygen" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20220318130443-ssh-keygen/">20220318130443-ssh-keygen</a></li>
 </ul>
-<h3 id="ssh-copy-id"><code>ssh-copy-id</code><a class="headerlink" href="#ssh-copy-id" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="ssh-copy-id"><code>ssh-copy-id</code><a class="headerlink" href="#ssh-copy-id" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20220318131153-ssh-copy-id/">20220318131153-ssh-copy-id</a></li>
 </ul>
-<h2 id="services">Services<a class="headerlink" href="#services" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="sshd"><code>sshd</code><a class="headerlink" href="#sshd" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="sftp-server"><code>sftp-server</code><a class="headerlink" href="#sftp-server" title="Anchor link to this section for reference">#</a></h3>
-<h3 id="ssh-agent"><code>ssh-agent</code><a class="headerlink" href="#ssh-agent" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="services">Services<a class="headerlink" href="#services" title="Permanent link">#</a></h2>
+<h3 id="sshd"><code>sshd</code><a class="headerlink" href="#sshd" title="Permanent link">#</a></h3>
+<h3 id="sftp-server"><code>sftp-server</code><a class="headerlink" href="#sftp-server" title="Permanent link">#</a></h3>
+<h3 id="ssh-agent"><code>ssh-agent</code><a class="headerlink" href="#ssh-agent" title="Permanent link">#</a></h3>
 </section>
 
 <section id="mkdocs-terminal-after-content">

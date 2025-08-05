@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210520124600-ftp-server-setup/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -117,7 +219,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="reqs">Reqs<a class="headerlink" href="#reqs" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="reqs">Reqs<a class="headerlink" href="#reqs" title="Permanent link">#</a></h2>
 <ol>
 <li>FTP service running on a cloud VPS with some type of Linux OS.</li>
 <li>Transition from your existing Windows FTP host to our hosting needs to be
@@ -129,7 +231,7 @@
 <li>It also sounds like you require some type of GUI interface or "dashboard" for
      administrative users to manage the FTP server</li>
 </ol>
-<h2 id="qs">Q's<a class="headerlink" href="#qs" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="qs">Q's<a class="headerlink" href="#qs" title="Permanent link">#</a></h2>
 <ol>
 <li>Are they planning on using existing cVPS, or are we provisioning an
      additional one?
@@ -137,33 +239,33 @@
 <li>How do their client's typically currently access their existing FTP server?
      Some type of FTP client accesses FTP accounts. </li>
 </ol>
-<h2 id="ftp-servers">FTP Servers<a class="headerlink" href="#ftp-servers" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="ftp-servers">FTP Servers<a class="headerlink" href="#ftp-servers" title="Permanent link">#</a></h2>
 <p>https://www.linuxlinks.com/best-free-open-source-linux-ftp-servers/</p>
-<h3 id="filezilla-ftp-server">FileZilla FTP Server<a class="headerlink" href="#filezilla-ftp-server" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="filezilla-ftp-server">FileZilla FTP Server<a class="headerlink" href="#filezilla-ftp-server" title="Permanent link">#</a></h3>
 <p>Note: currently using FileZilla FTP server, but this doesn't support Linux, only runs on Windows.
 https://filezilla-project.org/download.php?show_all=1&amp;type=server</p>
-<h3 id="proftpd">ProFTPD<a class="headerlink" href="#proftpd" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="proftpd">ProFTPD<a class="headerlink" href="#proftpd" title="Permanent link">#</a></h3>
 <p>https://wiki.archlinux.org/title/ProFTPD
 http://proftpd.org
 * GPL license allows for commercial use</p>
-<h3 id="pure-ftpd">Pure-FTPd<a class="headerlink" href="#pure-ftpd" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="pure-ftpd">Pure-FTPd<a class="headerlink" href="#pure-ftpd" title="Permanent link">#</a></h3>
 <p>https://wiki.archlinux.org/title/Pure-FTPd
 https://www.pureftpd.org/project/pure-ftpd/</p>
-<h3 id="very-secure-ftp-daemon">Very Secure FTP Daemon<a class="headerlink" href="#very-secure-ftp-daemon" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="very-secure-ftp-daemon">Very Secure FTP Daemon<a class="headerlink" href="#very-secure-ftp-daemon" title="Permanent link">#</a></h3>
 <p>https://wiki.archlinux.org/title/Very_Secure_FTP_Daemon
 https://security.appspot.com/vsftpd.html</p>
-<h3 id="bftpd">Bftpd<a class="headerlink" href="#bftpd" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="bftpd">Bftpd<a class="headerlink" href="#bftpd" title="Permanent link">#</a></h3>
 <p>http://bftpd.sourceforge.net/</p>
-<h2 id="ftp-admin-panels">FTP admin panels<a class="headerlink" href="#ftp-admin-panels" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="webmin">Webmin<a class="headerlink" href="#webmin" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="ftp-admin-panels">FTP admin panels<a class="headerlink" href="#ftp-admin-panels" title="Permanent link">#</a></h2>
+<h3 id="webmin">Webmin<a class="headerlink" href="#webmin" title="Permanent link">#</a></h3>
 <p>webmin.com
 https://forums.centos.org/viewtopic.php?t=46257
 * webmin ProFTPd module: http://doxfer.webmin.com/Webmin/ProFTPD_Server
     + Works out of the box with ProFTPD
 * License allows commercial use</p>
-<h3 id="control-webpanel-aka-centos-webpanel">Control Webpanel (AKA CentOS Webpanel)<a class="headerlink" href="#control-webpanel-aka-centos-webpanel" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="control-webpanel-aka-centos-webpanel">Control Webpanel (AKA CentOS Webpanel)<a class="headerlink" href="#control-webpanel-aka-centos-webpanel" title="Permanent link">#</a></h3>
 <p>http://centos-webpanel.com</p>
-<h2 id="other-considerations">Other considerations<a class="headerlink" href="#other-considerations" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="other-considerations">Other considerations<a class="headerlink" href="#other-considerations" title="Permanent link">#</a></h2>
 <ul>
 <li>
 <p>We'll want some type of firewall and maybe even login protection, to prevent
@@ -174,20 +276,20 @@ https://forums.centos.org/viewtopic.php?t=46257
     perms?</p>
 </li>
 </ul>
-<h2 id="os">OS?<a class="headerlink" href="#os" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="os">OS?<a class="headerlink" href="#os" title="Permanent link">#</a></h2>
 <ul>
 <li>CentOS for stability/maintainability?</li>
 </ul>
-<h2 id="misc">Misc.<a class="headerlink" href="#misc" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="misc">Misc.<a class="headerlink" href="#misc" title="Permanent link">#</a></h2>
 <p>CrushFTP is enterprise grade, but has some <em>nice-to-have's</em>
 https://www.crushftp.com/case_studies.html</p>
-<h2 id="linux-administration">Linux Administration<a class="headerlink" href="#linux-administration" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="bind-mount"><a href="../20210623104154-bind-mount/">Bind mount</a><a class="headerlink" href="#bind-mount" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="linux-administration">Linux Administration<a class="headerlink" href="#linux-administration" title="Permanent link">#</a></h2>
+<h3 id="bind-mount"><a href="../20210623104154-bind-mount/">Bind mount</a><a class="headerlink" href="#bind-mount" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20210610113347-mount/">mount</a></li>
 </ul>
-<h3 id="users-and-groups"><a href="../20210623142742-users-and-groups/">Users and groups</a><a class="headerlink" href="#users-and-groups" title="Anchor link to this section for reference">#</a></h3>
-<h4 id="user-management"><a href="../20210623143339-users-groups/">User management</a><a class="headerlink" href="#user-management" title="Anchor link to this section for reference">#</a></h4>
+<h3 id="users-and-groups"><a href="../20210623142742-users-and-groups/">Users and groups</a><a class="headerlink" href="#users-and-groups" title="Permanent link">#</a></h3>
+<h4 id="user-management"><a href="../20210623143339-users-groups/">User management</a><a class="headerlink" href="#user-management" title="Permanent link">#</a></h4>
 </section>
 
 <section id="mkdocs-terminal-after-content">

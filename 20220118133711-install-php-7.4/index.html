@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20220118133711-install-php-7.4/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -119,7 +221,7 @@ See dependency req's: https://www.sellacious.com/documentation-v2#/learn/basics/
 <p>(The version of pdo_sqlite that currently ships with <code>ea-php74</code> is <em>3.7.17</em>)</p>
 <p>In this case we have a few options. The most up-to-date rpm's available are from
 the <em>remi repo</em>: http://mirror.bebout.net/remi/enterprise/7/php74/x86_64/repoview/php.html</p>
-<h2 id="php-74-from-remi-repo">PHP 7.4 from remi repo<a class="headerlink" href="#php-74-from-remi-repo" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="php-74-from-remi-repo">PHP 7.4 from remi repo<a class="headerlink" href="#php-74-from-remi-repo" title="Permanent link">#</a></h2>
 <p>We can provision the remi repo with:</p>
 <pre><code class="language-bash">yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 </code></pre>
@@ -137,9 +239,9 @@ following string int the <code>/ect/yum.conf</code> file:</p>
 <p><a href="https://docs.cpanel.net/knowledge-base/general-systems-administration/rpm-installation-failures/">Source</a></p>
 <p><em>At this point, we're as far as I've made it in provisioning an alternative PHP
 7.4 rpm. I haven't had a chance to test this on a test VPS yet.</em></p>
-<h2 id="build-php-74-from-source">Build PHP 7.4 from source<a class="headerlink" href="#build-php-74-from-source" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="build-php-74-from-source">Build PHP 7.4 from source<a class="headerlink" href="#build-php-74-from-source" title="Permanent link">#</a></h2>
 <p>STUB</p>
-<h2 id="resources-and-links-to-docs">Resources and links to docs<a class="headerlink" href="#resources-and-links-to-docs" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="resources-and-links-to-docs">Resources and links to docs<a class="headerlink" href="#resources-and-links-to-docs" title="Permanent link">#</a></h2>
 <ul>
 <li>https://www.sellacious.com/documentation-v2#/learn/basics/system-requirements</li>
 <li>https://red3surf.com/phpinfo.php</li>

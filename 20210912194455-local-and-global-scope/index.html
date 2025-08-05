@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210912194455-local-and-global-scope/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -113,17 +215,17 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="local-scope">Local Scope<a class="headerlink" href="#local-scope" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="local-scope">Local Scope<a class="headerlink" href="#local-scope" title="Permanent link">#</a></h2>
 <p>Variables that are assigned inside a function have a <strong>local scope</strong> to that
 function.</p>
 <p>These are called <em>local variables</em>.</p>
-<h2 id="global-scope">Global Scope<a class="headerlink" href="#global-scope" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="global-scope">Global Scope<a class="headerlink" href="#global-scope" title="Permanent link">#</a></h2>
 <p>Variables that have a <strong>global scope</strong> are (typically) defined outside of functions. </p>
 <p>These are called <em>global variables</em>.</p>
-<h3 id="global-statements">Global Statements<a class="headerlink" href="#global-statements" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="global-statements">Global Statements<a class="headerlink" href="#global-statements" title="Permanent link">#</a></h3>
 <p>Global variables can be modified in a function with a <a href="../20210912195538-global-statements/">global
 statement</a>.</p>
-<h2 id="why-do-scopes-matter">Why do scopes matter?<a class="headerlink" href="#why-do-scopes-matter" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="why-do-scopes-matter">Why do scopes matter?<a class="headerlink" href="#why-do-scopes-matter" title="Permanent link">#</a></h2>
 <ul>
 <li>Code in global scope cannot use local variables</li>
 <li>Code in local scope <em>can</em> access global variables</li>
@@ -133,7 +235,7 @@ statement</a>.</p>
 <li>It's not considered best practice to do this though, so this should be
     avoided unless for a good reason</li>
 </ul>
-<h2 id="how-to-tell-if-a-variable-is-global-or-local">How to tell if a variable is global or local?<a class="headerlink" href="#how-to-tell-if-a-variable-is-global-or-local" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="how-to-tell-if-a-variable-is-global-or-local">How to tell if a variable is global or local?<a class="headerlink" href="#how-to-tell-if-a-variable-is-global-or-local" title="Permanent link">#</a></h2>
 <p>Four rules:</p>
 <ul>
 <li>If a variable is defined in a global scope its global</li>

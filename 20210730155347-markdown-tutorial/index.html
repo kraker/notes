@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210730155347-markdown-tutorial/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -112,7 +214,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h1>
 <p><strong>Markdown</strong> is a lightweight markup language for creating formatted text using a
 plain-text editor. It's designed to be easy to write and read in a plain-text
 editor and be easily rendered into structurally valid HTML (or XHTML). Markdown
@@ -126,14 +228,14 @@ Jekyll and Hugo, static site generators. </p>
 <ul>
 <li><a href="https://daringfireball.net/projects/markdown/">Official docs</a></li>
 </ul>
-<h1 id="basics">Basics<a class="headerlink" href="#basics" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link">#</a></h1>
 <p>In order to get started writing in Markdown you need a text editor that supports
 syntax highlighting. Many plain-text editors include native support for Markdown
 syntax highlighting. Common editors that include support for <code>*.md</code> which you 
 might use are Vim, Emacs, Vscode, Sublime, Notepad++ to name a few. Install your
 favorite text editor and create a file with the <code>*.md</code> extension to start
 writing in Markdown.</p>
-<h2 id="headings">Headings<a class="headerlink" href="#headings" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="headings">Headings<a class="headerlink" href="#headings" title="Permanent link">#</a></h2>
 <p>Headings are created with the use of <code>#</code> characters. To create a heading of
 levels 1-6 prefix the corresponding number of <code>#</code> characters to the beginning of
 the <em>header</em>.</p>
@@ -146,7 +248,7 @@ the <em>header</em>.</p>
 </code></pre>
 <p>If you're familiar with HTML markup, these render to header elements 
 <em><h1>, <h2>, <h3> ...</em> etc. </p>
-<h2 id="bold-italic">Bold &amp; Italic<a class="headerlink" href="#bold-italic" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="bold-italic">Bold &amp; Italic<a class="headerlink" href="#bold-italic" title="Permanent link">#</a></h2>
 <p>Bold and italics (different degrees of <em>emphasis</em>) can be denoted by wrapping a
 string of text in either one or two asterisks <code>*</code> or underscores <code>_</code>. For
 example: </p>
@@ -156,19 +258,19 @@ _Italicized_
 **Bold**
 __Bold__
 </code></pre>
-<h2 id="blockquote">Blockquote<a class="headerlink" href="#blockquote" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="blockquote">Blockquote<a class="headerlink" href="#blockquote" title="Permanent link">#</a></h2>
 <p>Much like plain-text email, you can create a blockquote with the right carrot
 <code>&gt;</code>.</p>
 <pre><code>&gt; Blockquote
 </code></pre>
-<h2 id="lists">Lists<a class="headerlink" href="#lists" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="ordered-lists">Ordered lists<a class="headerlink" href="#ordered-lists" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">#</a></h2>
+<h3 id="ordered-lists">Ordered lists<a class="headerlink" href="#ordered-lists" title="Permanent link">#</a></h3>
 <p>Ordered lists are just a numbered list.</p>
 <pre><code>1. First item
 2. Second item
 3. Third item
 </code></pre>
-<h3 id="unordered-lists">Unordered lists<a class="headerlink" href="#unordered-lists" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="unordered-lists">Unordered lists<a class="headerlink" href="#unordered-lists" title="Permanent link">#</a></h3>
 <p>Unordered lists are denoted by either a <code>*</code>, <code>+</code> or <code>-</code>. This author prefers <code>*</code>
 but use what you prefer, just try to be consistent.  It's considered bad style
 to mix it up too much. </p>
@@ -184,7 +286,7 @@ to mix it up too much. </p>
 * Second item
 * Third item
 </code></pre>
-<h3 id="nested-lists">Nested lists<a class="headerlink" href="#nested-lists" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="nested-lists">Nested lists<a class="headerlink" href="#nested-lists" title="Permanent link">#</a></h3>
 <p>You can create lists within lists. It's possible to mix ordered and unordered
 lists this way too. </p>
 <pre><code>1. First item
@@ -201,7 +303,7 @@ lists this way too. </p>
     + Unordered sub-item 
     + Unordered sub-item
 </code></pre>
-<h2 id="code">Code<a class="headerlink" href="#code" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="code">Code<a class="headerlink" href="#code" title="Permanent link">#</a></h2>
 <p>You can denote inline code with '`' </p>
 <pre><code>`inline code`
 </code></pre>
@@ -210,22 +312,22 @@ lists this way too. </p>
 <p>Some block of 
 Code goes here</p>
 <pre><code></code></pre>
-<h2 id="horizontal-line">Horizontal line<a class="headerlink" href="#horizontal-line" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="horizontal-line">Horizontal line<a class="headerlink" href="#horizontal-line" title="Permanent link">#</a></h2>
 <p>Horizontal lines are denoted with <code>---</code></p>
 <pre><code>Text here
 ---
 Other text
 </code></pre>
-<h2 id="links">Links<a class="headerlink" href="#links" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">#</a></h2>
 <p>Links (or _anchors) can be created like this:</p>
 <pre><code>[link](http://www.example.com)
 </code></pre>
-<h2 id="images">Images<a class="headerlink" href="#images" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="images">Images<a class="headerlink" href="#images" title="Permanent link">#</a></h2>
 <p>Images can be denoted like so:</p>
 <pre><code>![alt text](image.jpg)
 </code></pre>
 <p><em>Often the image file is included in the same directory as the *.md file</em></p>
-<h1 id="see-also">See also<a class="headerlink" href="#see-also" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h1>
 <ul>
 <li><a href="https://daringfireball.net/projects/markdown/">Official specifications</a></li>
 <li><a href="https://www.markdownguide.org/getting-started/">Markdown guide</a></li>

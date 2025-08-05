@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20201106152231-routing-protocols/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -114,7 +216,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="dynamic-routing-protocols">Dynamic Routing Protocols<a class="headerlink" href="#dynamic-routing-protocols" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="dynamic-routing-protocols">Dynamic Routing Protocols<a class="headerlink" href="#dynamic-routing-protocols" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -163,15 +265,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="distance-vector">Distance Vector<a class="headerlink" href="#distance-vector" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="distance-vector">Distance Vector<a class="headerlink" href="#distance-vector" title="Permanent link">#</a></h2>
 <p>Compares cost of all routes to a particular network ID and chooses the lowest cost.</p>
-<h3 id="ripv1">RIPv1<a class="headerlink" href="#ripv1" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="ripv1">RIPv1<a class="headerlink" href="#ripv1" title="Permanent link">#</a></h3>
 <p>See also: <a href="../20210627064814-routing-information-protocol/">Routing Information Protocol</a> (RIP)</p>
 <p>Maximum hop count of 15. Sends routing tables every 30 seconds. Doesn't know how to use variable-length subnet masking (VLSM). Open to attack, no authentication.</p>
-<h3 id="ripv2">RIPv2<a class="headerlink" href="#ripv2" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="ripv2">RIPv2<a class="headerlink" href="#ripv2" title="Permanent link">#</a></h3>
 <p>Same as RIPv1 except VLSM and authentication has been added. Only suitable for small private networks. Time to convergence still too long for WANs.</p>
-<h2 id="path-vector">Path Vector<a class="headerlink" href="#path-vector" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="bgp">BGP<a class="headerlink" href="#bgp" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="path-vector">Path Vector<a class="headerlink" href="#path-vector" title="Permanent link">#</a></h2>
+<h3 id="bgp">BGP<a class="headerlink" href="#bgp" title="Permanent link">#</a></h3>
 <p>Border Gateway Protocol (BGP)
 Current version is BGP-4</p>
 <ul>
@@ -180,15 +282,15 @@ Current version is BGP-4</p>
 <li>AS' deliver data to each other using an Autonomous System Number (ASN) assigned by the IANA.</li>
 <li>ASNs are 32 bit numbers displayed as 2 16-bit numbers separated by a dot. 1.33457</li>
 </ul>
-<h4 id="egp">EGP<a class="headerlink" href="#egp" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="egp">EGP<a class="headerlink" href="#egp" title="Permanent link">#</a></h4>
 <p>communicate with each other using a protocol called the Exterior Gateway Protocol (EGP).
 e internet has settled on BGP as the EGP.</p>
-<h4 id="interior-gateway-protocol-igp"><a href="../20210626131223-interior-gateway-protocol/">Interior gateway protocol</a> (IGP)<a class="headerlink" href="#interior-gateway-protocol-igp" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="interior-gateway-protocol-igp"><a href="../20210626131223-interior-gateway-protocol/">Interior gateway protocol</a> (IGP)<a class="headerlink" href="#interior-gateway-protocol-igp" title="Permanent link">#</a></h4>
 <p>tworsk with an AS communicate with each other using Interior Gateway Protocols (IGPs).</p>
-<h2 id="link-state">Link State<a class="headerlink" href="#link-state" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="link-state">Link State<a class="headerlink" href="#link-state" title="Permanent link">#</a></h2>
 <p>See also:
 * <a href="../20210626130850-link-state-routing-protocol/">Link-state routing protocol</a></p>
-<h3 id="open-shortest-path-first-ospf"><a href="../20210626073338-open-shortest-path-first/">Open Shortest Path First</a> (OSPF)<a class="headerlink" href="#open-shortest-path-first-ospf" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="open-shortest-path-first-ospf"><a href="../20210626073338-open-shortest-path-first/">Open Shortest Path First</a> (OSPF)<a class="headerlink" href="#open-shortest-path-first-ospf" title="Permanent link">#</a></h3>
 <ul>
 <li>Most commonly used IGP in the world</li>
 <li>Converges faster and much more efficient than RIP</li>
@@ -197,10 +299,10 @@ e internet has settled on BGP as the EGP.</p>
 <li>OSPF's metric is <em>cost</em>, which is a function of bandwidth. Chooses lowest cost.</li>
 <li>Shortest path first, by definition, prevents loops.</li>
 </ul>
-<h3 id="is-is">IS-IS<a class="headerlink" href="#is-is" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="is-is">IS-IS<a class="headerlink" href="#is-is" title="Permanent link">#</a></h3>
 <p>Intermediate System to Intermediate System
 Very similar to OSPF, but added advantage that IPv6 was baked in from the start. This is the <em>de afcto</em> standard for ISPs.</p>
-<h2 id="eigrp">EIGRP<a class="headerlink" href="#eigrp" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="eigrp">EIGRP<a class="headerlink" href="#eigrp" title="Permanent link">#</a></h2>
 <p>Enhanced Interior Gateway Routing Protocol</p>
 <ul>
 <li>Shares aspects of both distance vector and link state protocols.</li>

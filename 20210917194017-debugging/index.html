@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210917194017-debugging/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -129,9 +231,9 @@ if [[ -d $dir_name ]]; then
         echo "cannot cd to '$dir_name'" &gt;&amp;2
         exit 1
     fi</p>
-<h1 id="else">else<a class="headerlink" href="#else" title="Anchor link to this section for reference">#</a></h1>
-<h1 id="echo-no-such-directory-dir_name-2">echo "no such directory: '$dir_name'" &gt;&amp;2<a class="headerlink" href="#echo-no-such-directory-dir_name-2" title="Anchor link to this section for reference">#</a></h1>
-<h1 id="exit-1">exit 1<a class="headerlink" href="#exit-1" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="else">else<a class="headerlink" href="#else" title="Permanent link">#</a></h1>
+<h1 id="echo-no-such-directory-dir_name-2">echo "no such directory: '$dir_name'" &gt;&amp;2<a class="headerlink" href="#echo-no-such-directory-dir_name-2" title="Permanent link">#</a></h1>
+<h1 id="exit-1">exit 1<a class="headerlink" href="#exit-1" title="Permanent link">#</a></h1>
 <p>fi
 ```</p>
 </li>
@@ -158,8 +260,8 @@ output.</em> <em>Don't indent so easier to find when time to remove.</em></p>
 <p>Implement tracing by the <strong>-x</strong> options and the set command with the
 <strong>-x</strong> option.</p>
 <p>``` bash</p>
-<h1 id="binbash-x">!/bin/bash -x<a class="headerlink" href="#binbash-x" title="Anchor link to this section for reference">#</a></h1>
-<h1 id="trouble-script-to-demonstrate-common-errors">trouble: script to demonstrate common errors<a class="headerlink" href="#trouble-script-to-demonstrate-common-errors" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="binbash-x">!/bin/bash -x<a class="headerlink" href="#binbash-x" title="Permanent link">#</a></h1>
+<h1 id="trouble-script-to-demonstrate-common-errors">trouble: script to demonstrate common errors<a class="headerlink" href="#trouble-script-to-demonstrate-common-errors" title="Permanent link">#</a></h1>
 <p>number=1
 if [ $number = 1 ]; then
     echo "Number is equal to 1."
@@ -195,8 +297,8 @@ Number is equal to 1.</code></p>
 <li>
 <p>To trace a section of the script, use <code>set -x</code> <code>set +x</code></p>
 <p>``` bash</p>
-<h1 id="binbash">!/bin/bash<a class="headerlink" href="#binbash" title="Anchor link to this section for reference">#</a></h1>
-<h1 id="trouble-script-to-demonstrate-common-errors_1">trouble: script to demonstrate common errors<a class="headerlink" href="#trouble-script-to-demonstrate-common-errors_1" title="Anchor link to this section for reference">#</a></h1>
+<h1 id="binbash">!/bin/bash<a class="headerlink" href="#binbash" title="Permanent link">#</a></h1>
+<h1 id="trouble-script-to-demonstrate-common-errors_1">trouble: script to demonstrate common errors<a class="headerlink" href="#trouble-script-to-demonstrate-common-errors_1" title="Permanent link">#</a></h1>
 <p>number=1</p>
 <p>set -x # Turn on tracing
 if [ $number = 1 ]; then

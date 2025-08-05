@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20240303094200-job-control/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,8 +212,8 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="job-control">Job Control<a class="headerlink" href="#job-control" title="Permanent link">#</a></h1>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">#</a></h2>
 <ul>
 <li>jobs</li>
 <li><a href="../20200628170530-bg/">bg</a></li>
@@ -125,7 +227,7 @@
 <li><a href="../20210905081820-kill/">kill</a></li>
 <li>pkill</li>
 </ul>
-<h2 id="niceness-and-priority">Niceness and Priority<a class="headerlink" href="#niceness-and-priority" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="niceness-and-priority">Niceness and Priority<a class="headerlink" href="#niceness-and-priority" title="Permanent link">#</a></h2>
 <p>40 niceness values. -20 is highest and 19 is lowest. Default is 0. Child processes inherit niceness of parent. Users can <em>renice</em> processes they own. root can <em>renice</em> any process.</p>
 <ul>
 <li>nice (1)             - run a program with modified scheduling priority</li>
@@ -150,7 +252,7 @@ F S UID          PID    PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME C
 <pre><code class="language-bash">[root@server1 ~]# nice
 0
 </code></pre>
-<h2 id="process-signals">Process Signals<a class="headerlink" href="#process-signals" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="process-signals">Process Signals<a class="headerlink" href="#process-signals" title="Permanent link">#</a></h2>
 <p>List available signals with <code>kill -l</code>:</p>
 <pre><code class="language-bash">[root@server1 ~]# kill -l
  1) SIGHUP   2) SIGINT   3) SIGQUIT  4) SIGILL   5) SIGTRAP
@@ -214,7 +316,7 @@ F S UID          PID    PPID  C PRI  NI ADDR SZ WCHAN  STIME TTY          TIME C
 </tr>
 </tbody>
 </table>
-<h3 id="commands_1">Commands<a class="headerlink" href="#commands_1" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="commands_1">Commands<a class="headerlink" href="#commands_1" title="Permanent link">#</a></h3>
 <ul>
 <li>kill (1)             - terminate a process</li>
 <li>pkill (1)            - look up, signal, or wait for processes based on name and other attributes</li>

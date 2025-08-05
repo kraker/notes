@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210917152659-variables-in-bash/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -117,7 +219,7 @@ echo $key
 var
 </code></pre>
 <p><em>Variables aren't assigned until the shell encounters them.</em></p>
-<h2 id="naming-rules">Naming Rules<a class="headerlink" href="#naming-rules" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="naming-rules">Naming Rules<a class="headerlink" href="#naming-rules" title="Permanent link">#</a></h2>
 <ol>
 <li>Variable names may consist of <code>[:alnum:_]+</code></li>
 <li>The first character of a variable name must be either a letter or <code>_</code></li>
@@ -125,13 +227,13 @@ var
 <li>Common convention is for CONSTANTS to be uppercase and variables
    lowercase.</li>
 </ol>
-<h2 id="assigning-values">Assigning Values<a class="headerlink" href="#assigning-values" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="assigning-values">Assigning Values<a class="headerlink" href="#assigning-values" title="Permanent link">#</a></h2>
 <ul>
 <li>Treats all variables as strings.</li>
 <li>No spaces in assignment. <code>key= "var"</code> won't work, for example.</li>
 <li>Can have multiple assignments on a single line: <code>a=5 b="a string"</code></li>
 </ul>
-<h2 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="expansion">Expansion<a class="headerlink" href="#expansion" title="Permanent link">#</a></h2>
 <p>Variable names may be surrounded by optional curly braces, {} Useful when
 variable names become ambiguous.</p>
 <pre><code class="language-bash">[me@linuxbox ~]$ filename=&quot;myfile&quot;

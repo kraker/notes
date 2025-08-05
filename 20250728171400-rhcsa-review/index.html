@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20250728171400-rhcsa-review/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,31 +212,31 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="stuff-to-review">Stuff to review<a class="headerlink" href="#stuff-to-review" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="info-docs">Info docs<a class="headerlink" href="#info-docs" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="stuff-to-review">Stuff to review<a class="headerlink" href="#stuff-to-review" title="Permanent link">#</a></h1>
+<h2 id="info-docs">Info docs<a class="headerlink" href="#info-docs" title="Permanent link">#</a></h2>
 <p>What is <em>prettier</em> info with vim keybindings, highlighted hypertext links, etc?</p>
 <pre><code class="language-bash">pinfo ls
 </code></pre>
-<h2 id="terminal">Terminal<a class="headerlink" href="#terminal" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="terminal">Terminal<a class="headerlink" href="#terminal" title="Permanent link">#</a></h2>
 <p>How do I identify my current terminal device file?</p>
 <pre><code class="language-bash">tty
 </code></pre>
 <pre><code class="language-bash">[root@rhel9-a ~]# tty
 /dev/pts/0
 </code></pre>
-<h3 id="login">Login<a class="headerlink" href="#login" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="login">Login<a class="headerlink" href="#login" title="Permanent link">#</a></h3>
 <p>Alternative way to login to root shell?</p>
 <pre><code class="language-bash">sudo -i  # preferred
 # or
 sudo su -
 </code></pre>
-<h3 id="users-groups">User's &amp; Groups<a class="headerlink" href="#users-groups" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="users-groups">User's &amp; Groups<a class="headerlink" href="#users-groups" title="Permanent link">#</a></h3>
 <p>How to prevent login's from all user's except root?</p>
 <p>Create <code>/etc/nologin</code>. See <code>man pam_nologin</code>.</p>
 <p>What's a useful way to see members of a group?</p>
 <pre><code class="language-bash">groupmems -g wheel -l
 </code></pre>
-<h3 id="filesystems">Filesystems<a class="headerlink" href="#filesystems" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="filesystems">Filesystems<a class="headerlink" href="#filesystems" title="Permanent link">#</a></h3>
 <p>What's the man page for the <strong>File system Hierarchy Standard (FHS)</strong>?</p>
 <pre><code class="language-bash">man 7 file-hierarchy
 </code></pre>
@@ -146,7 +248,7 @@ findmnt
 <p>How do I show available disk space on mounted devices?</p>
 <pre><code class="language-bash">df -Th
 </code></pre>
-<h3 id="file-perms">File perms<a class="headerlink" href="#file-perms" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="file-perms">File perms<a class="headerlink" href="#file-perms" title="Permanent link">#</a></h3>
 <p>How do I apply SUID?</p>
 <pre><code class="language-bash">chmod u+s
 </code></pre>
@@ -156,11 +258,11 @@ findmnt
 <p>How do I set the <em>sticky bit</em>?</p>
 <pre><code class="language-bash">chmod +t
 </code></pre>
-<h3 id="file-operations">File operations<a class="headerlink" href="#file-operations" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="file-operations">File operations<a class="headerlink" href="#file-operations" title="Permanent link">#</a></h3>
 <p>How do I copy all files regular and hidden while preserving file attributes?</p>
 <pre><code class="language-bash">cp -a /somedir/. .
 </code></pre>
-<h3 id="text-processing">Text processing<a class="headerlink" href="#text-processing" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="text-processing">Text processing<a class="headerlink" href="#text-processing" title="Permanent link">#</a></h3>
 <p>How do I print a specific line number from a file?</p>
 <pre><code class="language-bash">sed -n 5p /etc/passwd
 </code></pre>
@@ -179,7 +281,7 @@ findmnt
 <p>How do I search for a string and print a specific field (column) for any matches from a file?</p>
 <pre><code class="language-bash">awk -F: '/user/ { print $4 }' /etc/passwd
 </code></pre>
-<h2 id="booting">Booting<a class="headerlink" href="#booting" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="booting">Booting<a class="headerlink" href="#booting" title="Permanent link">#</a></h2>
 <p>3 way's to shutdown the system?</p>
 <ol>
 <li><code>halt</code> or <code>systemctl halt</code></li>
@@ -217,7 +319,7 @@ findmnt
   <code>exit</code></li>
 </ol>
 <p><a href="https://access.redhat.com/solutions/1192">RHEL: How to change a forgotten or lost root password</a></p>
-<h2 id="system-logging">System logging<a class="headerlink" href="#system-logging" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="system-logging">System logging<a class="headerlink" href="#system-logging" title="Permanent link">#</a></h2>
 <p>How do I configure persistent journal logging?</p>
 <pre><code class="language-bash">mkdir -p /var/log/journal
 journalctl --flush

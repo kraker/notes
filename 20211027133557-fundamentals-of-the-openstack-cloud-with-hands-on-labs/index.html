@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20211027133557-fundamentals-of-the-openstack-cloud-with-hands-on-labs/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -118,7 +220,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="6-core-projects">6 Core Projects<a class="headerlink" href="#6-core-projects" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="6-core-projects">6 Core Projects<a class="headerlink" href="#6-core-projects" title="Permanent link">#</a></h2>
 <p>A combined total of 45 various projects in the OpenStack <em>ecosystem</em>.</p>
 <p>There are currently 6 core projects.</p>
 <ol>
@@ -129,7 +231,7 @@
 <li>Keystone - Identity service</li>
 <li>Cinder - Block storage service</li>
 </ol>
-<h2 id="other-popular-openstack-projects">Other Popular OpenStack Projects<a class="headerlink" href="#other-popular-openstack-projects" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="other-popular-openstack-projects">Other Popular OpenStack Projects<a class="headerlink" href="#other-popular-openstack-projects" title="Permanent link">#</a></h2>
 <ol>
 <li>Horizon - Dashboard</li>
 <li>Heat - Infra Orchestration</li>
@@ -144,7 +246,7 @@
 <li>Murano - Application catalog</li>
 <li>Sahara - Big Data Processing Framework Provisioning</li>
 </ol>
-<h2 id="production-openstack-deployment">Production OpenStack Deployment<a class="headerlink" href="#production-openstack-deployment" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="production-openstack-deployment">Production OpenStack Deployment<a class="headerlink" href="#production-openstack-deployment" title="Permanent link">#</a></h2>
 <ul>
 <li>Has one or more nodes.</li>
 <li>A node is usually a physical server on which OpenStack services are run.</li>
@@ -161,7 +263,7 @@
 <li>Note: cpu must support virtualization</li>
 <li>NUMA support recommended</li>
 </ul>
-<h2 id="storage-types">Storage Types<a class="headerlink" href="#storage-types" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="storage-types">Storage Types<a class="headerlink" href="#storage-types" title="Permanent link">#</a></h2>
 <ol>
 <li>Block storage</li>
 <li>File-based storage</li>
@@ -170,9 +272,9 @@
 <p>Note, default with OpenStack is <em>ephemeral</em> file-storage that only persists as
 long as the VM is running. For persistent storage, the 3 types above are
 required.</p>
-<h3 id="block-storage">Block Storage<a class="headerlink" href="#block-storage" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="block-storage">Block Storage<a class="headerlink" href="#block-storage" title="Permanent link">#</a></h3>
 <p>Provides persistent storage volumes to VMs.</p>
-<h3 id="file-based-storage">File-based storage<a class="headerlink" href="#file-based-storage" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="file-based-storage">File-based storage<a class="headerlink" href="#file-based-storage" title="Permanent link">#</a></h3>
 <p>Enables VMs to mount a remote file-system and share data. </p>
 <p>Protocols:</p>
 <ul>
@@ -181,18 +283,18 @@ required.</p>
 <li>GlusterFS</li>
 <li>HDFS</li>
 </ul>
-<h3 id="object-storage">Object Storage<a class="headerlink" href="#object-storage" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="object-storage">Object Storage<a class="headerlink" href="#object-storage" title="Permanent link">#</a></h3>
 <ul>
 <li>Swift is similar to AWS S3.</li>
 <li>Stores and retrieves binary objects. Binary object is any file in any format.</li>
 <li>Provides data replication for reliability.</li>
 </ul>
-<h2 id="cloud-controller-node">Cloud Controller Node<a class="headerlink" href="#cloud-controller-node" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="cloud-controller-node">Cloud Controller Node<a class="headerlink" href="#cloud-controller-node" title="Permanent link">#</a></h2>
 <p>Functions as a control plane for the cloud. </p>
 <p>Runs most of the services required to run the OpenStack Cloud. </p>
-<h2 id="compute-node">Compute Node<a class="headerlink" href="#compute-node" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="compute-node">Compute Node<a class="headerlink" href="#compute-node" title="Permanent link">#</a></h2>
 <p>Runs the hypervisor and where containers are deployed.</p>
-<h2 id="network-node">Network Node<a class="headerlink" href="#network-node" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="network-node">Network Node<a class="headerlink" href="#network-node" title="Permanent link">#</a></h2>
 <p>Routes traffic, DNS, virtual switches, etc. 
 Service it uses is called Neutron.</p>
 <ul>
@@ -201,14 +303,14 @@ Service it uses is called Neutron.</p>
 <li>Layer2 Agent</li>
 <li>Metadata Agent</li>
 </ul>
-<h2 id="storage-node">Storage Node<a class="headerlink" href="#storage-node" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="storage-node">Storage Node<a class="headerlink" href="#storage-node" title="Permanent link">#</a></h2>
 <p>Contains disks for providing persistent storage to instances.</p>
 <ul>
 <li>LVM + Physical disks</li>
 <li>Managed by Cinder volume</li>
 <li>Uses LVM driver</li>
 </ul>
-<h2 id="keystone-deep-dive">Keystone Deep Dive<a class="headerlink" href="#keystone-deep-dive" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="keystone-deep-dive">Keystone Deep Dive<a class="headerlink" href="#keystone-deep-dive" title="Permanent link">#</a></h2>
 <dl>
 <dt>RBAC</dt>
 <dd>Role Based Access Control</dd>

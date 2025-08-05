@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210623143339-users-groups/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,7 +212,7 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="user-management">User Management<a class="headerlink" href="#user-management" title="Anchor link to this section for reference">#</a></h1>
+    <h1 id="user-management">User Management<a class="headerlink" href="#user-management" title="Permanent link">#</a></h1>
 <ul>
 <li>List users currently logged in: <code>who</code>, <code>w</code></li>
 <li>List all existing user accounts w/properties: <code>passwd -Sa</code> (as root)</li>
@@ -125,7 +227,7 @@ a comma separated list of supplementary groups which the user is also a member
 of.</p>
 <p><code>-s/--shell</code>
 a path to the user's login shell.</p>
-<h2 id="quickref">Quickref<a class="headerlink" href="#quickref" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="quickref">Quickref<a class="headerlink" href="#quickref" title="Permanent link">#</a></h2>
 <p>System config files:</p>
 <ul>
 <li><code>/etc/login.defs</code></li>
@@ -151,7 +253,7 @@ a path to the user's login shell.</p>
 <li><code>groupdel</code></li>
 <li><code>groupmod</code></li>
 </ul>
-<h2 id="example-adding-a-user">Example adding a user<a class="headerlink" href="#example-adding-a-user" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="example-adding-a-user">Example adding a user<a class="headerlink" href="#example-adding-a-user" title="Permanent link">#</a></h2>
 <p>Add a new user creating it's home directory and otherwise using all defaults:</p>
 <pre><code class="language-bash"># useradd -m archie
 # passwd archie
@@ -161,7 +263,7 @@ a path to the user's login shell.</p>
 # passwd archie
 </code></pre>
 <p>Source: https://wiki.archlinux.org/title/Users_and_groups#User_management</p>
-<h2 id="useradd-and-logindefs">useradd and login.defs<a class="headerlink" href="#useradd-and-logindefs" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="useradd-and-logindefs">useradd and login.defs<a class="headerlink" href="#useradd-and-logindefs" title="Permanent link">#</a></h2>
 <p>The <code>useradd</code> command picks up default values from <code>/etc/default/useradd</code> and <code>/etc/login.defs</code>.</p>
 <p>useradd defaults:</p>
 <pre><code class="language-bash">[root@server1 ~]# useradd -D
@@ -200,7 +302,7 @@ USERGROUPS_ENAB yes
 CREATE_HOME yes
 HMAC_CRYPTO_ALGO SHA512
 </code></pre>
-<h2 id="no-login-user-account">No-Login User Account<a class="headerlink" href="#no-login-user-account" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="no-login-user-account">No-Login User Account<a class="headerlink" href="#no-login-user-account" title="Permanent link">#</a></h2>
 <p>The <code>/usr/sbin/nologin</code>  (or <code>/sbin/nologin</code>) shell is a special purpose shell for accounts that don't require a login or shouldn't be able to login to the system.</p>
 <pre><code class="language-bash">[root@server1 ~]# grep nologin /etc/passwd | head
 bin:x:1:1:bin:/bin:/sbin/nologin
@@ -218,7 +320,7 @@ user4:x:1011:1011::/home/user4:/sbin/nologin
 [root@server1 ~]# su - user4
 This account is currently not available.
 </code></pre>
-<h2 id="local-user-auth-files">Local User Auth Files<a class="headerlink" href="#local-user-auth-files" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="local-user-auth-files">Local User Auth Files<a class="headerlink" href="#local-user-auth-files" title="Permanent link">#</a></h2>
 <p>List of local user auth files and their backups.</p>
 <pre><code class="language-bash">[root@server1 ~]# ll /etc/{passwd,group,shadow,gshadow}*
 -rw-r--r--. 1 root root  881 Feb 23 15:59 /etc/group
@@ -230,7 +332,7 @@ This account is currently not available.
 ----------. 1 root root 1402 Feb 23 15:58 /etc/shadow
 ----------. 1 root root 1164 Feb 23 15:57 /etc/shadow-
 </code></pre>
-<h2 id="references">References<a class="headerlink" href="#references" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://wiki.archlinux.org/title/Users_and_groups">Arch: Users and groups</a></li>
 <li><a href="https://www.redhat.com/sysadmin/linux-user-account-management">RHEL: Linux User Account Management</a></li>

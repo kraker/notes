@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20230222091100-kubernetes/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,63 +212,63 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="local-development-testing">Local Development &amp; Testing<a class="headerlink" href="#local-development-testing" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="minikube">Minikube<a class="headerlink" href="#minikube" title="Anchor link to this section for reference">#</a></h3>
+    <h1 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">#</a></h1>
+<h2 id="local-development-testing">Local Development &amp; Testing<a class="headerlink" href="#local-development-testing" title="Permanent link">#</a></h2>
+<h3 id="minikube">Minikube<a class="headerlink" href="#minikube" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://minikube.sigs.k8s.io/docs/start/">MiniKube</a></li>
 </ul>
-<h3 id="kind">KinD<a class="headerlink" href="#kind" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="kind">KinD<a class="headerlink" href="#kind" title="Permanent link">#</a></h3>
 <p><em>Kubernetes in Docker (KinD)</em></p>
 <ul>
 <li><a href="https://kind.sigs.k8s.io/">KinD</a></li>
 </ul>
-<h3 id="k3d">k3d<a class="headerlink" href="#k3d" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="k3d">k3d<a class="headerlink" href="#k3d" title="Permanent link">#</a></h3>
 <p>Lightweight wrapper to run k3s (Rancher Lab's minimal k8s distribution).</p>
 <ul>
 <li><a href="https://k3d.io/v5.4.9/">k3d</a></li>
 </ul>
-<h2 id="helm">Helm<a class="headerlink" href="#helm" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="install">Install<a class="headerlink" href="#install" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="helm">Helm<a class="headerlink" href="#helm" title="Permanent link">#</a></h2>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">#</a></h3>
 <ul>
 <li>https://helm.sh/docs/intro/install/</li>
 </ul>
-<h3 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h3>
 <ul>
 <li>https://helm.sh/docs/intro/quickstart/</li>
 </ul>
-<h2 id="kubectl">Kubectl<a class="headerlink" href="#kubectl" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="kubectl">Kubectl<a class="headerlink" href="#kubectl" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">kubectl cheat sheet</a></li>
 </ul>
-<h3 id="install_1">Install<a class="headerlink" href="#install_1" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="install_1">Install<a class="headerlink" href="#install_1" title="Permanent link">#</a></h3>
 <ul>
 <li>https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/</li>
 </ul>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
 <ul>
 <li>https://medium.com/@texasdave2/troubleshoot-kubectl-connection-refused-6f5445a396ed</li>
 </ul>
-<h2 id="learning-kubernetes">Learning Kubernetes<a class="headerlink" href="#learning-kubernetes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="learning-kubernetes">Learning Kubernetes<a class="headerlink" href="#learning-kubernetes" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://github.com/kelseyhightower/kubernetes-the-hard-way">Kubernetes The Hard Way</a></li>
 <li><a href="https://nigelpoulton.com/books/">The Kubernetes Book</a></li>
 <li><a href="https://kodekloud.com/">KodeKloud.com</a></li>
 </ul>
-<h2 id="k8s-notes">K8s Notes<a class="headerlink" href="#k8s-notes" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="k8s-notes">K8s Notes<a class="headerlink" href="#k8s-notes" title="Permanent link">#</a></h2>
+<h3 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Permanent link">#</a></h3>
 <p>ingress-nginx:</p>
 <ul>
 <li>https://kubernetes.github.io/ingress-nginx/deploy/</li>
 </ul>
-<h4 id="troubleshooting-ingress">Troubleshooting ingress<a class="headerlink" href="#troubleshooting-ingress" title="Anchor link to this section for reference">#</a></h4>
+<h4 id="troubleshooting-ingress">Troubleshooting ingress<a class="headerlink" href="#troubleshooting-ingress" title="Permanent link">#</a></h4>
 <p>If getting the following error:</p>
 <pre><code class="language-bash">iakraker@Ubuntu-PF3TFBEH-1255:~/TheK8sBook/ingress$ kubectl apply -f ig-all.yml 
 Error from server (InternalError): error when creating &quot;ig-all.yml&quot;: Internal error occurred: failed calling webhook &quot;validate.nginx.ingress.kubernetes.io&quot;: failed to call webhook: Post &quot;https://ingress-nginx-controller-admission.ingress-nginx.svc:443/networking/v1/ingresses?timeout=10s&quot;: no endpoints available for service &quot;ingress-nginx-controller-admission&quot;
 </code></pre>
 <p>Try this: https://stackoverflow.com/questions/61365202/nginx-ingress-service-ingress-nginx-controller-admission-not-found</p>
 <p>Also make sure official deploy was followed: https://kubernetes.github.io/ingress-nginx/deploy/</p>
-<h2 id="cloud-native">Cloud-Native<a class="headerlink" href="#cloud-native" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="cloud-native">Cloud-Native<a class="headerlink" href="#cloud-native" title="Permanent link">#</a></h2>
 <ul>
 <li>https://acloudguru.com/blog/engineering/aks-vs-eks-vs-gke-managed-kubernetes-services-compared</li>
 </ul>

@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210420162629-mh-wtrs/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -112,15 +214,15 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="exclude-large-filefolders-in-cpanel-backups">Exclude Large file/folders in cPanel backups<a class="headerlink" href="#exclude-large-filefolders-in-cpanel-backups" title="Anchor link to this section for reference">#</a></h2>
+    <h2 id="exclude-large-filefolders-in-cpanel-backups">Exclude Large file/folders in cPanel backups<a class="headerlink" href="#exclude-large-filefolders-in-cpanel-backups" title="Permanent link">#</a></h2>
 <p><code>/home/username/cpbackup-exclude.conf</code>
 https://support.cpanel.net/hc/en-us/articles/360052681834-How-to-Exclude-Files-from-Backups</p>
-<h2 id="ftp">FTP<a class="headerlink" href="#ftp" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="ftp-connection-oneliner">FTP Connection Oneliner<a class="headerlink" href="#ftp-connection-oneliner" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="ftp">FTP<a class="headerlink" href="#ftp" title="Permanent link">#</a></h2>
+<h3 id="ftp-connection-oneliner">FTP Connection Oneliner<a class="headerlink" href="#ftp-connection-oneliner" title="Permanent link">#</a></h3>
 <pre><code>echo -e &quot;\nCurrent Directory: $(pwd)\n&quot;; read -p &quot;Username: &quot; user; read -p &quot;Password: &quot; pass; read -p &quot;Host: &quot; host; lftp -u &quot;$user&quot;,&quot;$pass&quot; $host -e 'set net:socket-buffer 4000000;set net:timeout 10;set net:max-retries 5;set net:reconnect-interval-max 10; set ftp:ssl-allow off; set net:limit-total-rate 5943040:0;set ftp:list-options -a'
 </code></pre>
 <p><em>Avoids leaving pw in bash history</em></p>
-<h3 id="lftp-cheat-sheet">LFTP Cheat-Sheet<a class="headerlink" href="#lftp-cheat-sheet" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="lftp-cheat-sheet">LFTP Cheat-Sheet<a class="headerlink" href="#lftp-cheat-sheet" title="Permanent link">#</a></h3>
 <pre><code># changes the folder on your localhost
 lcd folder/you/want
 # changes the folder on the remote host you connected to with lftp
@@ -130,7 +232,7 @@ lpwd
 # this will mirror the two directories you're in
 mirror -cs --parallel=4
 </code></pre>
-<h2 id="possible-cpanel-backup-bypass-if-not-available-in-the-gui">Possible cPanel backup bypass if not available in the GUI<a class="headerlink" href="#possible-cpanel-backup-bypass-if-not-available-in-the-gui" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="possible-cpanel-backup-bypass-if-not-available-in-the-gui">Possible cPanel backup bypass if not available in the GUI<a class="headerlink" href="#possible-cpanel-backup-bypass-if-not-available-in-the-gui" title="Permanent link">#</a></h2>
 <p>https://hostname.com:2083/cpsess#########/frontend/paper_lantern/backup/fullbackup.html</p>
 </section>
 

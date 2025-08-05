@@ -7,8 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
      
-     
-    <link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    
+    <meta name="author" content="kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20210905135721-file-permissions/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -82,10 +84,49 @@
 <body class="terminal"><div class="container">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">notes</a></div>
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
         </header>
         
         <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://github.com/kraker/notes" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">repo</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="https://alexkraker.com" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">alexkraker.com</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="3">
+</li>
+                    
+            </ul>
             
         </nav>
     </div>
@@ -93,6 +134,67 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">index</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://github.com/kraker/notes">repo</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="https://alexkraker.com">alexkraker.com</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
   
 </nav><hr>
 <nav>
@@ -110,8 +212,8 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="file-permissions">File Permissions<a class="headerlink" href="#file-permissions" title="Anchor link to this section for reference">#</a></h1>
-<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Anchor link to this section for reference">#</a></h2>
+    <h1 id="file-permissions">File Permissions<a class="headerlink" href="#file-permissions" title="Permanent link">#</a></h1>
+<h2 id="file-types">File Types<a class="headerlink" href="#file-types" title="Permanent link">#</a></h2>
 <table>
 <thead>
 <tr>
@@ -142,7 +244,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h3>
 <p>Regular file:</p>
 <pre><code class="language-bash">[root@server1 ~]# ls -l anaconda-ks.cfg 
 -rw-------. 1 root root 1216 Feb 16 09:14 anaconda-ks.cfg
@@ -163,20 +265,20 @@ crw--w----. 1 root tty 5, 1 Feb 23 14:43 /dev/console
 <pre><code>[root@server1 ~]# ls -l /dev/sd*
 brw-rw----. 1 root disk 8, 0 Feb 23 14:43 /dev/sda
 </code></pre>
-<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Anchor link to this section for reference">#</a></h2>
-<h3 id="permission-classes">Permission Classes<a class="headerlink" href="#permission-classes" title="Anchor link to this section for reference">#</a></h3>
+<h2 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">#</a></h2>
+<h3 id="permission-classes">Permission Classes<a class="headerlink" href="#permission-classes" title="Permanent link">#</a></h3>
 <ul>
 <li>user (u)</li>
 <li>group (g)</li>
 <li>other (o) (aka <em>public</em>)</li>
 </ul>
-<h3 id="permission-modes">Permission Modes<a class="headerlink" href="#permission-modes" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="permission-modes">Permission Modes<a class="headerlink" href="#permission-modes" title="Permanent link">#</a></h3>
 <ul>
 <li>add (+)</li>
 <li>revoke (-)</li>
 <li>assign (=)</li>
 </ul>
-<h3 id="permission-attributes">Permission Attributes<a class="headerlink" href="#permission-attributes" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="permission-attributes">Permission Attributes<a class="headerlink" href="#permission-attributes" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -203,9 +305,9 @@ brw-rw----. 1 root disk 8, 0 Feb 23 14:43 /dev/sda
 </tr>
 </tbody>
 </table>
-<h3 id="symbolic-notation">Symbolic notation<a class="headerlink" href="#symbolic-notation" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="symbolic-notation">Symbolic notation<a class="headerlink" href="#symbolic-notation" title="Permanent link">#</a></h3>
 <p>Combination of letters (ugo/rwx) and symbols (+,-,=).</p>
-<h3 id="octal-notation">Octal notation<a class="headerlink" href="#octal-notation" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="octal-notation">Octal notation<a class="headerlink" href="#octal-notation" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -266,7 +368,7 @@ brw-rw----. 1 root disk 8, 0 Feb 23 14:43 /dev/sda
 </tr>
 </tbody>
 </table>
-<h2 id="special-file-permissions">Special File Permissions<a class="headerlink" href="#special-file-permissions" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="special-file-permissions">Special File Permissions<a class="headerlink" href="#special-file-permissions" title="Permanent link">#</a></h2>
 <p>Summary of special file permissions:</p>
 <table>
 <thead>
@@ -302,21 +404,21 @@ brw-rw----. 1 root disk 8, 0 Feb 23 14:43 /dev/sda
 </tr>
 </tbody>
 </table>
-<h3 id="suid-setuid">SUID - setuid<a class="headerlink" href="#suid-setuid" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="suid-setuid">SUID - setuid<a class="headerlink" href="#suid-setuid" title="Permanent link">#</a></h3>
 <p>Execute binary files with the same privileges as the owner.</p>
 <pre><code class="language-bash">[root@server1 ~]# ls -l /usr/bin/su
 -rwsr-xr-x. 1 root root 56944 Aug 24  2023 /usr/bin/su
 [root@server1 ~]# stat -c %a /usr/bin/su
 4755
 </code></pre>
-<h3 id="sgid-setgid">SGID - setgid<a class="headerlink" href="#sgid-setgid" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="sgid-setgid">SGID - setgid<a class="headerlink" href="#sgid-setgid" title="Permanent link">#</a></h3>
 <p>Execute binary files with the same privileges as the group.</p>
 <pre><code class="language-bash">[root@server1 ~]# ls -l /usr/bin/write
 -rwxr-sr-x. 1 root tty 23800 Aug 24  2023 /usr/bin/write
 [root@server1 ~]# stat -c %a /usr/bin/write
 2755
 </code></pre>
-<h3 id="sticky-bit">Sticky bit<a class="headerlink" href="#sticky-bit" title="Anchor link to this section for reference">#</a></h3>
+<h3 id="sticky-bit">Sticky bit<a class="headerlink" href="#sticky-bit" title="Permanent link">#</a></h3>
 <p>The "sticky bit" is set on public or shared writable directories to protect files and subdirectories owned by normal users from being deleted or moved by other normal users.</p>
 <pre><code class="language-bash">[root@server1 ~]# ls -ld /tmp /var/tmp
 drwxrwxrwt. 17 root root 4096 Feb 23 16:03 /tmp
@@ -325,19 +427,19 @@ drwxrwxrwt. 12 root root 4096 Feb 23 16:03 /var/tmp
 1777
 1777
 </code></pre>
-<h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../20210628143348-access-control-list/">Access Control Lists</a></li>
 </ul>
-<h2 id="umask">Umask<a class="headerlink" href="#umask" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="umask">Umask<a class="headerlink" href="#umask" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../20210905082726-umask/">umask</a></li>
 </ul>
-<h2 id="file-attributes">File attributes<a class="headerlink" href="#file-attributes" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="file-attributes">File attributes<a class="headerlink" href="#file-attributes" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../20250726212500-file-attributes/">File attributes</a></li>
 </ul>
-<h2 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Anchor link to this section for reference">#</a></h2>
+<h2 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="../20210919173649-linux-utilities/">Utilities</a></li>
 <li><a href="../20200628184910-chmod/">chmod</a></li>
