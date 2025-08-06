@@ -2,14 +2,15 @@
 # mkdocs.yml
 
 site_name: notes
-site_url: https://kraker.github.io/notes
-repo_url: https://github.com/kraker/notes
-site_author: kraker
+site_url: https://kraker.github.io/notes/
+repo_url: https://github.com/kraker/notes/
+site_author: Alex Kraker
+site_description: "My second brain, a collection of notes, thoughts, and ideas."
+copyright: "Copyright © 2025 Alex Kraker"
 
 nav:
-  - index: 'index.md'
-  - repo: https://github.com/kraker/notes
-  - alexkraker.com: https://alexkraker.com
+  - 'home.md'
+  - 'index.md'
 
 theme:
   name: terminal
