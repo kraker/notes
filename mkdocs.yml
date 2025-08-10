@@ -9,8 +9,8 @@ site_description: "My second brain, a collection of notes, thoughts, and ideas."
 copyright: "Copyright © 2025 Alex Kraker"
 
 nav:
-  - 'home.md'
-  - 'index.md'
+  - home: 'index.md'
+  - index: 'old-index.md'
 
 theme:
   name: terminal
