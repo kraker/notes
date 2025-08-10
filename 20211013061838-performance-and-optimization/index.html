@@ -94,16 +94,16 @@
                 
                 
                 <li property="itemListElement" typeof="ListItem">
-                    <a href="../home/" class="menu-item " property="item" typeof="WebPage">
-                        <span property="name">/home</span>
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">home</span>
                     </a>
                     <meta property="position" content="0">
                 </li>
                 
                 
                 <li property="itemListElement" typeof="ListItem">
-                    <a href=".." class="menu-item " property="item" typeof="WebPage">
-                        <span property="name">/index</span>
+                    <a href="../old-index/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
                     </a>
                     <meta property="position" content="1">
                 </li>
@@ -142,7 +142,7 @@
         
             <a class="
 
-    terminal-mkdocs-side-nav-item" href="../home/">/home</a>
+    terminal-mkdocs-side-nav-item" href="..">home</a>
         
     
     
@@ -161,7 +161,7 @@
         
             <a class="
 
-    terminal-mkdocs-side-nav-item" href="..">/index</a>
+    terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
         
     
     
@@ -193,6 +193,9 @@
 <li><a href="https://medium.com/netflix-techblog/linux-performance-analysis-in-60-000-milliseconds-accc10403c55">Commands you should run in the first 60 seconds on a misbehaving server</a></li>
 <li><a href="https://medium.com/netflix-techblog/netflix-at-velocity-2015-linux-performance-tools-51964ddb81cf">In-depth analysis of Linux Performance tools</a></li>
 <li><a href="https://www.cyberciti.biz/tips/top-linux-monitoring-tools.html">30 Linux monitoring tools every sysadmin should know</a></li>
+<li><a href="https://www.brendangregg.com/usemethod.html">The USE Method</a></li>
+<li><a href="https://www.brendangregg.com/USEmethod/use-linux.html">USE Method: Linux Performance Checklist</a></li>
+<li><a href="https://www.brendangregg.com/tsamethod.html">The TSA Method</a></li>
 </ul>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
 <ul>
@@ -223,7 +226,7 @@ light is.</p>
 <li>Has this system <strong>ever</strong> performed well?</li>
 <li>What has <strong>changed</strong> recently?
   a. Software?
-  b. Hardware? 
+  b. Hardware?
   c. Load?</li>
 <li>Can the performance degradation be expressed in terms of <strong>latency</strong> or run
    time?</li>
@@ -297,7 +300,7 @@ in the way we're looking for.</p>
 <li>Have exposure to various observability tools:</li>
 <li>Basic: vmstat, iostat, mpstat, ps, top</li>
 <li>Intermediate: tcpdump, netstat, nicstat, pidstat, sar,</li>
-<li>Advnaced: ss, slaptop, perf_events, </li>
+<li>Advnaced: ss, slaptop, perf_events,</li>
 <li>Perform Active Benchmarking</li>
 <li>Understand tuning risks</li>
 <li>Perform Static Performance Tuning</li>
