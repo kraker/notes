@@ -11,7 +11,7 @@
     
     <meta name="author" content="Alex Kraker"> 
     
-    <link rel="canonical" href="https://kraker.github.io/notes/20201116154247-dns-servers/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    <link rel="canonical" href="https://kraker.github.io/notes/CLAUDE/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -21,7 +21,7 @@
 
     
  
-<title>DNS Servers - notes</title>
+<title>CLAUDE.md - notes</title>
 
 
 <link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
@@ -173,73 +173,65 @@
 </nav><hr>
 <nav>
     <ul>
-        <li><a href="#dns-servers">DNS Servers</a></li>
-        <li><a href="#root-servers">Root Servers</a></li><li><a href="#top-level-domain-tld-servers">Top-Level Domain (TLD) Servers</a></li><li><a href="#second-level-dns-servers">Second-Level DNS Servers</a></li><li><a href="#name-servers">Name Servers</a></li><li><a href="#dns-zone">DNS Zone</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#dns-records">DNS Records</a></li><li><a href="#location-of-dns-servers">Location of DNS Servers</a></li><li><a href="#dynamic-dns">Dynamic DNS</a></li>
+        <li><a href="#claudemd">CLAUDE.md</a></li>
+        <li><a href="#project-overview">Project Overview</a></li><li><a href="#repository-structure">Repository Structure</a></li><li><a href="#note-naming-convention">Note Naming Convention</a></li><li><a href="#content-organization">Content Organization</a></li><li><a href="#working-with-this-repository">Working with This Repository</a></li><li><a href="#development-notes">Development Notes</a></li>
     </ul>
 </nav>
 </aside>
             <main id="terminal-mkdocs-main-content">
-    
-    
-    
-    
-    
-
 <section id="mkdocs-terminal-content">
-    <h1 id="dns-servers">DNS Servers<a class="headerlink" href="#dns-servers" title="Permanent link">#</a></h1>
-<p>A DNS server is a computer running DNS server software.
-* Protocols: Primarily UDP but sometimes TCP
-* Port: 53</p>
-<h2 id="root-servers">Root Servers<a class="headerlink" href="#root-servers" title="Permanent link">#</a></h2>
+    <h1 id="claudemd">CLAUDE.md<a class="headerlink" href="#claudemd" title="Permanent link">#</a></h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
+<h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">#</a></h2>
+<p>This is a personal knowledge management repository containing a Zettelkasten-style note collection, also known as a "second brain" or digital garden. The repository consists of markdown files containing notes on various IT topics including networking, Linux administration, programming, security, and system administration.</p>
+<h2 id="repository-structure">Repository Structure<a class="headerlink" href="#repository-structure" title="Permanent link">#</a></h2>
 <ul>
-<li>DNS starts with a '.'</li>
-<li>Delegates name resolution to other DNS servers</li>
+<li><strong>Root directory</strong>: Contains hundreds of markdown files using timestamp-based naming convention (YYYYMMDDHHMMSS-topic.md)</li>
+<li><strong>index.md</strong>: Main landing page for the published notes website</li>
+<li><strong>old-index.md</strong>: Legacy index page with structured navigation</li>
+<li><strong>README.md</strong>: Basic repository information and entry points</li>
+<li><strong>Supporting files</strong>: PDFs, images, and other reference materials</li>
 </ul>
-<h2 id="top-level-domain-tld-servers">Top-Level Domain (TLD) Servers<a class="headerlink" href="#top-level-domain-tld-servers" title="Permanent link">#</a></h2>
+<h2 id="note-naming-convention">Note Naming Convention<a class="headerlink" href="#note-naming-convention" title="Permanent link">#</a></h2>
+<p>Notes follow a consistent naming pattern: <code>YYYYMMDDHHMMSS-topic-name.md</code>
+- Files are timestamped when created
+- Topics are hyphen-separated
+- This system supports chronological organization while maintaining topic clarity</p>
+<h2 id="content-organization">Content Organization<a class="headerlink" href="#content-organization" title="Permanent link">#</a></h2>
+<p>The notes cover a wide range of technical topics:
+- Linux/Unix system administration (bash, scripting, package management)
+- Networking (TCP/IP, routing, protocols, security)
+- Programming languages (Python, bash scripting, various utilities)
+- Security and cryptography
+- Cloud technologies and DevOps tools
+- Database administration
+- Web technologies and server management</p>
+<h2 id="working-with-this-repository">Working with This Repository<a class="headerlink" href="#working-with-this-repository" title="Permanent link">#</a></h2>
+<h3 id="search-and-navigation">Search and Navigation<a class="headerlink" href="#search-and-navigation" title="Permanent link">#</a></h3>
 <ul>
-<li>These are all the '.com' '.org' '.net' '.edu' '.gov', etc.</li>
-<li><a href="../20201116155024-icann/">ICANN</a> has the authority to create new TLDs.</li>
+<li>Use file search to find specific topics rather than browsing hierarchically</li>
+<li>Common search terms: "bash", "python", "linux", "networking", "security", "ansible"</li>
+<li>Cross-references between notes use the timestamp-based filenames</li>
 </ul>
-<h2 id="second-level-dns-servers">Second-Level DNS Servers<a class="headerlink" href="#second-level-dns-servers" title="Permanent link">#</a></h2>
-<p>Handle millions of names like totalsem.com, alexkraker.net, etc</p>
-<h2 id="name-servers"><a href="../20201117152350-name-servers/">Name Servers</a><a class="headerlink" href="#name-servers" title="Permanent link">#</a></h2>
-<h2 id="dns-zone"><a href="../20201117152732-zone/">DNS Zone</a><a class="headerlink" href="#dns-zone" title="Permanent link">#</a></h2>
+<h3 id="note-structure">Note Structure<a class="headerlink" href="#note-structure" title="Permanent link">#</a></h3>
 <ul>
-<li><a href="../20210202065638-foward-lookup-zone/">Foward Lookup Zone</a>
-    Where IPs and FQDNs for the devices in a domain are stored.</li>
-<li><a href="../20210202071525-reverse-lookup-zone/">Reverse Lookup Zone</a></li>
-<li><strong>Cached Lookups</strong>
-    Previously resolved <a href="../20201117152114-fqdn/">FQDN</a>'s are <em>cached</em>.</li>
+<li>Notes typically contain technical explanations, command examples, and reference information</li>
+<li>Many notes are interconnected through internal links</li>
+<li>Content ranges from brief command references to detailed technical explanations</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h2>
+<h3 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">#</a></h3>
 <ul>
-<li><strong>Authoritative</strong>
-    Store IP addresses and FQDN's of systems for a particular domain or domains.</li>
-<li><strong>Cache-only</strong>
-    Never the authoritative nameserver. Communicate with other DNS servers to 
-    resolve domains.</li>
+<li>Notes are published to a public website at notes.kraker.dev</li>
+<li>The repository serves as both source and backup for the knowledge base</li>
+<li>Author uses Obsidian for note-taking with Git synchronization</li>
 </ul>
-<h2 id="dns-records"><a href="../20201117152831-dns-record/">DNS Records</a><a class="headerlink" href="#dns-records" title="Permanent link">#</a></h2>
-<h2 id="location-of-dns-servers">Location of DNS Servers<a class="headerlink" href="#location-of-dns-servers" title="Permanent link">#</a></h2>
-<ul>
-<li><strong>Local</strong><ul>
-<li>Usually private DNS</li>
-<li>Typically forwards DNS for which it's not the authoritative nameserver</li>
-</ul>
-</li>
-<li><strong>External</strong>
-    Any DNS server that is not internal to an organization.</li>
-</ul>
-<h2 id="dynamic-dns">Dynamic DNS<a class="headerlink" href="#dynamic-dns" title="Permanent link">#</a></h2>
-<p>Works together with <a href="2020-10-21--13-18-28Z--dhcp.org">DHCP</a> to
-dynamically update IP addresses of forward lookup zones
-* IPAM
-    <strong>IP Address Management Protocol</strong> used to establish DNS when IP addresses
-    change. Used to communicate between DHCP and DNS server.</p>
-</section>
-
-<section id="mkdocs-terminal-after-content">
-    
+<h2 id="development-notes">Development Notes<a class="headerlink" href="#development-notes" title="Permanent link">#</a></h2>
+<p>This repository does not contain traditional software development files (no package.json, Makefile, build scripts, etc.). It is purely a documentation and knowledge management system using markdown files.</p>
+<p>When working with this repository, focus on:
+- Maintaining the existing naming convention for new notes
+- Preserving cross-reference links between notes
+- Following markdown formatting standards
+- Respecting the chronological and topical organization system</p>
 </section>
 
             </main>

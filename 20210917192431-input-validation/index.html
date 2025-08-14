@@ -218,14 +218,14 @@ if [[ &quot;$REPLY&quot; =~ ^[-[:alnum:]\._]+$ ]]; then
     fi
 
     # is input a floating point number?
-    if [[ &quot;$REPLY&quot; =~ ^-?[[:digit:]]*\.[[:digit:]]+$ ]]; then
+    if [[ &quot;$REPLY&quot; =~ ^-?[:digit:]*\.[:digit:]+$ ]]; then
         echo &quot;'$REPLY' is a floating point number.&quot;
     else
         echo &quot;'$REPLY' is not a floating point number.&quot;
     fi
 
     # is input an integer?
-    if [[ &quot;$REPLY&quot; =~ ^-?[[:digit:]]+$ ]]; then
+    if [[ &quot;$REPLY&quot; =~ ^-?[:digit:]+$ ]]; then
         echo &quot;'$REPLY' is an integer.&quot;
     else
         echo &quot;'$REPLY' is not an integer.&quot;
