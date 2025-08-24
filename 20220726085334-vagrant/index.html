@@ -174,7 +174,7 @@
 <nav>
     <ul>
         <li><a href="#vagrant">Vagrant</a></li>
-        <li><a href="#resources">Resources</a></li>
+        <li><a href="#providers">Providers</a></li><li><a href="#plugins">Plugins</a></li>
     </ul>
 </nav>
 </aside>
@@ -187,9 +187,37 @@
 
 <section id="mkdocs-terminal-content">
     <h1 id="vagrant">Vagrant<a class="headerlink" href="#vagrant" title="Permanent link">#</a></h1>
-<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
+<p>Resources</p>
 <ul>
+<li><a href="https://developer.hashicorp.com/vagrant/docs">Documentation | Vagrant | HashiCorp Developer</a></li>
 <li><a href="https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4">Vagrant Cheatsheet</a></li>
+</ul>
+<h2 id="providers">Providers<a class="headerlink" href="#providers" title="Permanent link">#</a></h2>
+<h3 id="virtualbox">VirtualBox<a class="headerlink" href="#virtualbox" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="../20230319220500-virtualbox/">VirtualBox</a> VB</li>
+</ul>
+<h4 id="troubleshooting-vb">Troubleshooting VB<a class="headerlink" href="#troubleshooting-vb" title="Permanent link">#</a></h4>
+<p>If get this error:</p>
+<pre><code class="language-bash">There was an error while executing `VBoxManage`, a CLI used by Vagrant
+for controlling VirtualBox. The command and stderr is shown below.
+
+Command: [&quot;startvm&quot;, &quot;6e711a9a-6da5-4a55-8b52-676387bab28f&quot;, &quot;--type&quot;, &quot;headless&quot;]
+
+Stderr: VBoxManage: error: VirtualBox can't operate in VMX root mode. Please disable the KVM kernel extension, recompile your kernel and reboot (VERR_VMX_IN_VMX_ROOT_MODE)
+VBoxManage: error: Details: code NS_ERROR_FAILURE (0x80004005), component ConsoleWrap, interface IConsole
+</code></pre>
+<p>Then</p>
+<pre><code class="language-bash">sudo modprobe -r kvm_intel
+</code></pre>
+<p>And make persistent by adding this to <code>/etc/modprobe.d/blacklist.conf</code>:</p>
+<pre><code class="language-bash">blacklist kvm_intel
+</code></pre>
+<p>Source: <a href="https://superuser.com/questions/1845776/virtualbox-cant-operate-in-vmx-mode">virtual machine - VirtualBox can't operate in VMX mode - Super User</a></p>
+<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">#</a></h2>
+<ul>
+<li>vagrant-registration <a href="https://github.com/projectatomic/adb-vagrant-registration">GitHub - projectatomic/adb-vagrant-registration: A plugin to add "register" and "unregister" capabilities to Vagrant guests.</a></li>
+<li><a href="https://kraker.github.io/blog/rhel-vagrant/">Local Development Testing with RHEL and Vagrant – Alex Kraker</a></li>
 </ul>
 </section>
 

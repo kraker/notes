@@ -21,7 +21,7 @@
 
     
  
-<title>Pandoc - notes</title>
+<title>Overview - notes</title>
 
 
 <link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
@@ -197,18 +197,18 @@ your swiss-army knife. <a href="https://pandoc.org">Cite</a></p>
 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h1>
 <p>Pandoc is free open source software. This utility is available for Windows and
 most major Linux distrobutions. Please review the official documentation for how
-to <a href="https://pandoc.org/installing.html">install</a> this software for your OS. </p>
+to <a href="https://pandoc.org/installing.html">install</a> this software for your OS.</p>
 <h1 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
 <p>Pandoc is a command-line tool. There is no graphic user interface. In order to
 use it, <a href="https://pandoc.org/getting-started.html#step-2-open-a-terminal">open a
-terminal</a>. </p>
+terminal</a>.</p>
 <p>Verify that Pandoc is installed:</p>
 <pre><code>pandoc --version
 </code></pre>
 <h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">#</a></h2>
 <p>Pandoc can be used as a command-line interpretor.  Pandoc can take input that's
 written in a syntax that it recognizes and convert it to another syntax.  By
-default pandoc interprets input as Markdown and output as HTML. </p>
+default pandoc interprets input as Markdown and output as HTML.</p>
 <p>To open the Pandoc interpretor just type <code>pandoc</code> into your terminal and press
 <strong>Enter</strong>:</p>
 <pre><code>[akraker@localhost ~]$ pandoc
@@ -219,7 +219,7 @@ Hello *pandoc*!
 </code></pre>
 <p>In the above example, Markdown is typed into the terminal. Once complete use
 Ctrl-D and then <strong>Enter</strong> to signify the End of File (EOF) in a Linux
-environment or use Ctrl-Z + <strong>Enter</strong> in a Windows environment. </p>
+environment or use Ctrl-Z + <strong>Enter</strong> in a Windows environment.</p>
 <p>The above example will convert your Markdown into HTML like this:</p>
 <pre><code>&lt;p&gt;Hello &lt;em&gt;pandoc&lt;/em&gt;!&lt;/p&gt;
 &lt;ul&gt;
@@ -246,7 +246,7 @@ Pandoc is free open source software. This utility is available for Windows and m
 </code></pre>
 <p>You'll notice that by default pandoc will convert your file and output the
 result to the terminal. In most cases it's most useful to just redirect this
-output directly to a file. </p>
+output directly to a file.</p>
 <pre><code>pandoc -f markdown -t mediawiki pandoc.md &gt; pandoc.mediawik
 </code></pre>
 <p>or pandoc has a flag for writing output to a file as well</p>

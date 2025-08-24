@@ -11,7 +11,7 @@
     
     <meta name="author" content="Alex Kraker"> 
     
-    <link rel="canonical" href="https://kraker.github.io/notes/20220513122736-linux-firewall/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+    <link rel="canonical" href="https://kraker.github.io/notes/20250821203207-selinux/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
 <link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
@@ -21,7 +21,7 @@
 
     
  
-<title>20220513122736-linux-firewall - notes</title>
+<title>SELinux - notes</title>
 
 
 <link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
@@ -173,8 +173,8 @@
 </nav><hr>
 <nav>
     <ul>
-        <li><a href="#linux-firewall">Linux Firewall</a></li>
-        <li><a href="#rhel-and-rhel-clones">RHEL and RHEL Clones</a></li>
+        <li><a href="#selinux">SELinux</a></li>
+        <li><a href="#terminology">Terminology</a></li><li><a href="#references">References</a></li><li><a href="#related">Related</a></li>
     </ul>
 </nav>
 </aside>
@@ -186,11 +186,36 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h1 id="linux-firewall">Linux Firewall<a class="headerlink" href="#linux-firewall" title="Permanent link">#</a></h1>
-<h2 id="rhel-and-rhel-clones">RHEL and RHEL Clones<a class="headerlink" href="#rhel-and-rhel-clones" title="Permanent link">#</a></h2>
-<h3 id="rhel-7-and-clones">RHEL 7 and clones<a class="headerlink" href="#rhel-7-and-clones" title="Permanent link">#</a></h3>
+    <h1 id="selinux">SELinux<a class="headerlink" href="#selinux" title="Permanent link">#</a></h1>
+<p><em>Security-Enhanced Linux (SELinux)</em></p>
+<p>SELinux is an implementation of <a href="20250821203751-mac.md">Mandatory Access Control</a> (MAC) developed by the <a href="../20250821214131-nsa/">National Security Agency</a> (NSA).</p>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">#</a></h2>
 <ul>
-<li><a href="https://www.thegeekdiary.com/how-to-open-a-ports-in-centos-rhel-7/">Open ports in RHEL 7 and clones</a></li>
+<li><strong>Subject:</strong> Any user or process that accesses an <em>object</em>.</li>
+<li><strong>Object:</strong> A resource such as a file, dir, hw device, network interface, etc</li>
+<li><strong>Access:</strong> Action performed by the <em>subject</em> on an <em>object</em></li>
+<li><strong>Policy:</strong> A defined ruleset enforced system-wide</li>
+<li><strong>Context</strong> (a.k.a label): A tag that stores security attributes for <em>subjects</em> and <em>objects</em>.</li>
+<li><strong>Labeling:</strong> A mapping of files with their stored <em>contexts</em>.</li>
+<li><strong>SELinux User:</strong> Predefined user identities that are authorized for particular <em>roles</em>.</li>
+<li><strong>Role (RBAC):</strong> Classifies what subjects (who) are allowed to access what <em>domains</em> or <em>types</em>.</li>
+<li><strong>Type enforcement (TE):</strong> Limits a <em>subjects</em> access to <em>domains</em> for processes and <em>types</em> for files.</li>
+<li><strong>Type:</strong> A group of <em>objects</em> (files, dirs, ect.) that share the same <em>context</em>.</li>
+<li><strong>Domain:</strong> Determines what access processes have (context they're allowed to run in).</li>
+<li><strong>Level (MLS and MCS):</strong> <em>sensitivity:category</em> values that defines the level of security in the <em>context</em>.</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">Security-Enhanced Linux - Wikipedia</a></li>
+<li><a href="https://www.redhat.com/en/topics/linux/what-is-selinux">What is SELinux?</a></li>
+</ul>
+<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../20220319105401-rbac/">RBAC</a></li>
+<li><a href="../20250821214856-mls/">MLS</a></li>
+<li><a href="../20250821214931-mcs/">MCS</a></li>
+<li><a href="../20220315174137-mac/">MAC</a></li>
+<li><a href="../20250821214131-nsa/">NSA</a></li>
 </ul>
 </section>
 

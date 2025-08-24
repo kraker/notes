@@ -21,7 +21,7 @@
 
     
  
-<title>MAC - notes</title>
+<title>Media Access Control - notes</title>
 
 
 <link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
@@ -173,8 +173,8 @@
 </nav><hr>
 <nav>
     <ul>
-        <li><a href="#mac-address">MAC address</a></li>
-        
+        <li><a href="#media-access-control">Media Access Control</a></li>
+        <li><a href="#mac-address">MAC Address</a></li>
     </ul>
 </nav>
 </aside>
@@ -186,8 +186,34 @@
     
 
 <section id="mkdocs-terminal-content">
-    <p>Creates and addresses the frame.</p>
-<h2 id="mac-address"><a href="../20201009143255-mac/">MAC address</a><a class="headerlink" href="#mac-address" title="Permanent link">#</a></h2>
+    <h1 id="media-access-control">Media Access Control<a class="headerlink" href="#media-access-control" title="Permanent link">#</a></h1>
+<p>Creates and addresses the frame.</p>
+<h2 id="mac-address">MAC Address<a class="headerlink" href="#mac-address" title="Permanent link">#</a></h2>
+<p>MAC-48 or EUI-48
+* <strong><a href="./">MAC</a>:</strong> Media Access Control
+* <strong>EUI:</strong> Extended Unique Identifier
+    <em>Example: 00-40-05-60-7D-49</em></p>
+<ul>
+<li>No two NICs share MAC addresses. Always have to be unique.</li>
+<li>Uses hexadecimal notation</li>
+<li>48 bits total with 12 4 bit chars<ul>
+<li>48-bit binary address or 6-byte binary address</li>
+</ul>
+</li>
+<li>IEEE issues MAC address to manufacturer, referred to as <strong>OUI</strong><ul>
+<li><strong>OUI:</strong> Organizationally Unique Identifier</li>
+</ul>
+</li>
+<li>NICs send a Layer 2 <em>broadcast</em> of FF-FF-FF-FF-FF-FF to request NICs MAC addresses.
+    Every NIC on the network will process this.</li>
+<li>When the MAC address isn't known a NIC can use the IP address (Layer 3)
+    to request the MAC address of the target NIC.</li>
+</ul>
+<p>Run these in terminal to see MAC addresses:
+Linux: <code>ip a</code> Windows: <code>ipconfig /all</code> MacOS: <code>ifconfig</code></p>
+<ul>
+<li>[ ] TODO: file bug report and/or fix links embeded in bolded text in VimWiki</li>
+</ul>
 </section>
 
 <section id="mkdocs-terminal-after-content">

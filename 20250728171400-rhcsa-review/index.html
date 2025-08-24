@@ -174,7 +174,7 @@
 <nav>
     <ul>
         <li><a href="#stuff-to-review">Stuff to review</a></li>
-        <li><a href="#info-docs">Info docs</a></li><li><a href="#terminal">Terminal</a></li><li><a href="#booting">Booting</a></li><li><a href="#system-logging">System logging</a></li>
+        <li><a href="#info-docs">Info docs</a></li><li><a href="#terminal">Terminal</a></li><li><a href="#booting">Booting</a></li><li><a href="#system-logging">System logging</a></li><li><a href="#filesystems_1">Filesystems</a></li>
     </ul>
 </nav>
 </aside>
@@ -187,6 +187,15 @@
 
 <section id="mkdocs-terminal-content">
     <h1 id="stuff-to-review">Stuff to review<a class="headerlink" href="#stuff-to-review" title="Permanent link">#</a></h1>
+<ul>
+<li><code>man -k</code> search for man pages by name</li>
+<li><code>man -K</code> search <em>within</em> man pages for string, useful if don't know where to find</li>
+<li><code>whatis</code> Quick summary of command, service, config, etc by name</li>
+<li><code>nmtui</code> TUI interface for NetworkManager</li>
+<li><code>pinfo</code> pretty info</li>
+<li><code>dnf provides</code> Find package that provides thing</li>
+<li></li>
+</ul>
 <h2 id="info-docs">Info docs<a class="headerlink" href="#info-docs" title="Permanent link">#</a></h2>
 <p>What is <em>prettier</em> info with vim keybindings, highlighted hypertext links, etc?</p>
 <pre><code class="language-bash">pinfo ls
@@ -298,6 +307,19 @@ findmnt
 <pre><code class="language-bash">mkdir -p /var/log/journal
 journalctl --flush
 </code></pre>
+<h2 id="filesystems_1">Filesystems<a class="headerlink" href="#filesystems_1" title="Permanent link">#</a></h2>
+<p>Commands:</p>
+<ul>
+<li>mkfs.xfs</li>
+<li>mkfs.ext4</li>
+<li>mkfs.vfat</li>
+<li>mkswap</li>
+<li>lsblk -f</li>
+<li>blkid</li>
+<li>df -h</li>
+<li>du -sc</li>
+</ul>
+<p>Multiple swaps can be mounted with different priorities in /etc/fstab, pri=2 or pri=1, for example, see man swapon.</p>
 </section>
 
 <section id="mkdocs-terminal-after-content">

@@ -21,7 +21,7 @@
 
     
  
-<title>Firewall (computing) - notes</title>
+<title>Firewall - notes</title>
 
 
 <link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
@@ -173,8 +173,8 @@
 </nav><hr>
 <nav>
     <ul>
-        <li><a href="#linux">Linux</a></li>
-        
+        <li><a href="#firewall">Firewall</a></li>
+        <li><a href="#network-based-firewall">Network-based firewall</a></li><li><a href="#host-based-firewall">Host-based firewall</a></li><li><a href="#application-firewall">Application Firewall</a></li><li><a href="#references">References</a></li>
     </ul>
 </nav>
 </aside>
@@ -186,7 +186,52 @@
     
 
 <section id="mkdocs-terminal-content">
-    <h2 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">#</a></h2>
+    <h1 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">#</a></h1>
+<h2 id="network-based-firewall">Network-based firewall<a class="headerlink" href="#network-based-firewall" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../20210626094002-next-generation-firewall/">Next Generation Firewall</a></li>
+<li>Fortinet</li>
+<li>CheckPoint</li>
+<li>Pfsense</li>
+</ul>
+<h2 id="host-based-firewall">Host-based firewall<a class="headerlink" href="#host-based-firewall" title="Permanent link">#</a></h2>
+<h3 id="windows-firewall">Windows Firewall<a class="headerlink" href="#windows-firewall" title="Permanent link">#</a></h3>
+<ul>
+<li>Windows Defender</li>
+</ul>
+<h3 id="linux-firewall">Linux Firewall<a class="headerlink" href="#linux-firewall" title="Permanent link">#</a></h3>
+<h4 id="kernel-level-frameworks">Kernel-Level Frameworks<a class="headerlink" href="#kernel-level-frameworks" title="Permanent link">#</a></h4>
+<ul>
+<li><strong>iptables</strong> - Traditional Linux firewall using netfilter hooks, supports IPv4</li>
+<li><strong>nftables</strong> - Modern replacement for iptables, unified framework for IPv4/IPv6</li>
+<li><strong>ebtables</strong> - Ethernet bridge firewall for layer 2 filtering</li>
+<li><strong>arptables</strong> - ARP packet filtering</li>
+</ul>
+<h4 id="front-end-tools">Front-end tools<a class="headerlink" href="#front-end-tools" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="../20250822223351-firewalld/">Firewalld</a></li>
+<li>Uncomplicated Firewall (ufw)</li>
+<li>Advanced Policy Firewall (APF)</li>
+<li>ConfigServer Security and Firewall (CSF)</li>
+<li>fail2ban</li>
+</ul>
+<h2 id="application-firewall">Application Firewall<a class="headerlink" href="#application-firewall" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="../20210626094254-application-firewall/">Application Firewall</a></li>
+<li>Web Application Firewall (WAF)</li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Firewall_(computing)">Firewall (computing) - Wikipedia</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Claude, "Network vs host firewalls" 2025-08-22&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 </section>
 
 <section id="mkdocs-terminal-after-content">
