@@ -195,6 +195,15 @@
 <ul>
 <li><a href="../20240320095100-dnf/">dnf</a></li>
 </ul>
+<h4 id="common">Common<a class="headerlink" href="#common" title="Permanent link">#</a></h4>
+<p>My system is already <em>subscribed</em> how do I list all of the repositories available?</p>
+<pre><code class="language-bash">subscription-manager repos --list
+</code></pre>
+<p>It's an offline exam, so we shouldn't assume that we'll be able to use subscription manager. We may have to configure the repo's like we did for the RHCSA.</p>
+<p>If you have the repository URL, how do you easily generate the repository client file?</p>
+<pre><code class="language-bash">dnf config-manager --add-repo=http://reposerver.example.com/BaseOS
+</code></pre>
+<p>For the exam, manually edit the file so that it includes the line gpgcheck=0 since that's not needed and setting it up is more complicated.</p>
 <h3 id="suse">SUSE<a class="headerlink" href="#suse" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20240320095300-zypper/">zypper</a></li>

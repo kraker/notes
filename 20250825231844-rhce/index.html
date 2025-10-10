@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    
+    <meta name="description" content="My second brain, a collection of notes, thoughts, and ideas."> 
+    
+    <meta name="author" content="Alex Kraker"> 
+    
+    <link rel="canonical" href="https://kraker.github.io/notes/20250825231844-rhce/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>RHCE - notes</title>
+
+
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- dark color palette -->
+<link href="../css/palettes/dark.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    <!-- search css support -->
+<link href="../css/search/bootstrap-modal.css" rel="stylesheet">
+<!-- search scripts -->
+<script>
+    var base_url = "..",
+    shortcuts = "{}";
+</script>
+<script src="../js/jquery/jquery-1.10.1.min.js" defer></script>
+<script src="../js/bootstrap/bootstrap.min.js" defer></script>
+<script src="../js/mkdocs/base.js" defer></script>
+    
+    
+    
+    
+    <script src="../search/main.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="https://kraker.github.io/notes/" class="no-style">notes</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../old-index/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">index</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                    
+                    
+
+
+<li property="itemListElement" typeof="ListItem">
+    <a href="#" class="menu-item" data-toggle="modal" data-target="#mkdocs_search_modal" property="item" typeof="SearchAction">
+        <i aria-hidden="true" class="fa fa-search"></i> <span property="name">Search</span>
+    </a>
+    <meta property="position" content="2">
+</li>
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#rhce">RHCE</a></li>
+        <li><a href="#learning-resources">Learning resources</a></li><li><a href="#to-review">To Review</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="rhce">RHCE<a class="headerlink" href="#rhce" title="Permanent link">#</a></h1>
+<p>Red Hat Certified Engineer (RHCE)</p>
+<ul>
+<li><a href="../20220311200359-ansible/">Ansible</a></li>
+<li><a href="../20231109085400-rhcsa/">RHCSA</a>: RHCE assumes proficiency in all of the RHCSA objectives. RHCSA is also a prerequisite.</li>
+</ul>
+<h2 id="learning-resources">Learning resources<a class="headerlink" href="#learning-resources" title="Permanent link">#</a></h2>
+<h3 id="books">Books<a class="headerlink" href="#books" title="Permanent link">#</a></h3>
+<p>There aren't that many book resources that aren't out of date... current exam is on RHEL 9. Since RHEL 8 the exam is 90% Ansible-based. There seem to be a lot of study resources from prior to that, RHEL 7, etc. But that was a completely different exam.</p>
+<ul>
+<li><a href="https://www.sandervanvugt.com/red-hat-rhce-8-ex294-cert-guide/">Red Hat RHCE 8 (EX294) Cert Guide - Sander van Vugt</a> - A bit outdated. Refers to Ansible Tower instead of AAP. Based on RHEL 8 but current exam is RHEL 9. But Sander van Vugt's courses and books are still considered the <em>defacto standard</em> for preparing for both RHCSA and RHCE. His courses may be better, but I'm not 100% sold on how the content is structured in his books... it doesn't resonate as well with me compared to other written learning materials I've used.</li>
+<li><a href="https://developers.redhat.com/e-books/ansible-study-guide">Red Hat Certified Engineer (RHCE) Ansible Automation Study Guide | Red Hat Developer</a> - Free with developer subscription. A good overview of the objectives, but it's breadth vs depth. Probably best as a supplementary study source. Seems like Red Hat is trying to sell you courses, AAP, etc. by giving away this ebook for free.</li>
+<li><a href="https://www.ansiblefordevops.com/">Ansible for DevOps - Ansible Book by Jeff Geerling</a> - Still one of the best sources out there on learning Ansible IMO. But not directed at RHCE specifically.</li>
+</ul>
+<h2 id="to-review">To Review<a class="headerlink" href="#to-review" title="Permanent link">#</a></h2>
+<p>How do I list all of the modules ansible-doc can find?</p>
+<pre><code class="language-bash">ansible-doc -l
+</code></pre>
+<p>How do I initialize a new role with directory scaffolding?</p>
+<pre><code class="language-bash"># ??
+</code></pre>
+<p>How do I flush handlers in case I want to run them before all tasks have completed?</p>
+<pre><code class="language-yaml">meta ??
+</code></pre>
+<p>How do I trigger multiple handlers without needing to notify a list of them?</p>
+<pre><code class="language-yaml">handlers:
+??
+listen: &quot;Name of handlers to trigger&quot;
+</code></pre>
+<p>How do I list <em>all</em> running processes with additional information?</p>
+<pre><code class="language-bash">ps -ef
+</code></pre>
+<p>What meta package do I need to install that provides access to commands like podman and other related utilities?</p>
+<pre><code class="language-bash">dnf install container-tools
+</code></pre>
+<p>How do I search for roles or collections using commands available in ansible-core?</p>
+<pre><code class="language-bash">ansible-galaxy search NAME
+</code></pre>
+<p>How do I list available collections using an ansible execution environment?</p>
+<pre><code class="language-bash">ansible-navigator collections
+</code></pre>
+<p>How do I run a playbook with ansible-navigator?</p>
+<pre><code class="language-bash">ansible-navigator -m stdout run playbook.yml
+</code></pre>
+<p>How do I get a list of available nfs mounts exported from a server?</p>
+<pre><code class="language-bash">showmount -e nfsserver.example.com
+</code></pre>
+<p>What 3 services do I need to allow in firewalld in order to allow NFS exports?</p>
+<pre><code class="language-bash">nfs rpc-bind mountd
+</code></pre>
+<p>How do I mount and iso?</p>
+<pre><code class="language-bash"># It helps to let mount auto-detect fstype, opts, etc
+[root@control ~]# mount /dev/sr0 /repo
+mount: /repo: WARNING: source write-protected, mounted read-only.
+# Then show them...
+[root@control ~]# findmnt /repo
+TARGET SOURCE   FSTYPE  OPTIONS
+/repo  /dev/sr0 iso9660 ro,relatime,nojoliet,check=s,map=n,blocksize=2048
+# add mount to /etc/fstab
+[root@control ~]# grep iso /etc/fstab
+/dev/sr0        /repo   iso9660 defaults        0 0
+[root@control ~]# mount -va
+/                        : ignored
+/boot                    : already mounted
+none                     : ignored
+mount: /repo: WARNING: source write-protected, mounted read-only.
+mount: (hint) your fstab has been modified, but systemd still uses
+       the old version; use 'systemctl daemon-reload' to reload.
+/repo                    : successfully mounted
+</code></pre>
+<p>How do I add a repo from a file (commonly from iso)?</p>
+<pre><code class="language-bash">[root@control ~]# ll /repo
+total 45
+drwxr-xr-x. 1 root root  2048 Apr  9 00:05 AppStream
+drwxr-xr-x. 1 root root  2048 Apr  9 00:05 BaseOS
+drwxrwxr-x. 1 root root  2048 Apr  8 23:13 EFI
+-r--r--r--. 1 root root  8154 Apr  8 23:05 EULA
+-r--r--r--. 1 root root  2135 Apr  9 00:05 extra_files.json
+-r--r--r--. 1 root root 18092 Apr  8 23:05 GPL
+drwxrwxr-x. 1 root root  2048 Apr  8 23:13 images
+drwxrwxr-x. 1 root root  2048 Apr  8 23:13 isolinux
+-r--r--r--. 1 root root   103 Apr  9 00:05 media.repo
+-r--r--r--. 1 root root  1669 Apr  8 23:05 RPM-GPG-KEY-redhat-beta
+-r--r--r--. 1 root root  3682 Apr  8 23:05 RPM-GPG-KEY-redhat-release
+[root@control ~]# dnf config-manager --add-repo=file:///repo/BaseOS
+Adding repo from: file:///repo/BaseOS
+[root@control ~]# dnf config-manager --add-repo=file:///repo/AppStream
+Adding repo from: file:///repo/AppStream
+# Then disable gpgcheck
+[root@control ~]# cd /etc/yum.repos.d/
+[root@control yum.repos.d]# ll
+total 20
+-rw-r--r--. 1 root root 1498 Jan 10  2024 epel.repo.rpmsave
+-rw-r--r--. 1 root root 1648 Jan 10  2024 epel-testing.repo.rpmsave
+-rw-r--r--. 1 root root  358 Jan 10  2024 redhat.repo
+-rw-r--r--. 1 root root  121 Sep  1 18:31 repo_AppStream.repo
+-rw-r--r--. 1 root root  112 Sep  1 18:29 repo_BaseOS.repo
+[root@control yum.repos.d]# vim repo_AppStream.repo 
+[root@control yum.repos.d]# vim repo_BaseOS.repo 
+[root@control yum.repos.d]# grep -r gpgcheck .
+./repo_AppStream.repo:gpgcheck=0
+./repo_BaseOS.repo:gpgcheck=0
+# Verify availability with repolist
+[root@control yum.repos.d]# dnf repolist
+repo id                      repo name
+repo_AppStream               created by dnf config-manager from file:///repo/AppStream
+repo_BaseOS                  created by dnf config-manager from file:///repo/BaseOS
+</code></pre>
+<p>How do I get a list of available services in firewalld?</p>
+<pre><code class="language-bash">firewall-cmd --get-services
+</code></pre>
+<p>What boolean do I need to set to allow anonomous ftp access?</p>
+<pre><code class="language-bash">setsebool -P ftpd_full_access on
+</code></pre>
+<h3 id="template-module">template Module<a class="headerlink" href="#template-module" title="Permanent link">#</a></h3>
+<p>Likely there won't be a way to access Jinja2 docs on the exam, need to review my syntax for building Jinja templates and installing them with the template module.</p>
+</section>
+
+<section id="mkdocs-terminal-after-content">
+    
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+            
+            <p class="text-center text-muted">Copyright © 2025 Alex Kraker</p>
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="alertdialog" aria-modal="true" aria-labelledby="searchModalLabel">
+    <div class="modal-dialog modal-lg" role="search">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p id="searchInputLabel">Type to start searching</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" aria-labelledby="searchInputLabel" placeholder="" id="mkdocs-search-query" title="Please enter search terms here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No document matches found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</body>
+
+</html>

@@ -174,7 +174,7 @@
 <nav>
     <ul>
         <li><a href="#selinux">SELinux</a></li>
-        <li><a href="#terminology">Terminology</a></li><li><a href="#references">References</a></li><li><a href="#related">Related</a></li>
+        <li><a href="#references">References</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#terminology">Terminology</a></li><li><a href="#selinux-commands">SELinux commands</a></li><li><a href="#related">Related</a></li>
     </ul>
 </nav>
 </aside>
@@ -189,8 +189,19 @@
     <h1 id="selinux">SELinux<a class="headerlink" href="#selinux" title="Permanent link">#</a></h1>
 <p><em>Security-Enhanced Linux (SELinux)</em></p>
 <p>SELinux is an implementation of <a href="20250821203751-mac.md">Mandatory Access Control</a> (MAC) developed by the <a href="../20250821214131-nsa/">National Security Agency</a> (NSA).</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<p>Gentoo wiki might be the best treatment on this subject that I've found so far...
+* <a href="https://wiki.gentoo.org/wiki/SELinux">SELinux - Gentoo wiki</a>
+    * <a href="https://wiki.gentoo.org/wiki/SELinux/Quick_introduction">SELinux/Quick introduction - Gentoo wiki</a> - This intro seems to be better than the RHCSA textbooks I have... this is a solid primer
+    * <a href="https://wiki.gentoo.org/wiki/SELinux/Tutorials">SELinux/Tutorials - Gentoo wiki</a> - Seems like a relatively complete/helpful guide to SELinux
+* <a href="https://www.redhat.com/en/topics/linux/what-is-selinux">What is SELinux?</a>
+* <a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/using_selinux/index">Using SELinux | Red Hat Enterprise Linux | 9 | Red Hat Documentation</a>
+* <a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">Security-Enhanced Linux - Wikipedia</a></p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">#</a></h2>
+<p>SELinux is a security subsystem that works inside the Linux kernel. It uses LSM hooks. SELinux permission checks happen after the <a href="../20250821205445-dac/">DAC</a> checks.</p>
 <h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">#</a></h2>
 <ul>
+<li><strong>LSM:</strong> Linux Security Module.</li>
 <li><strong>Subject:</strong> Any user or process that accesses an <em>object</em>.</li>
 <li><strong>Object:</strong> A resource such as a file, dir, hw device, network interface, etc</li>
 <li><strong>Access:</strong> Action performed by the <em>subject</em> on an <em>object</em></li>
@@ -204,10 +215,109 @@
 <li><strong>Domain:</strong> Determines what access processes have (context they're allowed to run in).</li>
 <li><strong>Level (MLS and MCS):</strong> <em>sensitivity:category</em> values that defines the level of security in the <em>context</em>.</li>
 </ul>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">#</a></h2>
+<h2 id="selinux-commands">SELinux commands<a class="headerlink" href="#selinux-commands" title="Permanent link">#</a></h2>
+<p>SELinux state and mode:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Security-Enhanced_Linux">Security-Enhanced Linux - Wikipedia</a></li>
-<li><a href="https://www.redhat.com/en/topics/linux/what-is-selinux">What is SELinux?</a></li>
+<li>getenforce</li>
+<li>sestatus</li>
+</ul>
+<p>Listing contexts:</p>
+<ul>
+<li>ls -ldZ, ls -lZ</li>
+<li>id -Z</li>
+<li>ps -eZ</li>
+<li>seinfo --portcon=80</li>
+<li>seinfo</li>
+</ul>
+<p>SELinux administration:</p>
+<ul>
+<li>setenforce</li>
+<li>semanage</li>
+</ul>
+<p>Managing labels:</p>
+<ul>
+<li><code>chcon -t net_conf_t /etc/resolv.conf</code></li>
+<li><code>restorecon /etc/resolv.conf</code></li>
+<li><code>semanage fcontext -l | grep resolv</code></li>
+<li><code>semanage fcontext -a -t net_conf_t /etc/puppet-resolv\.conf</code></li>
+<li><code>restorecon /etc/puppet-resolv.conf</code></li>
+</ul>
+<p>User management:</p>
+<ul>
+<li><code>semanage login -a -s staff_u john</code></li>
+</ul>
+<h3 id="common">Common<a class="headerlink" href="#common" title="Permanent link">#</a></h3>
+<p>How do I list all of the SELinux users?</p>
+<pre><code class="language-bash">seinfo -u
+</code></pre>
+<p>How do I show Linux and SELinux user mappings?</p>
+<pre><code class="language-bash">semanage login -l
+</code></pre>
+<p>How do I list SELinux contexts for ports?</p>
+<pre><code class="language-bash">semanage port -l
+</code></pre>
+<p>How do I list the SELinux context for all running processes?</p>
+<pre><code class="language-bash">ps -eZ
+ps -efZ
+</code></pre>
+<p>How do I list the SELinux context of a file?</p>
+<pre><code class="language-bash">ls -lZ /etc/password
+</code></pre>
+<p>What file do I need to edit to configure SELinux to either enforcing or permissive persistently?</p>
+<pre><code class="language-bash">vim /etc/selinux/config
+</code></pre>
+<p>What command do I need to run to show the current SELinux operating mode?</p>
+<pre><code class="language-bash">getenforce
+# or
+sestatus
+</code></pre>
+<p>What command do I use to temporarily change the context of a directory and it's contents recursively?</p>
+<pre><code class="language-bash">chcon -vu user_u -t public_content_t /tmp/sedir1 -R
+</code></pre>
+<p>What command do I use to permanently set the file context of a directory and it's contents recursively?</p>
+<pre><code class="language-bash">semanage fcontext -a -s user_u -t public_content_t '/tmp/sedir1(/.*)?'
+</code></pre>
+<p>How do I restore the file context of a directory and it's contents recursively?</p>
+<pre><code class="language-bash">restorecon -Rv /tmp/sedir1
+</code></pre>
+<p>How do I add port 8010 with type http_port_t and protocol tcp to the policy?</p>
+<pre><code class="language-bash">semanage port -at http_port_t -p tcp 8010
+</code></pre>
+<p>How do I copy a file and preserve it's SELinux context?</p>
+<pre><code class="language-bash">cp --preserve=context file .
+</code></pre>
+<p>How do I list all of the current selinux boolean settings?</p>
+<pre><code class="language-bash">getsebool -a
+sestatus -b
+semanage boolean -l
+</code></pre>
+<p>How do I persistently set a selinux boolean?</p>
+<pre><code class="language-bash">setsebool -P nfs_export_all_rw off
+semanage boolean -m -0 nfs_export_all_rw
+</code></pre>
+<p>How do I analyze all of the AVC records in the audit.log file?</p>
+<pre><code class="language-bash">sealert -a /var/log/audit/audit.log
+</code></pre>
+<p>How do I search the audit.log for recent selinux denies?</p>
+<pre><code class="language-bash">ausearch -m avc -ts recent
+</code></pre>
+<p>What command do I need to run to ensure that SELinux is fully disabled in the kernel at boot?</p>
+<pre><code class="language-bash">grubby --update-kernal ALL --args selinux=0
+</code></pre>
+<p>How do I look for selinux denies in the systemd journal?</p>
+<pre><code class="language-bash">journalctl | grep sealert
+</code></pre>
+<h3 id="troubleshooting-denials">Troubleshooting denials<a class="headerlink" href="#troubleshooting-denials" title="Permanent link">#</a></h3>
+<ul>
+<li><code>ausearch -m avc -ts recent</code></li>
+</ul>
+<p><a href="https://wiki.gentoo.org/wiki/SELinux/Logging">SELinux/Logging - Gentoo wiki</a></p>
+<h3 id="selinux-packages">SELinux packages<a class="headerlink" href="#selinux-packages" title="Permanent link">#</a></h3>
+<p>SELinux packages that need to be installed to run the commands above.</p>
+<ul>
+<li>setools-console - provides seinfo and sesearch commands</li>
+<li>selinux-policy-doc - provides selinux boolean man pages</li>
+<li>setroubleshoot-server - provides sealert command, and other graphical tools for troubleshooting selinux</li>
 </ul>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">#</a></h2>
 <ul>

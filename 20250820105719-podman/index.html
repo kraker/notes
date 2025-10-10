@@ -174,7 +174,7 @@
 <nav>
     <ul>
         <li><a href="#podman">Podman</a></li>
-        <li><a href="#paths">Paths</a></li><li><a href="#rootful-vs-rootless">Rootful vs Rootless</a></li>
+        <li><a href="#common-podman-commands-and-paths">Common podman commands and paths:</a></li><li><a href="#rootful-vs-rootless">Rootful vs Rootless</a></li><li><a href="#podman-vs-docker">Podman vs. Docker</a></li>
     </ul>
 </nav>
 </aside>
@@ -188,11 +188,46 @@
 <section id="mkdocs-terminal-content">
     <h1 id="podman">Podman<a class="headerlink" href="#podman" title="Permanent link">#</a></h1>
 <p><em>podman (pod manager)</em></p>
-<p><a href="https://podman.io/">Podman</a></p>
-<h2 id="paths">Paths<a class="headerlink" href="#paths" title="Permanent link">#</a></h2>
-<p><code>/etc/containers/registries.conf</code></p>
+<ul>
+<li><a href="https://podman.io/">Podman</a><ul>
+<li><a href="https://podman.io/docs">Getting Started with Podman | Podman</a></li>
+<li><a href="https://docs.podman.io/en/latest/Tutorials.html">Tutorials — Podman documentation</a></li>
+</ul>
+</li>
+<li><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html-single/building_running_and_managing_containers/index">Building, running, and managing containers | Red Hat Enterprise Linux | 9 | Red Hat Documentation</a></li>
+</ul>
+<h2 id="common-podman-commands-and-paths">Common podman commands and paths:<a class="headerlink" href="#common-podman-commands-and-paths" title="Permanent link">#</a></h2>
+<pre><code class="language-bash">podman build -t imageName -f ContainerFile .  # Build an image from a ContainerFile
+podman exec -it runningContainer /bin/bash    # Attach to a running container and execute a bash shell to use to run commands
+podman login registry.domain.tld              # Login to a registry
+podman logs container                         # Review logs from a container
+podman info                                   # Get system info about podman like registries
+podman inspect imageName                      # Inspect a local image
+skopeo inspect docker://registry/namespace/image  # Inspect a remote image
+podman ps                                     # List running images
+podman ps -a                                  # List all images running or not
+podman pull registry/namespace/image          # &quot;Pull&quot; an image from a registry
+podman run                                    # Run an image, will also attempt to pull the image if it isn't already
+podman run -dt imagName                       # Run an image &quot;detached&quot; with a &quot;tty&quot;
+podman run -it imageName                      # Run an image and attach to the tty, only useful if container runs a shell
+podman run -it imageName /bin/sh              # Run an image, attach to a tty running /bin/sh. More useful...
+podman run -d -p 8080:80 nginx                # Run an image with port 8080 forwarded to 80 on the container
+podman run -d -e VARIABLE=value image         # Run an image with an environment variable
+
+podman search imageName                       # Search for image with &quot;imageName&quot; in the configured registries
+/etc/containers/registries.conf               # Default registries config
+</code></pre>
+<p>How do I get a list of currently configured registries?</p>
+<pre><code class="language-bash">podman info | grep -A5 ^registries:
+</code></pre>
 <h2 id="rootful-vs-rootless">Rootful vs Rootless<a class="headerlink" href="#rootful-vs-rootless" title="Permanent link">#</a></h2>
 <p>Containers can have root privs or not have. Rootless is better for security.</p>
+<p><a href="https://opensource.com/article/19/2/how-does-rootless-podman-work">How does rootless Podman work? | Opensource.com</a></p>
+<h2 id="podman-vs-docker">Podman vs. Docker<a class="headerlink" href="#podman-vs-docker" title="Permanent link">#</a></h2>
+<p>Containers can be run by ordinary users that do not need any elevated privileges. Containers run in user namespace.</p>
+<ul>
+<li><a href="https://codesmash.dev/why-i-ditched-docker-for-podman-and-you-should-too">Switching from Docker to Podman</a></li>
+</ul>
 </section>
 
 <section id="mkdocs-terminal-after-content">
