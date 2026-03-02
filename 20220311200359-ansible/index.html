@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.8.0">
     
     <meta name="description" content="My second brain, a collection of notes, thoughts, and ideas."> 
     
@@ -127,54 +127,40 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
-  
     <ul class="terminal-mkdocs-side-nav-items">
         
-          
-
-
-
-<li class="terminal-mkdocs-side-nav-li">
+          <li class="terminal-mkdocs-side-nav-li">
     
     
     
         
         
-            <a class="
-
-    terminal-mkdocs-side-nav-item" href="..">home</a>
+            <a class="terminal-mkdocs-side-nav-item" href="..">home</a>
         
     
     
     
-  </li>
+       </li>
         
-          
-
-
-
-<li class="terminal-mkdocs-side-nav-li">
+          <li class="terminal-mkdocs-side-nav-li">
     
     
     
         
         
-            <a class="
-
-    terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
+            <a class="terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
         
     
     
     
-  </li>
+       </li>
         
     </ul>
-  
 </nav><hr>
 <nav>
     <ul>
         <li><a href="#ansible">Ansible</a></li>
-        <li><a href="#resources">Resources</a></li><li><a href="#notes">Notes</a></li><li><a href="#related">Related</a></li>
+        <li><a href="#resources">Resources</a></li><li><a href="#notes">Notes</a></li><li><a href="#inventory-management">Inventory Management</a></li><li><a href="#awxansible-automation-platform">AWX/Ansible Automation Platform</a></li><li><a href="#ansible-galaxy">Ansible Galaxy</a></li><li><a href="#related">Related</a></li>
     </ul>
 </nav>
 </aside>
@@ -188,20 +174,31 @@
 <section id="mkdocs-terminal-content">
     <h1 id="ansible">Ansible<a class="headerlink" href="#ansible" title="Permanent link">#</a></h1>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
-<p>Guides &amp; Docs:
-* <a href="https://docs.ansible.com/ansible/latest/getting_started/index.html">Getting started with Ansible</a>
-* <a href="https://www.jeffgeerling.com/blog/2020/ansible-best-practices-using-project-local-collections-and-roles">Ansible best practices: using project-local collections and roles | Jeff Geerling</a>
-* <a href="https://ansible.readthedocs.io/projects/navigator/">Ansible Navigator Documentation</a>
-    + <a href="https://docs.ansible.com/ansible/devel/getting_started_ee/index.html">Getting started with Execution Environments — Ansible Community Documentation</a>
-* <a href="https://ansible.readthedocs.io/projects/lint/">home - Ansible Lint Documentation</a></p>
-<p>Videos:</p>
+<h3 id="guides-docs">Guides &amp; Docs:<a class="headerlink" href="#guides-docs" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://docs.ansible.com/ansible/latest/getting_started/index.html">Getting started with Ansible</a></li>
+<li><a href="https://www.jeffgeerling.com/blog/2020/ansible-best-practices-using-project-local-collections-and-roles">Ansible best practices: using project-local collections and roles | Jeff Geerling</a></li>
+<li><a href="https://ansible.readthedocs.io/projects/navigator/">Ansible Navigator Documentation</a><ul>
+<li><a href="https://docs.ansible.com/ansible/devel/getting_started_ee/index.html">Getting started with Execution Environments — Ansible Community Documentation</a></li>
+</ul>
+</li>
+<li><a href="https://ansible.readthedocs.io/projects/lint/">home - Ansible Lint Documentation</a></li>
+</ul>
+<h3 id="videos">Videos:<a class="headerlink" href="#videos" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="https://www.youtube.com/playlist?list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70">Getting Sarted with Ansible - LearnLinuxTV</a> *</li>
 <li><a href="https://www.youtube.com/watch?v=5hycyr-8EKs">NetworkChuck - Ansible intro</a></li>
 </ul>
-<p>Books:
-* <a href="https://www.ansiblefordevops.com/">Ansible for DevOps</a> - Jeff Geerling
-* <a href="https://www.oreilly.com/library/view/ansible-up-and/9781098109141/">Ansible Up &amp; Running</a></p>
+<h3 id="books">Books:<a class="headerlink" href="#books" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://www.ansiblefordevops.com/">Ansible for DevOps</a> - Jeff Geerling</li>
+<li><a href="https://www.oreilly.com/library/view/ansible-up-and/9781098109141/">Ansible Up &amp; Running</a></li>
+<li><a href="https://www.packtpub.com/en-us/product/demystifying-ansible-automation-platform-9781803231013">Demystifying Ansible Automation Platform | Cloud &amp; Networking | eBook</a></li>
+</ul>
+<h3 id="forums">Forums:<a class="headerlink" href="#forums" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://forum.ansible.com/">Ansible - The Ansible Community forum</a></li>
+</ul>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
 <h3 id="making-ansible-fast">Making Ansible Fast<a class="headerlink" href="#making-ansible-fast" title="Permanent link">#</a></h3>
 <p>Enable pipelining in <code>ansible.cfg</code>:</p>
@@ -220,6 +217,27 @@ pipelining=True
 <h3 id="templating">Templating<a class="headerlink" href="#templating" title="Permanent link">#</a></h3>
 <ul>
 <li><a href="../20230324144900-jinja/">Jinja</a></li>
+</ul>
+<h3 id="ansible-roles">Ansible Roles<a class="headerlink" href="#ansible-roles" title="Permanent link">#</a></h3>
+<h3 id="ansible-collections">Ansible Collections<a class="headerlink" href="#ansible-collections" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://docs.opendev.org/opendev/bindep/latest/readme.html">Introduction — bindep documentation</a></li>
+</ul>
+<h2 id="inventory-management">Inventory Management<a class="headerlink" href="#inventory-management" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://paultibbetts.uk/2025/06/13/using-terraform-as-the-inventory-for-ansible/">Using Terraform as the Inventory for Ansible - Paul Tibbetts</a></li>
+</ul>
+<h2 id="awxansible-automation-platform">AWX/Ansible Automation Platform<a class="headerlink" href="#awxansible-automation-platform" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://github.com/ansible/awx">GitHub - ansible/awx: AWX provides a web-based user interface, REST API, and task engine built on top of Ansible. It is one of the upstream projects for Red Hat Ansible Automation Platform.</a></li>
+<li><a href="https://docs.ansible.com/projects/awx/en/latest/">Ansible AWX Documentation — Ansible AWX community documentation</a></li>
+<li><a href="https://github.com/ansible/awx/blob/devel/INSTALL.md">awx/INSTALL.md at devel · ansible/awx · GitHub</a></li>
+<li><a href="https://galaxy.ansible.com/ui/repo/published/awx/awx/">Ansible Galaxy</a></li>
+<li><a href="https://www.jeffgeerling.com/blog/2024/saying-lot-while-saying-nothing-all-about-ansible-awx/">Saying a lot while saying nothing at all about Ansible AWX - Jeff Geerling</a></li>
+</ul>
+<h2 id="ansible-galaxy">Ansible Galaxy<a class="headerlink" href="#ansible-galaxy" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://github.com/ansible/galaxy_ng">GitHub - ansible/galaxy_ng: Ansible Galaxy Server - Issues on https://forum.ansible.com Docs on https://galaxy-ng.readthedocs.io/</a></li>
 </ul>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">#</a></h2>
 <ul>
@@ -250,7 +268,7 @@ pipelining=True
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="searchModalLabel">Search</h5>
-                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal" aria-label="Close">x</button>
             </div>
             <div class="modal-body">
                 <p id="searchInputLabel">Type to start searching</p>

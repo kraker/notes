@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.7.0">
+    <meta name="generator" content="mkdocs-1.6.1, mkdocs-terminal-4.8.0">
     
     <meta name="description" content="My second brain, a collection of notes, thoughts, and ideas."> 
     
@@ -127,49 +127,41 @@
         
     <div class="container">
         <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
-  
     <ul class="terminal-mkdocs-side-nav-items">
         
-          
-
-
-
-<li class="terminal-mkdocs-side-nav-li">
+          <li class="terminal-mkdocs-side-nav-li">
     
     
     
         
         
-            <a class="
-
-    terminal-mkdocs-side-nav-item" href="..">home</a>
+            <a class="terminal-mkdocs-side-nav-item" href="..">home</a>
         
     
     
     
-  </li>
+       </li>
         
-          
-
-
-
-<li class="terminal-mkdocs-side-nav-li">
+          <li class="terminal-mkdocs-side-nav-li">
     
     
     
         
         
-            <a class="
-
-    terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
+            <a class="terminal-mkdocs-side-nav-item" href="../old-index/">index</a>
         
     
     
     
-  </li>
+       </li>
         
     </ul>
-  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#java">Java</a></li>
+        <li><a href="#resources">Resources</a></li><li><a href="#openjdk">OpenJDK</a></li><li><a href="#java-ides">Java IDEs</a></li>
+    </ul>
 </nav>
 </aside>
             <main id="terminal-mkdocs-main-content">
@@ -178,6 +170,39 @@
     
     
     
+
+<section id="mkdocs-terminal-content">
+    <h1 id="java">Java<a class="headerlink" href="#java" title="Permanent link">#</a></h1>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a></li>
+</ul>
+<h3 id="learn-java">Learn Java<a class="headerlink" href="#learn-java" title="Permanent link">#</a></h3>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/">The Java™ Tutorials</a></li>
+</ul>
+<h4 id="books">Books<a class="headerlink" href="#books" title="Permanent link">#</a></h4>
+<ul>
+<li><a href="https://greenteapress.com/wp/think-java-2e/">Think Java 2e – Green Tea Press</a></li>
+<li><a href="https://chrismayfield.github.io/ThinkJava2/">Think Java</a> -- Free online book, similar to "Think Stats"</li>
+</ul>
+<h2 id="openjdk">OpenJDK<a class="headerlink" href="#openjdk" title="Permanent link">#</a></h2>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link">#</a></h3>
+<p><a href="https://docs.fedoraproject.org/en-US/quick-docs/installing-java/">Installing Java :: Fedora Docs</a></p>
+<pre><code class="language-bash">dnf install java-latest-openjdk{,-devel}
+</code></pre>
+<p>Switch versions:</p>
+<pre><code class="language-bash">sudo alternatives --config java
+</code></pre>
+<p>Alternatively install the Temurin OpenJDK packages:</p>
+<p><a href="https://adoptium.net/en-GB/installation">Install Eclipse Temurin™ | Adoptium</a></p>
+<h2 id="java-ides">Java IDEs<a class="headerlink" href="#java-ides" title="Permanent link">#</a></h2>
+<p>On Fedora Eclipse is installed with Flatpak:
+<a href="https://developer.fedoraproject.org/tools/eclipse/about.html">Eclipse — Fedora Developer Portal</a></p>
+<p>IntelliJ Community Edition ?</p>
+<p>VSCode + OpenJDK + Java Platform Extension
+<a href="https://code.visualstudio.com/docs/languages/java">Java in Visual Studio Code</a></p>
+</section>
 
 <section id="mkdocs-terminal-after-content">
     
@@ -202,7 +227,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="searchModalLabel">Search</h5>
-                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                <button type="button" class="close btn btn-default btn-ghost" data-dismiss="modal" aria-label="Close">x</button>
             </div>
             <div class="modal-body">
                 <p id="searchInputLabel">Type to start searching</p>
