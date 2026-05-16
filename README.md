@@ -1,5 +1,9 @@
 # notes
 
+> [!NOTE]
+> This repository has moved to Codeberg and is archived on GitHub.
+> The current project lives at <https://codeberg.org/kraker/notes>.
+
 [kraker.github.io/notes](https://kraker.github.io/notes)
 
 This is a [MkDocs](https://www.mkdocs.org/) site that hosts my
